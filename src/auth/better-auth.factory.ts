@@ -1,8 +1,16 @@
 import { betterAuth } from 'better-auth';
 import { mongodbAdapter } from '@better-auth/mongo-adapter';
 import { MongoClient } from 'mongodb';
+import { APIError } from 'better-auth/api';
+import { hashPassword } from 'better-auth/crypto';
 import { loadDatabaseConfig } from '../database/database.config';
 import { loadBetterAuthEnvConfig } from './better-auth.config';
+import {
+  PASSWORD_MAX_LENGTH,
+  PASSWORD_MIN_LENGTH,
+  PASSWORD_POLICY_MESSAGE,
+  passwordMeetsPolicy,
+} from '../common/validation/password-policy';
 
 export async function createBetterAuthRootOptions() {
   const dbCfg = loadDatabaseConfig();
@@ -24,6 +32,19 @@ export async function createBetterAuthRootOptions() {
     emailAndPassword: {
       enabled: true,
       autoSignIn: true,
+      minPasswordLength: PASSWORD_MIN_LENGTH,
+      maxPasswordLength: PASSWORD_MAX_LENGTH,
+      password: {
+        hash: async (password: string) => {
+          if (!passwordMeetsPolicy(password)) {
+            throw APIError.from('BAD_REQUEST', {
+              code: 'PASSWORD_TOO_WEAK',
+              message: PASSWORD_POLICY_MESSAGE,
+            });
+          }
+          return hashPassword(password);
+        },
+      },
     },
   });
 
