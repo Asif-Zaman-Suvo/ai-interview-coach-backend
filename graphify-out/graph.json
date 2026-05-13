@@ -1,0 +1,2395 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "eslint.config.mjs",
+      "file_type": "code",
+      "source_file": "eslint.config.mjs",
+      "source_location": "L1",
+      "id": "eslint_config_mjs",
+      "community": 13,
+      "norm_label": "eslint.config.mjs"
+    },
+    {
+      "label": "app.e2e-spec.ts",
+      "file_type": "code",
+      "source_file": "test/app.e2e-spec.ts",
+      "source_location": "L1",
+      "id": "test_app_e2e_spec_ts",
+      "community": 1,
+      "norm_label": "app.e2e-spec.ts"
+    },
+    {
+      "label": "main.ts",
+      "file_type": "code",
+      "source_file": "src/main.ts",
+      "source_location": "L1",
+      "id": "src_main_ts",
+      "community": 7,
+      "norm_label": "main.ts"
+    },
+    {
+      "label": "bootstrap()",
+      "file_type": "code",
+      "source_file": "src/main.ts",
+      "source_location": "L6",
+      "id": "src_main_bootstrap",
+      "community": 7,
+      "norm_label": "bootstrap()"
+    },
+    {
+      "label": "app.service.ts",
+      "file_type": "code",
+      "source_file": "src/app.service.ts",
+      "source_location": "L1",
+      "id": "src_app_service_ts",
+      "community": 1,
+      "norm_label": "app.service.ts"
+    },
+    {
+      "label": "AppService",
+      "file_type": "code",
+      "source_file": "src/app.service.ts",
+      "source_location": "L4",
+      "id": "src_app_service_appservice",
+      "community": 1,
+      "norm_label": "appservice"
+    },
+    {
+      "label": ".getHello()",
+      "file_type": "code",
+      "source_file": "src/app.service.ts",
+      "source_location": "L5",
+      "id": "src_app_service_appservice_gethello",
+      "community": 1,
+      "norm_label": ".gethello()"
+    },
+    {
+      "label": "app.module.ts",
+      "file_type": "code",
+      "source_file": "src/app.module.ts",
+      "source_location": "L1",
+      "id": "src_app_module_ts",
+      "community": 1,
+      "norm_label": "app.module.ts"
+    },
+    {
+      "label": "AppModule",
+      "file_type": "code",
+      "source_file": "src/app.module.ts",
+      "source_location": "L13",
+      "id": "src_app_module_appmodule",
+      "community": 1,
+      "norm_label": "appmodule"
+    },
+    {
+      "label": "app.controller.spec.ts",
+      "file_type": "code",
+      "source_file": "src/app.controller.spec.ts",
+      "source_location": "L1",
+      "id": "src_app_controller_spec_ts",
+      "community": 1,
+      "norm_label": "app.controller.spec.ts"
+    },
+    {
+      "label": "app.controller.ts",
+      "file_type": "code",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L1",
+      "id": "src_app_controller_ts",
+      "community": 1,
+      "norm_label": "app.controller.ts"
+    },
+    {
+      "label": "AppController",
+      "file_type": "code",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L7",
+      "id": "src_app_controller_appcontroller",
+      "community": 1,
+      "norm_label": "appcontroller"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L8",
+      "id": "src_app_controller_appcontroller_constructor",
+      "community": 1,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": ".getHello()",
+      "file_type": "code",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L11",
+      "id": "src_app_controller_appcontroller_gethello",
+      "community": 1,
+      "norm_label": ".gethello()"
+    },
+    {
+      "label": ".health()",
+      "file_type": "code",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L16",
+      "id": "src_app_controller_appcontroller_health",
+      "community": 1,
+      "norm_label": ".health()"
+    },
+    {
+      "label": "database.config.ts",
+      "file_type": "code",
+      "source_file": "src/database/database.config.ts",
+      "source_location": "L1",
+      "id": "src_database_database_config_ts",
+      "community": 0,
+      "norm_label": "database.config.ts"
+    },
+    {
+      "label": "DatabaseConfig",
+      "file_type": "code",
+      "source_file": "src/database/database.config.ts",
+      "source_location": "L3",
+      "id": "database_database_config_databaseconfig",
+      "community": 0,
+      "norm_label": "databaseconfig"
+    },
+    {
+      "label": "loadDatabaseConfig()",
+      "file_type": "code",
+      "source_file": "src/database/database.config.ts",
+      "source_location": "L8",
+      "id": "database_database_config_loaddatabaseconfig",
+      "community": 0,
+      "norm_label": "loaddatabaseconfig()"
+    },
+    {
+      "label": "database.module.ts",
+      "file_type": "code",
+      "source_file": "src/database/database.module.ts",
+      "source_location": "L1",
+      "id": "src_database_database_module_ts",
+      "community": 0,
+      "norm_label": "database.module.ts"
+    },
+    {
+      "label": "cfg",
+      "file_type": "code",
+      "source_file": "src/database/database.module.ts",
+      "source_location": "L9",
+      "id": "database_database_module_cfg",
+      "community": 0,
+      "norm_label": "cfg"
+    },
+    {
+      "label": "DatabaseModule",
+      "file_type": "code",
+      "source_file": "src/database/database.module.ts",
+      "source_location": "L18",
+      "id": "database_database_module_databasemodule",
+      "community": 0,
+      "norm_label": "databasemodule"
+    },
+    {
+      "label": "auth.controller.ts",
+      "file_type": "code",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L1",
+      "id": "src_auth_auth_controller_ts",
+      "community": 3,
+      "norm_label": "auth.controller.ts"
+    },
+    {
+      "label": "AuthController",
+      "file_type": "code",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L10",
+      "id": "auth_auth_controller_authcontroller",
+      "community": 3,
+      "norm_label": "authcontroller"
+    },
+    {
+      "label": ".me()",
+      "file_type": "code",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L12",
+      "id": "auth_auth_controller_authcontroller_me",
+      "community": 3,
+      "norm_label": ".me()"
+    },
+    {
+      "label": "auth.service.ts",
+      "file_type": "code",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L1",
+      "id": "src_auth_auth_service_ts",
+      "community": 3,
+      "norm_label": "auth.service.ts"
+    },
+    {
+      "label": "AuthService",
+      "file_type": "code",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L5",
+      "id": "auth_auth_service_authservice",
+      "community": 3,
+      "norm_label": "authservice"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L6",
+      "id": "auth_auth_service_authservice_constructor",
+      "community": 3,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": ".api()",
+      "file_type": "code",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L10",
+      "id": "auth_auth_service_authservice_api",
+      "community": 3,
+      "norm_label": ".api()"
+    },
+    {
+      "label": ".instance()",
+      "file_type": "code",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L14",
+      "id": "auth_auth_service_authservice_instance",
+      "community": 3,
+      "norm_label": ".instance()"
+    },
+    {
+      "label": "better-auth.config.ts",
+      "file_type": "code",
+      "source_file": "src/auth/better-auth.config.ts",
+      "source_location": "L1",
+      "id": "src_auth_better_auth_config_ts",
+      "community": 0,
+      "norm_label": "better-auth.config.ts"
+    },
+    {
+      "label": "BetterAuthEnvConfig",
+      "file_type": "code",
+      "source_file": "src/auth/better-auth.config.ts",
+      "source_location": "L3",
+      "id": "auth_better_auth_config_betterauthenvconfig",
+      "community": 0,
+      "norm_label": "betterauthenvconfig"
+    },
+    {
+      "label": "loadBetterAuthEnvConfig()",
+      "file_type": "code",
+      "source_file": "src/auth/better-auth.config.ts",
+      "source_location": "L11",
+      "id": "auth_better_auth_config_loadbetterauthenvconfig",
+      "community": 0,
+      "norm_label": "loadbetterauthenvconfig()"
+    },
+    {
+      "label": "better-auth.factory.ts",
+      "file_type": "code",
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L1",
+      "id": "src_auth_better_auth_factory_ts",
+      "community": 0,
+      "norm_label": "better-auth.factory.ts"
+    },
+    {
+      "label": "createBetterAuthRootOptions()",
+      "file_type": "code",
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L7",
+      "id": "auth_better_auth_factory_createbetterauthrootoptions",
+      "community": 0,
+      "norm_label": "createbetterauthrootoptions()"
+    },
+    {
+      "label": "auth.guard.ts",
+      "file_type": "code",
+      "source_file": "src/auth/auth.guard.ts",
+      "source_location": "L1",
+      "id": "src_auth_auth_guard_ts",
+      "community": 14,
+      "norm_label": "auth.guard.ts"
+    },
+    {
+      "label": "session.decorator.ts",
+      "file_type": "code",
+      "source_file": "src/auth/session.decorator.ts",
+      "source_location": "L1",
+      "id": "src_auth_session_decorator_ts",
+      "community": 3,
+      "norm_label": "session.decorator.ts"
+    },
+    {
+      "label": "auth.types.ts",
+      "file_type": "code",
+      "source_file": "src/auth/auth.types.ts",
+      "source_location": "L1",
+      "id": "src_auth_auth_types_ts",
+      "community": 3,
+      "norm_label": "auth.types.ts"
+    },
+    {
+      "label": "AuthUser",
+      "file_type": "code",
+      "source_file": "src/auth/auth.types.ts",
+      "source_location": "L4",
+      "id": "auth_auth_types_authuser",
+      "community": 3,
+      "norm_label": "authuser"
+    },
+    {
+      "label": "auth.module.ts",
+      "file_type": "code",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L1",
+      "id": "src_auth_auth_module_ts",
+      "community": 3,
+      "norm_label": "auth.module.ts"
+    },
+    {
+      "label": "AuthModule",
+      "file_type": "code",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L20",
+      "id": "auth_auth_module_authmodule",
+      "community": 3,
+      "norm_label": "authmodule"
+    },
+    {
+      "label": "sign-up.dto.ts",
+      "file_type": "code",
+      "source_file": "src/auth/dto/sign-up.dto.ts",
+      "source_location": "L1",
+      "id": "src_auth_dto_sign_up_dto_ts",
+      "community": 11,
+      "norm_label": "sign-up.dto.ts"
+    },
+    {
+      "label": "SignUpDto",
+      "file_type": "code",
+      "source_file": "src/auth/dto/sign-up.dto.ts",
+      "source_location": "L3",
+      "id": "dto_sign_up_dto_signupdto",
+      "community": 11,
+      "norm_label": "signupdto"
+    },
+    {
+      "label": "sign-in.dto.ts",
+      "file_type": "code",
+      "source_file": "src/auth/dto/sign-in.dto.ts",
+      "source_location": "L1",
+      "id": "src_auth_dto_sign_in_dto_ts",
+      "community": 12,
+      "norm_label": "sign-in.dto.ts"
+    },
+    {
+      "label": "SignInDto",
+      "file_type": "code",
+      "source_file": "src/auth/dto/sign-in.dto.ts",
+      "source_location": "L3",
+      "id": "dto_sign_in_dto_signindto",
+      "community": 12,
+      "norm_label": "signindto"
+    },
+    {
+      "label": "env.ts",
+      "file_type": "code",
+      "source_file": "src/common/env.ts",
+      "source_location": "L1",
+      "id": "src_common_env_ts",
+      "community": 0,
+      "norm_label": "env.ts"
+    },
+    {
+      "label": "requireEnv()",
+      "file_type": "code",
+      "source_file": "src/common/env.ts",
+      "source_location": "L1",
+      "id": "common_env_requireenv",
+      "community": 0,
+      "norm_label": "requireenv()"
+    },
+    {
+      "label": "http-exception.filter.ts",
+      "file_type": "code",
+      "source_file": "src/common/filters/http-exception.filter.ts",
+      "source_location": "L1",
+      "id": "src_common_filters_http_exception_filter_ts",
+      "community": 8,
+      "norm_label": "http-exception.filter.ts"
+    },
+    {
+      "label": "HttpExceptionFilter",
+      "file_type": "code",
+      "source_file": "src/common/filters/http-exception.filter.ts",
+      "source_location": "L11",
+      "id": "filters_http_exception_filter_httpexceptionfilter",
+      "community": 8,
+      "norm_label": "httpexceptionfilter"
+    },
+    {
+      "label": ".catch()",
+      "file_type": "code",
+      "source_file": "src/common/filters/http-exception.filter.ts",
+      "source_location": "L12",
+      "id": "filters_http_exception_filter_httpexceptionfilter_catch",
+      "community": 8,
+      "norm_label": ".catch()"
+    },
+    {
+      "label": "logging.interceptor.ts",
+      "file_type": "code",
+      "source_file": "src/common/interceptors/logging.interceptor.ts",
+      "source_location": "L1",
+      "id": "src_common_interceptors_logging_interceptor_ts",
+      "community": 9,
+      "norm_label": "logging.interceptor.ts"
+    },
+    {
+      "label": "LoggingInterceptor",
+      "file_type": "code",
+      "source_file": "src/common/interceptors/logging.interceptor.ts",
+      "source_location": "L12",
+      "id": "interceptors_logging_interceptor_logginginterceptor",
+      "community": 9,
+      "norm_label": "logginginterceptor"
+    },
+    {
+      "label": ".intercept()",
+      "file_type": "code",
+      "source_file": "src/common/interceptors/logging.interceptor.ts",
+      "source_location": "L15",
+      "id": "interceptors_logging_interceptor_logginginterceptor_intercept",
+      "community": 9,
+      "norm_label": ".intercept()"
+    },
+    {
+      "label": "env.schema.ts",
+      "file_type": "code",
+      "source_file": "src/common/config/env.schema.ts",
+      "source_location": "L1",
+      "id": "src_common_config_env_schema_ts",
+      "community": 10,
+      "norm_label": "env.schema.ts"
+    },
+    {
+      "label": "appEnvKeys",
+      "file_type": "code",
+      "source_file": "src/common/config/env.schema.ts",
+      "source_location": "L5",
+      "id": "config_env_schema_appenvkeys",
+      "community": 10,
+      "norm_label": "appenvkeys"
+    },
+    {
+      "label": "AppEnvKey",
+      "file_type": "code",
+      "source_file": "src/common/config/env.schema.ts",
+      "source_location": "L15",
+      "id": "config_env_schema_appenvkey",
+      "community": 10,
+      "norm_label": "appenvkey"
+    },
+    {
+      "label": "validation.pipe.ts",
+      "file_type": "code",
+      "source_file": "src/common/pipes/validation.pipe.ts",
+      "source_location": "L1",
+      "id": "src_common_pipes_validation_pipe_ts",
+      "community": 7,
+      "norm_label": "validation.pipe.ts"
+    },
+    {
+      "label": "createAppValidationPipe()",
+      "file_type": "code",
+      "source_file": "src/common/pipes/validation.pipe.ts",
+      "source_location": "L3",
+      "id": "pipes_validation_pipe_createappvalidationpipe",
+      "community": 7,
+      "norm_label": "createappvalidationpipe()"
+    },
+    {
+      "label": "user.schema.ts",
+      "file_type": "code",
+      "source_file": "src/users/user.schema.ts",
+      "source_location": "L1",
+      "id": "src_users_user_schema_ts",
+      "community": 4,
+      "norm_label": "user.schema.ts"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "src/users/user.schema.ts",
+      "source_location": "L5",
+      "id": "users_user_schema_user",
+      "community": 4,
+      "norm_label": "user"
+    },
+    {
+      "label": "UserDocument",
+      "file_type": "code",
+      "source_file": "src/users/user.schema.ts",
+      "source_location": "L13",
+      "id": "users_user_schema_userdocument",
+      "community": 4,
+      "norm_label": "userdocument"
+    },
+    {
+      "label": "UserSchema",
+      "file_type": "code",
+      "source_file": "src/users/user.schema.ts",
+      "source_location": "L14",
+      "id": "users_user_schema_userschema",
+      "community": 4,
+      "norm_label": "userschema"
+    },
+    {
+      "label": "users.service.ts",
+      "file_type": "code",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L1",
+      "id": "src_users_users_service_ts",
+      "community": 4,
+      "norm_label": "users.service.ts"
+    },
+    {
+      "label": "UsersService",
+      "file_type": "code",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L8",
+      "id": "users_users_service_usersservice",
+      "community": 4,
+      "norm_label": "usersservice"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L9",
+      "id": "users_users_service_usersservice_constructor",
+      "community": 4,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": ".findById()",
+      "file_type": "code",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L13",
+      "id": "users_users_service_usersservice_findbyid",
+      "community": 4,
+      "norm_label": ".findbyid()"
+    },
+    {
+      "label": ".findByEmail()",
+      "file_type": "code",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L17",
+      "id": "users_users_service_usersservice_findbyemail",
+      "community": 4,
+      "norm_label": ".findbyemail()"
+    },
+    {
+      "label": ".update()",
+      "file_type": "code",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L21",
+      "id": "users_users_service_usersservice_update",
+      "community": 4,
+      "norm_label": ".update()"
+    },
+    {
+      "label": "users.module.ts",
+      "file_type": "code",
+      "source_file": "src/users/users.module.ts",
+      "source_location": "L1",
+      "id": "src_users_users_module_ts",
+      "community": 4,
+      "norm_label": "users.module.ts"
+    },
+    {
+      "label": "UsersModule",
+      "file_type": "code",
+      "source_file": "src/users/users.module.ts",
+      "source_location": "L13",
+      "id": "users_users_module_usersmodule",
+      "community": 1,
+      "norm_label": "usersmodule"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "readme_md",
+      "community": 2,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Description",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L24",
+      "id": "ai_interview_coach_backend_readme_description",
+      "community": 2,
+      "norm_label": "description"
+    },
+    {
+      "label": "Project setup",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L28",
+      "id": "ai_interview_coach_backend_readme_project_setup",
+      "community": 2,
+      "norm_label": "project setup"
+    },
+    {
+      "label": "code:bash ($ npm install)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L30",
+      "id": "ai_interview_coach_backend_readme_codeblock_1",
+      "community": 2,
+      "norm_label": "code:bash ($ npm install)"
+    },
+    {
+      "label": "Compile and run the project",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L34",
+      "id": "ai_interview_coach_backend_readme_compile_and_run_the_project",
+      "community": 2,
+      "norm_label": "compile and run the project"
+    },
+    {
+      "label": "code:bash (# development)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L36",
+      "id": "ai_interview_coach_backend_readme_codeblock_2",
+      "community": 2,
+      "norm_label": "code:bash (# development)"
+    },
+    {
+      "label": "Run tests",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L47",
+      "id": "ai_interview_coach_backend_readme_run_tests",
+      "community": 2,
+      "norm_label": "run tests"
+    },
+    {
+      "label": "code:bash (# unit tests)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L49",
+      "id": "ai_interview_coach_backend_readme_codeblock_3",
+      "community": 2,
+      "norm_label": "code:bash (# unit tests)"
+    },
+    {
+      "label": "Deployment",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L60",
+      "id": "ai_interview_coach_backend_readme_deployment",
+      "community": 2,
+      "norm_label": "deployment"
+    },
+    {
+      "label": "code:bash ($ npm install -g @nestjs/mau)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L66",
+      "id": "ai_interview_coach_backend_readme_codeblock_4",
+      "community": 2,
+      "norm_label": "code:bash ($ npm install -g @nestjs/mau)"
+    },
+    {
+      "label": "Resources",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L73",
+      "id": "ai_interview_coach_backend_readme_resources",
+      "community": 2,
+      "norm_label": "resources"
+    },
+    {
+      "label": "Support",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L86",
+      "id": "ai_interview_coach_backend_readme_support",
+      "community": 2,
+      "norm_label": "support"
+    },
+    {
+      "label": "Stay in touch",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L90",
+      "id": "ai_interview_coach_backend_readme_stay_in_touch",
+      "community": 2,
+      "norm_label": "stay in touch"
+    },
+    {
+      "label": "License",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L96",
+      "id": "ai_interview_coach_backend_readme_license",
+      "community": 2,
+      "norm_label": "license"
+    },
+    {
+      "label": "auth.config.ts",
+      "file_type": "code",
+      "source_file": "src/auth/auth.config.ts",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "auth.config.ts",
+      "id": "src_auth_auth_config_ts"
+    },
+    {
+      "label": "AuthConfig",
+      "file_type": "code",
+      "source_file": "src/auth/auth.config.ts",
+      "source_location": "L3",
+      "community": 0,
+      "norm_label": "authconfig",
+      "id": "auth_auth_config_authconfig"
+    },
+    {
+      "label": "loadAuthConfig()",
+      "file_type": "code",
+      "source_file": "src/auth/auth.config.ts",
+      "source_location": "L13",
+      "community": 0,
+      "norm_label": "loadauthconfig()",
+      "id": "auth_auth_config_loadauthconfig"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/auth/index.ts",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "index.ts",
+      "id": "src_auth_index_ts"
+    },
+    {
+      "label": "auth.env.ts",
+      "file_type": "code",
+      "source_file": "src/auth/config/auth.env.ts",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "auth.env.ts",
+      "id": "src_auth_config_auth_env_ts"
+    },
+    {
+      "label": "AuthEnvConfig",
+      "file_type": "code",
+      "source_file": "src/auth/config/auth.env.ts",
+      "source_location": "L3",
+      "community": 6,
+      "norm_label": "authenvconfig",
+      "id": "config_auth_env_authenvconfig"
+    },
+    {
+      "label": "loadAuthEnvConfig()",
+      "file_type": "code",
+      "source_file": "src/auth/config/auth.env.ts",
+      "source_location": "L13",
+      "community": 6,
+      "norm_label": "loadauthenvconfig()",
+      "id": "config_auth_env_loadauthenvconfig"
+    },
+    {
+      "label": "better-auth-root.factory.ts",
+      "file_type": "code",
+      "source_file": "src/auth/factories/better-auth-root.factory.ts",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "better-auth-root.factory.ts",
+      "id": "src_auth_factories_better_auth_root_factory_ts"
+    },
+    {
+      "label": "createBetterAuthRootOptions()",
+      "file_type": "code",
+      "source_file": "src/auth/factories/better-auth-root.factory.ts",
+      "source_location": "L7",
+      "community": 6,
+      "norm_label": "createbetterauthrootoptions()",
+      "id": "factories_better_auth_root_factory_createbetterauthrootoptions"
+    },
+    {
+      "label": "authentication.module.ts",
+      "file_type": "code",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "authentication.module.ts",
+      "id": "src_auth_authentication_module_ts"
+    },
+    {
+      "label": "uri",
+      "file_type": "code",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L13",
+      "community": 5,
+      "norm_label": "uri",
+      "id": "auth_authentication_module_uri"
+    },
+    {
+      "label": "secret",
+      "file_type": "code",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L14",
+      "community": 5,
+      "norm_label": "secret",
+      "id": "auth_authentication_module_secret"
+    },
+    {
+      "label": "port",
+      "file_type": "code",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L15",
+      "community": 5,
+      "norm_label": "port",
+      "id": "auth_authentication_module_port"
+    },
+    {
+      "label": "client",
+      "file_type": "code",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L23",
+      "community": 5,
+      "norm_label": "client",
+      "id": "auth_authentication_module_client"
+    },
+    {
+      "label": "dbName",
+      "file_type": "code",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L25",
+      "community": 5,
+      "norm_label": "dbname",
+      "id": "auth_authentication_module_dbname"
+    },
+    {
+      "label": "auth",
+      "file_type": "code",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L28",
+      "community": 5,
+      "norm_label": "auth",
+      "id": "auth_authentication_module_auth"
+    },
+    {
+      "label": "AuthenticationModule",
+      "file_type": "code",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L54",
+      "community": 5,
+      "norm_label": "authenticationmodule",
+      "id": "auth_authentication_module_authenticationmodule"
+    }
+  ],
+  "links": [
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "test/app.e2e-spec.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_app_e2e_spec_ts",
+      "target": "src_app_module_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "test/app.e2e-spec.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_app_e2e_spec_ts",
+      "target": "src_app_module_appmodule"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_ts",
+      "target": "src_app_module_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_ts",
+      "target": "src_app_module_appmodule"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_main_ts",
+      "target": "src_common_pipes_validation_pipe_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_main_ts",
+      "target": "pipes_validation_pipe_createappvalidationpipe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_ts",
+      "target": "src_main_bootstrap"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "src_main_bootstrap",
+      "target": "pipes_validation_pipe_createappvalidationpipe"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.service.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_service_ts",
+      "target": "src_app_service_appservice"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_app_service_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.controller.spec.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_controller_spec_ts",
+      "target": "src_app_service_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_controller_ts",
+      "target": "src_app_service_ts"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.service.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_service_appservice",
+      "target": "src_app_service_appservice_gethello"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_app_service_appservice"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.controller.spec.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_controller_spec_ts",
+      "target": "src_app_service_appservice"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_controller_ts",
+      "target": "src_app_service_appservice"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_database_database_module_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_module_ts",
+      "target": "database_database_module_databasemodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_users_users_module_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_module_ts",
+      "target": "users_users_module_usersmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_auth_auth_module_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "auth_auth_module_authmodule"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_app_controller_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_app_controller_appcontroller"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_app_module_appmodule"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_auth_index_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_auth_authentication_module_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "auth_authentication_module_authenticationmodule"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.controller.spec.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_controller_spec_ts",
+      "target": "src_app_controller_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.controller.spec.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_controller_spec_ts",
+      "target": "src_app_controller_appcontroller"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_controller_ts",
+      "target": "src_app_controller_appcontroller"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_controller_appcontroller",
+      "target": "src_app_controller_appcontroller_constructor"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_controller_appcontroller",
+      "target": "src_app_controller_appcontroller_gethello"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.controller.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_controller_appcontroller",
+      "target": "src_app_controller_appcontroller_health"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/database/database.config.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_database_database_config_ts",
+      "target": "src_common_env_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/database/database.config.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_database_database_config_ts",
+      "target": "common_env_requireenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/database/database.config.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_database_database_config_ts",
+      "target": "database_database_config_databaseconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/database/database.config.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_database_database_config_ts",
+      "target": "database_database_config_loaddatabaseconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/database/database.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_database_database_module_ts",
+      "target": "src_database_database_config_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_auth_better_auth_factory_ts",
+      "target": "src_database_database_config_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/database/database.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_database_database_module_ts",
+      "target": "database_database_config_loaddatabaseconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_auth_better_auth_factory_ts",
+      "target": "database_database_config_loaddatabaseconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/database/database.config.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "database_database_config_loaddatabaseconfig",
+      "target": "common_env_requireenv"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "auth_better_auth_factory_createbetterauthrootoptions",
+      "target": "database_database_config_loaddatabaseconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/database/database.module.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_database_database_module_ts",
+      "target": "database_database_module_cfg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/database/database.module.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "src_database_database_module_ts",
+      "target": "database_database_module_databasemodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_auth_auth_controller_ts",
+      "target": "src_auth_auth_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_auth_auth_controller_ts",
+      "target": "src_auth_session_decorator_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_auth_auth_controller_ts",
+      "target": "auth_auth_controller_authcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "src_auth_auth_controller_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "auth_auth_controller_authcontroller",
+      "target": "auth_auth_controller_authcontroller_me",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "auth_auth_controller_authcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_auth_auth_service_ts",
+      "target": "auth_auth_service_authservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "src_auth_auth_service_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "auth_auth_service_authservice",
+      "target": "auth_auth_service_authservice_constructor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "auth_auth_service_authservice",
+      "target": "auth_auth_service_authservice_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "auth_auth_service_authservice",
+      "target": "auth_auth_service_authservice_instance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "auth_auth_service_authservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.config.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_auth_better_auth_config_ts",
+      "target": "src_common_env_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.config.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_auth_better_auth_config_ts",
+      "target": "common_env_requireenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.config.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_auth_better_auth_config_ts",
+      "target": "auth_better_auth_config_betterauthenvconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.config.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "src_auth_better_auth_config_ts",
+      "target": "auth_better_auth_config_loadbetterauthenvconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_auth_better_auth_factory_ts",
+      "target": "src_auth_better_auth_config_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_auth_better_auth_factory_ts",
+      "target": "auth_better_auth_config_loadbetterauthenvconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/auth/better-auth.config.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "auth_better_auth_config_loadbetterauthenvconfig",
+      "target": "common_env_requireenv"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "auth_better_auth_factory_createbetterauthrootoptions",
+      "target": "auth_better_auth_config_loadbetterauthenvconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_better_auth_factory_ts",
+      "target": "auth_better_auth_factory_createbetterauthrootoptions"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "src_auth_better_auth_factory_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_better_auth_factory_ts",
+      "target": "src_auth_auth_config_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_better_auth_factory_ts",
+      "target": "auth_auth_config_loadauthconfig"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "auth_better_auth_factory_createbetterauthrootoptions"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/auth/better-auth.factory.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "auth_better_auth_factory_createbetterauthrootoptions",
+      "target": "auth_auth_config_loadauthconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.types.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_auth_auth_types_ts",
+      "target": "auth_auth_types_authuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "src_users_users_module_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "users_users_module_usersmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "auth_auth_module_authmodule"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "src_auth_factories_better_auth_root_factory_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_module_ts",
+      "target": "factories_better_auth_root_factory_createbetterauthrootoptions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/dto/sign-up.dto.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_auth_dto_sign_up_dto_ts",
+      "target": "dto_sign_up_dto_signupdto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/dto/sign-in.dto.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_auth_dto_sign_in_dto_ts",
+      "target": "dto_sign_in_dto_signindto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/common/env.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_common_env_ts",
+      "target": "common_env_requireenv"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.config.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_config_ts",
+      "target": "src_common_env_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/config/auth.env.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_config_auth_env_ts",
+      "target": "src_common_env_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_authentication_module_ts",
+      "target": "src_common_env_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.config.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_config_ts",
+      "target": "common_env_requireenv"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/auth/auth.config.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "auth_auth_config_loadauthconfig",
+      "target": "common_env_requireenv"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/config/auth.env.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_config_auth_env_ts",
+      "target": "common_env_requireenv"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/auth/config/auth.env.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "config_auth_env_loadauthenvconfig",
+      "target": "common_env_requireenv"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_authentication_module_ts",
+      "target": "common_env_requireenv"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/common/filters/http-exception.filter.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "src_common_filters_http_exception_filter_ts",
+      "target": "filters_http_exception_filter_httpexceptionfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/common/filters/http-exception.filter.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "filters_http_exception_filter_httpexceptionfilter",
+      "target": "filters_http_exception_filter_httpexceptionfilter_catch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/common/interceptors/logging.interceptor.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_common_interceptors_logging_interceptor_ts",
+      "target": "interceptors_logging_interceptor_logginginterceptor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/common/interceptors/logging.interceptor.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "interceptors_logging_interceptor_logginginterceptor",
+      "target": "interceptors_logging_interceptor_logginginterceptor_intercept",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/common/config/env.schema.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_common_config_env_schema_ts",
+      "target": "config_env_schema_appenvkeys",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/common/config/env.schema.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_common_config_env_schema_ts",
+      "target": "config_env_schema_appenvkey",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/common/pipes/validation.pipe.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_common_pipes_validation_pipe_ts",
+      "target": "pipes_validation_pipe_createappvalidationpipe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/user.schema.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_users_user_schema_ts",
+      "target": "users_user_schema_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/user.schema.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_users_user_schema_ts",
+      "target": "users_user_schema_userdocument",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/user.schema.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_users_user_schema_ts",
+      "target": "users_user_schema_userschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_users_users_service_ts",
+      "target": "src_users_user_schema_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_users_users_module_ts",
+      "target": "src_users_user_schema_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_users_users_service_ts",
+      "target": "users_user_schema_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_users_users_module_ts",
+      "target": "users_user_schema_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_users_users_service_ts",
+      "target": "users_user_schema_userdocument",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.module.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_users_users_module_ts",
+      "target": "users_user_schema_userschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_users_users_service_ts",
+      "target": "users_users_service_usersservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.module.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_users_users_module_ts",
+      "target": "src_users_users_service_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "users_users_service_usersservice",
+      "target": "users_users_service_usersservice_constructor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "users_users_service_usersservice",
+      "target": "users_users_service_usersservice_findbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "users_users_service_usersservice",
+      "target": "users_users_service_usersservice_findbyemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "users_users_service_usersservice",
+      "target": "users_users_service_usersservice_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.module.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_users_users_module_ts",
+      "target": "users_users_service_usersservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.module.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_users_users_module_ts",
+      "target": "users_users_module_usersmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "ai_interview_coach_backend_readme_description"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "ai_interview_coach_backend_readme_project_setup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "ai_interview_coach_backend_readme_compile_and_run_the_project"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "ai_interview_coach_backend_readme_run_tests"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "ai_interview_coach_backend_readme_deployment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "ai_interview_coach_backend_readme_resources"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L86",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "ai_interview_coach_backend_readme_support"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L90",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "ai_interview_coach_backend_readme_stay_in_touch"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "ai_interview_coach_backend_readme_license"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_readme_project_setup",
+      "target": "ai_interview_coach_backend_readme_codeblock_1"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_readme_compile_and_run_the_project",
+      "target": "ai_interview_coach_backend_readme_codeblock_2"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_readme_run_tests",
+      "target": "ai_interview_coach_backend_readme_codeblock_3"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_readme_deployment",
+      "target": "ai_interview_coach_backend_readme_codeblock_4"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.config.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_config_ts",
+      "target": "auth_auth_config_authconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.config.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_config_ts",
+      "target": "auth_auth_config_loadauthconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/config/auth.env.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_config_auth_env_ts",
+      "target": "config_auth_env_authenvconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/config/auth.env.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_config_auth_env_ts",
+      "target": "config_auth_env_loadauthenvconfig"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/factories/better-auth-root.factory.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_factories_better_auth_root_factory_ts",
+      "target": "src_auth_config_auth_env_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/factories/better-auth-root.factory.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_factories_better_auth_root_factory_ts",
+      "target": "config_auth_env_loadauthenvconfig"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/auth/factories/better-auth-root.factory.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "factories_better_auth_root_factory_createbetterauthrootoptions",
+      "target": "config_auth_env_loadauthenvconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/factories/better-auth-root.factory.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_factories_better_auth_root_factory_ts",
+      "target": "factories_better_auth_root_factory_createbetterauthrootoptions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_authentication_module_ts",
+      "target": "auth_authentication_module_uri"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_authentication_module_ts",
+      "target": "auth_authentication_module_secret"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_authentication_module_ts",
+      "target": "auth_authentication_module_port"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_authentication_module_ts",
+      "target": "auth_authentication_module_client"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_authentication_module_ts",
+      "target": "auth_authentication_module_dbname"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_authentication_module_ts",
+      "target": "auth_authentication_module_auth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/authentication.module.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_authentication_module_ts",
+      "target": "auth_authentication_module_authenticationmodule"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "91edb4c64eb85f747f418e44be0aedaf922ef689"
+}
