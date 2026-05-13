@@ -9,7 +9,7 @@
       "source_file": "eslint.config.mjs",
       "source_location": "L1",
       "id": "eslint_config_mjs",
-      "community": 13,
+      "community": 10,
       "norm_label": "eslint.config.mjs"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "test/app.e2e-spec.ts",
       "source_location": "L1",
       "id": "test_app_e2e_spec_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "app.e2e-spec.ts"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "src/main.ts",
       "source_location": "L1",
       "id": "src_main_ts",
-      "community": 7,
+      "community": 2,
       "norm_label": "main.ts"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "src/main.ts",
       "source_location": "L6",
       "id": "src_main_bootstrap",
-      "community": 7,
+      "community": 2,
       "norm_label": "bootstrap()"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "src/app.service.ts",
       "source_location": "L1",
       "id": "src_app_service_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "app.service.ts"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "src/app.service.ts",
       "source_location": "L4",
       "id": "src_app_service_appservice",
-      "community": 1,
+      "community": 2,
       "norm_label": "appservice"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "src/app.service.ts",
       "source_location": "L5",
       "id": "src_app_service_appservice_gethello",
-      "community": 1,
+      "community": 2,
       "norm_label": ".gethello()"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "src/app.module.ts",
       "source_location": "L1",
       "id": "src_app_module_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "app.module.ts"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "src/app.module.ts",
       "source_location": "L13",
       "id": "src_app_module_appmodule",
-      "community": 1,
+      "community": 2,
       "norm_label": "appmodule"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "src/app.controller.spec.ts",
       "source_location": "L1",
       "id": "src_app_controller_spec_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "app.controller.spec.ts"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "src/app.controller.ts",
       "source_location": "L1",
       "id": "src_app_controller_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "app.controller.ts"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "src/app.controller.ts",
       "source_location": "L7",
       "id": "src_app_controller_appcontroller",
-      "community": 1,
+      "community": 2,
       "norm_label": "appcontroller"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "src/app.controller.ts",
       "source_location": "L8",
       "id": "src_app_controller_appcontroller_constructor",
-      "community": 1,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "src/app.controller.ts",
       "source_location": "L11",
       "id": "src_app_controller_appcontroller_gethello",
-      "community": 1,
+      "community": 2,
       "norm_label": ".gethello()"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "src/app.controller.ts",
       "source_location": "L16",
       "id": "src_app_controller_appcontroller_health",
-      "community": 1,
+      "community": 2,
       "norm_label": ".health()"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "src/database/database.config.ts",
       "source_location": "L1",
       "id": "src_database_database_config_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "database.config.ts"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "src/database/database.config.ts",
       "source_location": "L3",
       "id": "database_database_config_databaseconfig",
-      "community": 0,
+      "community": 1,
       "norm_label": "databaseconfig"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "src/database/database.config.ts",
       "source_location": "L8",
       "id": "database_database_config_loaddatabaseconfig",
-      "community": 0,
+      "community": 1,
       "norm_label": "loaddatabaseconfig()"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "src/database/database.module.ts",
       "source_location": "L1",
       "id": "src_database_database_module_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "database.module.ts"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "src/database/database.module.ts",
       "source_location": "L9",
       "id": "database_database_module_cfg",
-      "community": 0,
+      "community": 1,
       "norm_label": "cfg"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "src/database/database.module.ts",
       "source_location": "L18",
       "id": "database_database_module_databasemodule",
-      "community": 0,
+      "community": 1,
       "norm_label": "databasemodule"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L1",
       "id": "src_auth_auth_controller_ts",
-      "community": 3,
+      "community": 0,
       "norm_label": "auth.controller.ts"
     },
     {
@@ -207,16 +207,34 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L10",
       "id": "auth_auth_controller_authcontroller",
-      "community": 3,
+      "community": 0,
       "norm_label": "authcontroller"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L11",
+      "id": "auth_auth_controller_authcontroller_constructor",
+      "community": 0,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": ".register()",
+      "file_type": "code",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L15",
+      "id": "auth_auth_controller_authcontroller_register",
+      "community": 0,
+      "norm_label": ".register()"
     },
     {
       "label": ".me()",
       "file_type": "code",
       "source_file": "src/auth/auth.controller.ts",
-      "source_location": "L12",
+      "source_location": "L20",
       "id": "auth_auth_controller_authcontroller_me",
-      "community": 3,
+      "community": 0,
       "norm_label": ".me()"
     },
     {
@@ -225,44 +243,62 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L1",
       "id": "src_auth_auth_service_ts",
-      "community": 3,
+      "community": 0,
       "norm_label": "auth.service.ts"
     },
     {
       "label": "AuthService",
       "file_type": "code",
       "source_file": "src/auth/auth.service.ts",
-      "source_location": "L5",
+      "source_location": "L9",
       "id": "auth_auth_service_authservice",
-      "community": 3,
+      "community": 0,
       "norm_label": "authservice"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/auth/auth.service.ts",
-      "source_location": "L6",
+      "source_location": "L10",
       "id": "auth_auth_service_authservice_constructor",
-      "community": 3,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
       "label": ".api()",
       "file_type": "code",
       "source_file": "src/auth/auth.service.ts",
-      "source_location": "L10",
+      "source_location": "L15",
       "id": "auth_auth_service_authservice_api",
-      "community": 3,
+      "community": 0,
       "norm_label": ".api()"
     },
     {
       "label": ".instance()",
       "file_type": "code",
       "source_file": "src/auth/auth.service.ts",
-      "source_location": "L14",
+      "source_location": "L19",
       "id": "auth_auth_service_authservice_instance",
-      "community": 3,
+      "community": 0,
       "norm_label": ".instance()"
+    },
+    {
+      "label": ".registerWithEmail()",
+      "file_type": "code",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L23",
+      "id": "auth_auth_service_authservice_registerwithemail",
+      "community": 0,
+      "norm_label": ".registerwithemail()"
+    },
+    {
+      "label": ".toWebHeaders()",
+      "file_type": "code",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L62",
+      "id": "auth_auth_service_authservice_towebheaders",
+      "community": 0,
+      "norm_label": ".towebheaders()"
     },
     {
       "label": "better-auth.config.ts",
@@ -270,7 +306,7 @@
       "source_file": "src/auth/better-auth.config.ts",
       "source_location": "L1",
       "id": "src_auth_better_auth_config_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "better-auth.config.ts"
     },
     {
@@ -279,7 +315,7 @@
       "source_file": "src/auth/better-auth.config.ts",
       "source_location": "L3",
       "id": "auth_better_auth_config_betterauthenvconfig",
-      "community": 0,
+      "community": 1,
       "norm_label": "betterauthenvconfig"
     },
     {
@@ -288,7 +324,7 @@
       "source_file": "src/auth/better-auth.config.ts",
       "source_location": "L11",
       "id": "auth_better_auth_config_loadbetterauthenvconfig",
-      "community": 0,
+      "community": 1,
       "norm_label": "loadbetterauthenvconfig()"
     },
     {
@@ -297,7 +333,7 @@
       "source_file": "src/auth/better-auth.factory.ts",
       "source_location": "L1",
       "id": "src_auth_better_auth_factory_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "better-auth.factory.ts"
     },
     {
@@ -306,7 +342,7 @@
       "source_file": "src/auth/better-auth.factory.ts",
       "source_location": "L7",
       "id": "auth_better_auth_factory_createbetterauthrootoptions",
-      "community": 0,
+      "community": 1,
       "norm_label": "createbetterauthrootoptions()"
     },
     {
@@ -315,7 +351,7 @@
       "source_file": "src/auth/auth.guard.ts",
       "source_location": "L1",
       "id": "src_auth_auth_guard_ts",
-      "community": 14,
+      "community": 11,
       "norm_label": "auth.guard.ts"
     },
     {
@@ -324,7 +360,7 @@
       "source_file": "src/auth/session.decorator.ts",
       "source_location": "L1",
       "id": "src_auth_session_decorator_ts",
-      "community": 3,
+      "community": 0,
       "norm_label": "session.decorator.ts"
     },
     {
@@ -333,16 +369,16 @@
       "source_file": "src/auth/auth.types.ts",
       "source_location": "L1",
       "id": "src_auth_auth_types_ts",
-      "community": 3,
+      "community": 0,
       "norm_label": "auth.types.ts"
     },
     {
       "label": "AuthUser",
       "file_type": "code",
       "source_file": "src/auth/auth.types.ts",
-      "source_location": "L4",
+      "source_location": "L6",
       "id": "auth_auth_types_authuser",
-      "community": 3,
+      "community": 0,
       "norm_label": "authuser"
     },
     {
@@ -351,7 +387,7 @@
       "source_file": "src/auth/auth.module.ts",
       "source_location": "L1",
       "id": "src_auth_auth_module_ts",
-      "community": 3,
+      "community": 0,
       "norm_label": "auth.module.ts"
     },
     {
@@ -360,7 +396,7 @@
       "source_file": "src/auth/auth.module.ts",
       "source_location": "L20",
       "id": "auth_auth_module_authmodule",
-      "community": 3,
+      "community": 0,
       "norm_label": "authmodule"
     },
     {
@@ -369,7 +405,7 @@
       "source_file": "src/auth/dto/sign-up.dto.ts",
       "source_location": "L1",
       "id": "src_auth_dto_sign_up_dto_ts",
-      "community": 11,
+      "community": 0,
       "norm_label": "sign-up.dto.ts"
     },
     {
@@ -378,7 +414,7 @@
       "source_file": "src/auth/dto/sign-up.dto.ts",
       "source_location": "L3",
       "id": "dto_sign_up_dto_signupdto",
-      "community": 11,
+      "community": 0,
       "norm_label": "signupdto"
     },
     {
@@ -387,7 +423,7 @@
       "source_file": "src/auth/dto/sign-in.dto.ts",
       "source_location": "L1",
       "id": "src_auth_dto_sign_in_dto_ts",
-      "community": 12,
+      "community": 9,
       "norm_label": "sign-in.dto.ts"
     },
     {
@@ -396,7 +432,7 @@
       "source_file": "src/auth/dto/sign-in.dto.ts",
       "source_location": "L3",
       "id": "dto_sign_in_dto_signindto",
-      "community": 12,
+      "community": 9,
       "norm_label": "signindto"
     },
     {
@@ -405,7 +441,7 @@
       "source_file": "src/common/env.ts",
       "source_location": "L1",
       "id": "src_common_env_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "env.ts"
     },
     {
@@ -414,7 +450,7 @@
       "source_file": "src/common/env.ts",
       "source_location": "L1",
       "id": "common_env_requireenv",
-      "community": 0,
+      "community": 1,
       "norm_label": "requireenv()"
     },
     {
@@ -423,7 +459,7 @@
       "source_file": "src/common/filters/http-exception.filter.ts",
       "source_location": "L1",
       "id": "src_common_filters_http_exception_filter_ts",
-      "community": 8,
+      "community": 6,
       "norm_label": "http-exception.filter.ts"
     },
     {
@@ -432,7 +468,7 @@
       "source_file": "src/common/filters/http-exception.filter.ts",
       "source_location": "L11",
       "id": "filters_http_exception_filter_httpexceptionfilter",
-      "community": 8,
+      "community": 6,
       "norm_label": "httpexceptionfilter"
     },
     {
@@ -441,7 +477,7 @@
       "source_file": "src/common/filters/http-exception.filter.ts",
       "source_location": "L12",
       "id": "filters_http_exception_filter_httpexceptionfilter_catch",
-      "community": 8,
+      "community": 6,
       "norm_label": ".catch()"
     },
     {
@@ -450,7 +486,7 @@
       "source_file": "src/common/interceptors/logging.interceptor.ts",
       "source_location": "L1",
       "id": "src_common_interceptors_logging_interceptor_ts",
-      "community": 9,
+      "community": 7,
       "norm_label": "logging.interceptor.ts"
     },
     {
@@ -459,7 +495,7 @@
       "source_file": "src/common/interceptors/logging.interceptor.ts",
       "source_location": "L12",
       "id": "interceptors_logging_interceptor_logginginterceptor",
-      "community": 9,
+      "community": 7,
       "norm_label": "logginginterceptor"
     },
     {
@@ -468,7 +504,7 @@
       "source_file": "src/common/interceptors/logging.interceptor.ts",
       "source_location": "L15",
       "id": "interceptors_logging_interceptor_logginginterceptor_intercept",
-      "community": 9,
+      "community": 7,
       "norm_label": ".intercept()"
     },
     {
@@ -477,7 +513,7 @@
       "source_file": "src/common/config/env.schema.ts",
       "source_location": "L1",
       "id": "src_common_config_env_schema_ts",
-      "community": 10,
+      "community": 8,
       "norm_label": "env.schema.ts"
     },
     {
@@ -486,7 +522,7 @@
       "source_file": "src/common/config/env.schema.ts",
       "source_location": "L5",
       "id": "config_env_schema_appenvkeys",
-      "community": 10,
+      "community": 8,
       "norm_label": "appenvkeys"
     },
     {
@@ -495,7 +531,7 @@
       "source_file": "src/common/config/env.schema.ts",
       "source_location": "L15",
       "id": "config_env_schema_appenvkey",
-      "community": 10,
+      "community": 8,
       "norm_label": "appenvkey"
     },
     {
@@ -504,7 +540,7 @@
       "source_file": "src/common/pipes/validation.pipe.ts",
       "source_location": "L1",
       "id": "src_common_pipes_validation_pipe_ts",
-      "community": 7,
+      "community": 2,
       "norm_label": "validation.pipe.ts"
     },
     {
@@ -513,7 +549,7 @@
       "source_file": "src/common/pipes/validation.pipe.ts",
       "source_location": "L3",
       "id": "pipes_validation_pipe_createappvalidationpipe",
-      "community": 7,
+      "community": 2,
       "norm_label": "createappvalidationpipe()"
     },
     {
@@ -607,6 +643,15 @@
       "norm_label": ".update()"
     },
     {
+      "label": ".createProfileIfAbsent()",
+      "file_type": "code",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L25",
+      "id": "users_users_service_usersservice_createprofileifabsent",
+      "community": 4,
+      "norm_label": ".createprofileifabsent()"
+    },
+    {
       "label": "users.module.ts",
       "file_type": "code",
       "source_file": "src/users/users.module.ts",
@@ -621,7 +666,7 @@
       "source_file": "src/users/users.module.ts",
       "source_location": "L13",
       "id": "users_users_module_usersmodule",
-      "community": 1,
+      "community": 0,
       "norm_label": "usersmodule"
     },
     {
@@ -630,7 +675,7 @@
       "source_file": "README.md",
       "source_location": "L1",
       "id": "readme_md",
-      "community": 2,
+      "community": 3,
       "norm_label": "readme.md"
     },
     {
@@ -639,7 +684,7 @@
       "source_file": "README.md",
       "source_location": "L24",
       "id": "ai_interview_coach_backend_readme_description",
-      "community": 2,
+      "community": 3,
       "norm_label": "description"
     },
     {
@@ -648,7 +693,7 @@
       "source_file": "README.md",
       "source_location": "L28",
       "id": "ai_interview_coach_backend_readme_project_setup",
-      "community": 2,
+      "community": 3,
       "norm_label": "project setup"
     },
     {
@@ -657,7 +702,7 @@
       "source_file": "README.md",
       "source_location": "L30",
       "id": "ai_interview_coach_backend_readme_codeblock_1",
-      "community": 2,
+      "community": 3,
       "norm_label": "code:bash ($ npm install)"
     },
     {
@@ -666,7 +711,7 @@
       "source_file": "README.md",
       "source_location": "L34",
       "id": "ai_interview_coach_backend_readme_compile_and_run_the_project",
-      "community": 2,
+      "community": 3,
       "norm_label": "compile and run the project"
     },
     {
@@ -675,7 +720,7 @@
       "source_file": "README.md",
       "source_location": "L36",
       "id": "ai_interview_coach_backend_readme_codeblock_2",
-      "community": 2,
+      "community": 3,
       "norm_label": "code:bash (# development)"
     },
     {
@@ -684,7 +729,7 @@
       "source_file": "README.md",
       "source_location": "L47",
       "id": "ai_interview_coach_backend_readme_run_tests",
-      "community": 2,
+      "community": 3,
       "norm_label": "run tests"
     },
     {
@@ -693,7 +738,7 @@
       "source_file": "README.md",
       "source_location": "L49",
       "id": "ai_interview_coach_backend_readme_codeblock_3",
-      "community": 2,
+      "community": 3,
       "norm_label": "code:bash (# unit tests)"
     },
     {
@@ -702,7 +747,7 @@
       "source_file": "README.md",
       "source_location": "L60",
       "id": "ai_interview_coach_backend_readme_deployment",
-      "community": 2,
+      "community": 3,
       "norm_label": "deployment"
     },
     {
@@ -711,7 +756,7 @@
       "source_file": "README.md",
       "source_location": "L66",
       "id": "ai_interview_coach_backend_readme_codeblock_4",
-      "community": 2,
+      "community": 3,
       "norm_label": "code:bash ($ npm install -g @nestjs/mau)"
     },
     {
@@ -720,7 +765,7 @@
       "source_file": "README.md",
       "source_location": "L73",
       "id": "ai_interview_coach_backend_readme_resources",
-      "community": 2,
+      "community": 3,
       "norm_label": "resources"
     },
     {
@@ -729,7 +774,7 @@
       "source_file": "README.md",
       "source_location": "L86",
       "id": "ai_interview_coach_backend_readme_support",
-      "community": 2,
+      "community": 3,
       "norm_label": "support"
     },
     {
@@ -738,7 +783,7 @@
       "source_file": "README.md",
       "source_location": "L90",
       "id": "ai_interview_coach_backend_readme_stay_in_touch",
-      "community": 2,
+      "community": 3,
       "norm_label": "stay in touch"
     },
     {
@@ -747,15 +792,24 @@
       "source_file": "README.md",
       "source_location": "L96",
       "id": "ai_interview_coach_backend_readme_license",
-      "community": 2,
+      "community": 3,
       "norm_label": "license"
+    },
+    {
+      "label": ".headersFromExpress()",
+      "file_type": "code",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L67",
+      "community": 0,
+      "norm_label": ".headersfromexpress()",
+      "id": "auth_auth_service_authservice_headersfromexpress"
     },
     {
       "label": "auth.config.ts",
       "file_type": "code",
       "source_file": "src/auth/auth.config.ts",
       "source_location": "L1",
-      "community": 0,
+      "community": 1,
       "norm_label": "auth.config.ts",
       "id": "src_auth_auth_config_ts"
     },
@@ -764,7 +818,7 @@
       "file_type": "code",
       "source_file": "src/auth/auth.config.ts",
       "source_location": "L3",
-      "community": 0,
+      "community": 1,
       "norm_label": "authconfig",
       "id": "auth_auth_config_authconfig"
     },
@@ -773,7 +827,7 @@
       "file_type": "code",
       "source_file": "src/auth/auth.config.ts",
       "source_location": "L13",
-      "community": 0,
+      "community": 1,
       "norm_label": "loadauthconfig()",
       "id": "auth_auth_config_loadauthconfig"
     },
@@ -782,7 +836,7 @@
       "file_type": "code",
       "source_file": "src/auth/index.ts",
       "source_location": "L1",
-      "community": 1,
+      "community": 2,
       "norm_label": "index.ts",
       "id": "src_auth_index_ts"
     },
@@ -791,7 +845,7 @@
       "file_type": "code",
       "source_file": "src/auth/config/auth.env.ts",
       "source_location": "L1",
-      "community": 6,
+      "community": 1,
       "norm_label": "auth.env.ts",
       "id": "src_auth_config_auth_env_ts"
     },
@@ -800,7 +854,7 @@
       "file_type": "code",
       "source_file": "src/auth/config/auth.env.ts",
       "source_location": "L3",
-      "community": 6,
+      "community": 1,
       "norm_label": "authenvconfig",
       "id": "config_auth_env_authenvconfig"
     },
@@ -809,7 +863,7 @@
       "file_type": "code",
       "source_file": "src/auth/config/auth.env.ts",
       "source_location": "L13",
-      "community": 6,
+      "community": 1,
       "norm_label": "loadauthenvconfig()",
       "id": "config_auth_env_loadauthenvconfig"
     },
@@ -818,7 +872,7 @@
       "file_type": "code",
       "source_file": "src/auth/factories/better-auth-root.factory.ts",
       "source_location": "L1",
-      "community": 6,
+      "community": 1,
       "norm_label": "better-auth-root.factory.ts",
       "id": "src_auth_factories_better_auth_root_factory_ts"
     },
@@ -827,7 +881,7 @@
       "file_type": "code",
       "source_file": "src/auth/factories/better-auth-root.factory.ts",
       "source_location": "L7",
-      "community": 6,
+      "community": 1,
       "norm_label": "createbetterauthrootoptions()",
       "id": "factories_better_auth_root_factory_createbetterauthrootoptions"
     },
@@ -956,9 +1010,9 @@
       "source_file": "src/main.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_main_ts",
-      "target": "src_common_pipes_validation_pipe_ts",
-      "confidence_score": 1.0
+      "target": "src_common_pipes_validation_pipe_ts"
     },
     {
       "relation": "imports",
@@ -967,9 +1021,9 @@
       "source_file": "src/main.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_main_ts",
-      "target": "pipes_validation_pipe_createappvalidationpipe",
-      "confidence_score": 1.0
+      "target": "pipes_validation_pipe_createappvalidationpipe"
     },
     {
       "relation": "contains",
@@ -1085,9 +1139,9 @@
       "source_file": "src/app.module.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module_ts",
-      "target": "src_database_database_module_ts",
-      "confidence_score": 1.0
+      "target": "src_database_database_module_ts"
     },
     {
       "relation": "imports",
@@ -1096,9 +1150,9 @@
       "source_file": "src/app.module.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module_ts",
-      "target": "database_database_module_databasemodule",
-      "confidence_score": 1.0
+      "target": "database_database_module_databasemodule"
     },
     {
       "relation": "imports_from",
@@ -1107,9 +1161,9 @@
       "source_file": "src/app.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module_ts",
-      "target": "src_users_users_module_ts",
-      "confidence_score": 1.0
+      "target": "src_users_users_module_ts"
     },
     {
       "relation": "imports",
@@ -1118,9 +1172,9 @@
       "source_file": "src/app.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module_ts",
-      "target": "users_users_module_usersmodule",
-      "confidence_score": 1.0
+      "target": "users_users_module_usersmodule"
     },
     {
       "relation": "imports_from",
@@ -1278,9 +1332,9 @@
       "source_file": "src/database/database.config.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_database_database_config_ts",
-      "target": "src_common_env_ts",
-      "confidence_score": 1.0
+      "target": "src_common_env_ts"
     },
     {
       "relation": "imports",
@@ -1289,9 +1343,9 @@
       "source_file": "src/database/database.config.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_database_database_config_ts",
-      "target": "common_env_requireenv",
-      "confidence_score": 1.0
+      "target": "common_env_requireenv"
     },
     {
       "relation": "contains",
@@ -1299,9 +1353,9 @@
       "source_file": "src/database/database.config.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_database_database_config_ts",
-      "target": "database_database_config_databaseconfig",
-      "confidence_score": 1.0
+      "target": "database_database_config_databaseconfig"
     },
     {
       "relation": "contains",
@@ -1309,9 +1363,9 @@
       "source_file": "src/database/database.config.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_database_database_config_ts",
-      "target": "database_database_config_loaddatabaseconfig",
-      "confidence_score": 1.0
+      "target": "database_database_config_loaddatabaseconfig"
     },
     {
       "relation": "imports_from",
@@ -1320,9 +1374,9 @@
       "source_file": "src/database/database.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_database_database_module_ts",
-      "target": "src_database_database_config_ts",
-      "confidence_score": 1.0
+      "target": "src_database_database_config_ts"
     },
     {
       "relation": "imports_from",
@@ -1331,9 +1385,9 @@
       "source_file": "src/auth/better-auth.factory.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_better_auth_factory_ts",
-      "target": "src_database_database_config_ts",
-      "confidence_score": 1.0
+      "target": "src_database_database_config_ts"
     },
     {
       "relation": "imports",
@@ -1342,9 +1396,9 @@
       "source_file": "src/database/database.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_database_database_module_ts",
-      "target": "database_database_config_loaddatabaseconfig",
-      "confidence_score": 1.0
+      "target": "database_database_config_loaddatabaseconfig"
     },
     {
       "relation": "imports",
@@ -1353,9 +1407,9 @@
       "source_file": "src/auth/better-auth.factory.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_better_auth_factory_ts",
-      "target": "database_database_config_loaddatabaseconfig",
-      "confidence_score": 1.0
+      "target": "database_database_config_loaddatabaseconfig"
     },
     {
       "relation": "calls",
@@ -1385,9 +1439,9 @@
       "source_file": "src/database/database.module.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_database_database_module_ts",
-      "target": "database_database_module_cfg",
-      "confidence_score": 1.0
+      "target": "database_database_module_cfg"
     },
     {
       "relation": "contains",
@@ -1395,9 +1449,31 @@
       "source_file": "src/database/database.module.ts",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_database_database_module_ts",
-      "target": "database_database_module_databasemodule",
-      "confidence_score": 1.0
+      "target": "database_database_module_databasemodule"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_controller_ts",
+      "target": "src_auth_auth_service_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_controller_ts",
+      "target": "auth_auth_service_authservice"
     },
     {
       "relation": "imports_from",
@@ -1406,9 +1482,31 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_controller_ts",
-      "target": "src_auth_auth_types_ts",
-      "confidence_score": 1.0
+      "target": "src_auth_auth_types_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_controller_ts",
+      "target": "src_auth_dto_sign_up_dto_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_controller_ts",
+      "target": "dto_sign_up_dto_signupdto"
     },
     {
       "relation": "imports_from",
@@ -1417,9 +1515,9 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_controller_ts",
-      "target": "src_auth_session_decorator_ts",
-      "confidence_score": 1.0
+      "target": "src_auth_session_decorator_ts"
     },
     {
       "relation": "contains",
@@ -1427,9 +1525,9 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_controller_ts",
-      "target": "auth_auth_controller_authcontroller",
-      "confidence_score": 1.0
+      "target": "auth_auth_controller_authcontroller"
     },
     {
       "relation": "imports_from",
@@ -1438,9 +1536,29 @@
       "source_file": "src/auth/auth.module.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_module_ts",
-      "target": "src_auth_auth_controller_ts",
-      "confidence_score": 1.0
+      "target": "src_auth_auth_controller_ts"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_auth_controller_authcontroller",
+      "target": "auth_auth_controller_authcontroller_constructor"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.controller.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_auth_controller_authcontroller",
+      "target": "auth_auth_controller_authcontroller_register"
     },
     {
       "relation": "method",
@@ -1448,9 +1566,9 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_auth_controller_authcontroller",
-      "target": "auth_auth_controller_authcontroller_me",
-      "confidence_score": 1.0
+      "target": "auth_auth_controller_authcontroller_me"
     },
     {
       "relation": "imports",
@@ -1459,9 +1577,53 @@
       "source_file": "src/auth/auth.module.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_module_ts",
-      "target": "auth_auth_controller_authcontroller",
-      "confidence_score": 1.0
+      "target": "auth_auth_controller_authcontroller"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_service_ts",
+      "target": "src_auth_dto_sign_up_dto_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_service_ts",
+      "target": "dto_sign_up_dto_signupdto"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_service_ts",
+      "target": "src_users_users_service_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_auth_auth_service_ts",
+      "target": "users_users_service_usersservice"
     },
     {
       "relation": "contains",
@@ -1469,9 +1631,9 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_service_ts",
-      "target": "auth_auth_service_authservice",
-      "confidence_score": 1.0
+      "target": "auth_auth_service_authservice"
     },
     {
       "relation": "imports_from",
@@ -1480,9 +1642,9 @@
       "source_file": "src/auth/auth.module.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_module_ts",
-      "target": "src_auth_auth_service_ts",
-      "confidence_score": 1.0
+      "target": "src_auth_auth_service_ts"
     },
     {
       "relation": "method",
@@ -1490,9 +1652,9 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_auth_service_authservice",
-      "target": "auth_auth_service_authservice_constructor",
-      "confidence_score": 1.0
+      "target": "auth_auth_service_authservice_constructor"
     },
     {
       "relation": "method",
@@ -1500,9 +1662,9 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_auth_service_authservice",
-      "target": "auth_auth_service_authservice_api",
-      "confidence_score": 1.0
+      "target": "auth_auth_service_authservice_api"
     },
     {
       "relation": "method",
@@ -1510,8 +1672,28 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_auth_service_authservice",
-      "target": "auth_auth_service_authservice_instance",
+      "target": "auth_auth_service_authservice_instance"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_auth_service_authservice",
+      "target": "auth_auth_service_authservice_registerwithemail"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "auth_auth_service_authservice",
+      "target": "auth_auth_service_authservice_towebheaders",
       "confidence_score": 1.0
     },
     {
@@ -1521,9 +1703,41 @@
       "source_file": "src/auth/auth.module.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_module_ts",
-      "target": "auth_auth_service_authservice",
+      "target": "auth_auth_service_authservice"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_auth_service_authservice",
+      "target": "auth_auth_service_authservice_headersfromexpress"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "auth_auth_service_authservice_registerwithemail",
+      "target": "auth_auth_service_authservice_towebheaders",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/auth/auth.service.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "auth_auth_service_authservice_registerwithemail",
+      "target": "auth_auth_service_authservice_headersfromexpress"
     },
     {
       "relation": "imports_from",
@@ -1532,9 +1746,9 @@
       "source_file": "src/auth/better-auth.config.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_better_auth_config_ts",
-      "target": "src_common_env_ts",
-      "confidence_score": 1.0
+      "target": "src_common_env_ts"
     },
     {
       "relation": "imports",
@@ -1543,9 +1757,9 @@
       "source_file": "src/auth/better-auth.config.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_better_auth_config_ts",
-      "target": "common_env_requireenv",
-      "confidence_score": 1.0
+      "target": "common_env_requireenv"
     },
     {
       "relation": "contains",
@@ -1553,9 +1767,9 @@
       "source_file": "src/auth/better-auth.config.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_better_auth_config_ts",
-      "target": "auth_better_auth_config_betterauthenvconfig",
-      "confidence_score": 1.0
+      "target": "auth_better_auth_config_betterauthenvconfig"
     },
     {
       "relation": "contains",
@@ -1563,9 +1777,9 @@
       "source_file": "src/auth/better-auth.config.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_better_auth_config_ts",
-      "target": "auth_better_auth_config_loadbetterauthenvconfig",
-      "confidence_score": 1.0
+      "target": "auth_better_auth_config_loadbetterauthenvconfig"
     },
     {
       "relation": "imports_from",
@@ -1574,9 +1788,9 @@
       "source_file": "src/auth/better-auth.factory.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_better_auth_factory_ts",
-      "target": "src_auth_better_auth_config_ts",
-      "confidence_score": 1.0
+      "target": "src_auth_better_auth_config_ts"
     },
     {
       "relation": "imports",
@@ -1585,9 +1799,9 @@
       "source_file": "src/auth/better-auth.factory.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_better_auth_factory_ts",
-      "target": "auth_better_auth_config_loadbetterauthenvconfig",
-      "confidence_score": 1.0
+      "target": "auth_better_auth_config_loadbetterauthenvconfig"
     },
     {
       "relation": "calls",
@@ -1682,9 +1896,9 @@
       "source_file": "src/auth/auth.types.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_types_ts",
-      "target": "auth_auth_types_authuser",
-      "confidence_score": 1.0
+      "target": "auth_auth_types_authuser"
     },
     {
       "relation": "imports_from",
@@ -1693,9 +1907,9 @@
       "source_file": "src/auth/auth.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_module_ts",
-      "target": "src_users_users_module_ts",
-      "confidence_score": 1.0
+      "target": "src_users_users_module_ts"
     },
     {
       "relation": "imports",
@@ -1704,9 +1918,9 @@
       "source_file": "src/auth/auth.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_auth_module_ts",
-      "target": "users_users_module_usersmodule",
-      "confidence_score": 1.0
+      "target": "users_users_module_usersmodule"
     },
     {
       "relation": "contains",
@@ -1746,9 +1960,9 @@
       "source_file": "src/auth/dto/sign-up.dto.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_dto_sign_up_dto_ts",
-      "target": "dto_sign_up_dto_signupdto",
-      "confidence_score": 1.0
+      "target": "dto_sign_up_dto_signupdto"
     },
     {
       "relation": "contains",
@@ -1756,9 +1970,9 @@
       "source_file": "src/auth/dto/sign-in.dto.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_auth_dto_sign_in_dto_ts",
-      "target": "dto_sign_in_dto_signindto",
-      "confidence_score": 1.0
+      "target": "dto_sign_in_dto_signindto"
     },
     {
       "relation": "contains",
@@ -1864,9 +2078,9 @@
       "source_file": "src/common/filters/http-exception.filter.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_common_filters_http_exception_filter_ts",
-      "target": "filters_http_exception_filter_httpexceptionfilter",
-      "confidence_score": 1.0
+      "target": "filters_http_exception_filter_httpexceptionfilter"
     },
     {
       "relation": "method",
@@ -1874,9 +2088,9 @@
       "source_file": "src/common/filters/http-exception.filter.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "filters_http_exception_filter_httpexceptionfilter",
-      "target": "filters_http_exception_filter_httpexceptionfilter_catch",
-      "confidence_score": 1.0
+      "target": "filters_http_exception_filter_httpexceptionfilter_catch"
     },
     {
       "relation": "contains",
@@ -1884,9 +2098,9 @@
       "source_file": "src/common/interceptors/logging.interceptor.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_common_interceptors_logging_interceptor_ts",
-      "target": "interceptors_logging_interceptor_logginginterceptor",
-      "confidence_score": 1.0
+      "target": "interceptors_logging_interceptor_logginginterceptor"
     },
     {
       "relation": "method",
@@ -1894,9 +2108,9 @@
       "source_file": "src/common/interceptors/logging.interceptor.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interceptors_logging_interceptor_logginginterceptor",
-      "target": "interceptors_logging_interceptor_logginginterceptor_intercept",
-      "confidence_score": 1.0
+      "target": "interceptors_logging_interceptor_logginginterceptor_intercept"
     },
     {
       "relation": "contains",
@@ -1904,9 +2118,9 @@
       "source_file": "src/common/config/env.schema.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_common_config_env_schema_ts",
-      "target": "config_env_schema_appenvkeys",
-      "confidence_score": 1.0
+      "target": "config_env_schema_appenvkeys"
     },
     {
       "relation": "contains",
@@ -1914,9 +2128,9 @@
       "source_file": "src/common/config/env.schema.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_common_config_env_schema_ts",
-      "target": "config_env_schema_appenvkey",
-      "confidence_score": 1.0
+      "target": "config_env_schema_appenvkey"
     },
     {
       "relation": "contains",
@@ -1924,9 +2138,9 @@
       "source_file": "src/common/pipes/validation.pipe.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_common_pipes_validation_pipe_ts",
-      "target": "pipes_validation_pipe_createappvalidationpipe",
-      "confidence_score": 1.0
+      "target": "pipes_validation_pipe_createappvalidationpipe"
     },
     {
       "relation": "contains",
@@ -1934,9 +2148,9 @@
       "source_file": "src/users/user.schema.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_user_schema_ts",
-      "target": "users_user_schema_user",
-      "confidence_score": 1.0
+      "target": "users_user_schema_user"
     },
     {
       "relation": "contains",
@@ -1944,9 +2158,9 @@
       "source_file": "src/users/user.schema.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_user_schema_ts",
-      "target": "users_user_schema_userdocument",
-      "confidence_score": 1.0
+      "target": "users_user_schema_userdocument"
     },
     {
       "relation": "contains",
@@ -1954,9 +2168,9 @@
       "source_file": "src/users/user.schema.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_user_schema_ts",
-      "target": "users_user_schema_userschema",
-      "confidence_score": 1.0
+      "target": "users_user_schema_userschema"
     },
     {
       "relation": "imports_from",
@@ -1965,9 +2179,9 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_users_service_ts",
-      "target": "src_users_user_schema_ts",
-      "confidence_score": 1.0
+      "target": "src_users_user_schema_ts"
     },
     {
       "relation": "imports_from",
@@ -1976,9 +2190,9 @@
       "source_file": "src/users/users.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_users_module_ts",
-      "target": "src_users_user_schema_ts",
-      "confidence_score": 1.0
+      "target": "src_users_user_schema_ts"
     },
     {
       "relation": "imports",
@@ -1987,9 +2201,9 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_users_service_ts",
-      "target": "users_user_schema_user",
-      "confidence_score": 1.0
+      "target": "users_user_schema_user"
     },
     {
       "relation": "imports",
@@ -1998,9 +2212,9 @@
       "source_file": "src/users/users.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_users_module_ts",
-      "target": "users_user_schema_user",
-      "confidence_score": 1.0
+      "target": "users_user_schema_user"
     },
     {
       "relation": "imports",
@@ -2009,9 +2223,9 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_users_service_ts",
-      "target": "users_user_schema_userdocument",
-      "confidence_score": 1.0
+      "target": "users_user_schema_userdocument"
     },
     {
       "relation": "imports",
@@ -2020,9 +2234,9 @@
       "source_file": "src/users/users.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_users_module_ts",
-      "target": "users_user_schema_userschema",
-      "confidence_score": 1.0
+      "target": "users_user_schema_userschema"
     },
     {
       "relation": "contains",
@@ -2030,9 +2244,9 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_users_service_ts",
-      "target": "users_users_service_usersservice",
-      "confidence_score": 1.0
+      "target": "users_users_service_usersservice"
     },
     {
       "relation": "imports_from",
@@ -2041,9 +2255,9 @@
       "source_file": "src/users/users.module.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_users_module_ts",
-      "target": "src_users_users_service_ts",
-      "confidence_score": 1.0
+      "target": "src_users_users_service_ts"
     },
     {
       "relation": "method",
@@ -2051,9 +2265,9 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_users_service_usersservice",
-      "target": "users_users_service_usersservice_constructor",
-      "confidence_score": 1.0
+      "target": "users_users_service_usersservice_constructor"
     },
     {
       "relation": "method",
@@ -2061,9 +2275,9 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_users_service_usersservice",
-      "target": "users_users_service_usersservice_findbyid",
-      "confidence_score": 1.0
+      "target": "users_users_service_usersservice_findbyid"
     },
     {
       "relation": "method",
@@ -2071,9 +2285,9 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_users_service_usersservice",
-      "target": "users_users_service_usersservice_findbyemail",
-      "confidence_score": 1.0
+      "target": "users_users_service_usersservice_findbyemail"
     },
     {
       "relation": "method",
@@ -2081,9 +2295,19 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_users_service_usersservice",
-      "target": "users_users_service_usersservice_update",
-      "confidence_score": 1.0
+      "target": "users_users_service_usersservice_update"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/users/users.service.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "users_users_service_usersservice",
+      "target": "users_users_service_usersservice_createprofileifabsent"
     },
     {
       "relation": "imports",
@@ -2092,9 +2316,9 @@
       "source_file": "src/users/users.module.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_users_module_ts",
-      "target": "users_users_service_usersservice",
-      "confidence_score": 1.0
+      "target": "users_users_service_usersservice"
     },
     {
       "relation": "contains",
@@ -2102,9 +2326,9 @@
       "source_file": "src/users/users.module.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_users_users_module_ts",
-      "target": "users_users_module_usersmodule",
-      "confidence_score": 1.0
+      "target": "users_users_module_usersmodule"
     },
     {
       "relation": "contains",
@@ -2391,5 +2615,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "91edb4c64eb85f747f418e44be0aedaf922ef689"
+  "built_at_commit": "e466f5f64f47a30594bf70101b14be3ecc984591"
 }

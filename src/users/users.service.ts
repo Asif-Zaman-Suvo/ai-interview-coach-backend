@@ -21,4 +21,15 @@ export class UsersService {
   async update(id: string, patch: Partial<Pick<User, 'email' | 'name'>>) {
     return this.userModel.findByIdAndUpdate(id, patch, { new: true }).exec();
   }
+
+  async createProfileIfAbsent(params: { email: string; name?: string }) {
+    const email = params.email.toLowerCase();
+    return this.userModel
+      .findOneAndUpdate(
+        { email },
+        { $setOnInsert: { email, name: params.name } },
+        { upsert: true, new: true },
+      )
+      .exec();
+  }
 }
