@@ -7,6 +7,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { AllowAnonymous } from '@thallesp/nestjs-better-auth';
 import { AuthGuard } from '../auth/auth.guard';
 import { TestimonialsService } from './testimonials.service';
 import { CreateTestimonialDto } from './dto/create-testimonial.dto';
@@ -32,6 +33,7 @@ interface AuthenticatedRequest extends Request {
 export class TestimonialsController {
   constructor(private readonly testimonialsService: TestimonialsService) {}
 
+  @AllowAnonymous()
   @Get('public')
   async getPublic(@Query('limit') limit?: string) {
     const n = Number(limit);

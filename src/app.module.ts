@@ -8,6 +8,7 @@ import { AnswersModule } from './answers/answers.module';
 import { SessionsModule } from './sessions/sessions.module';
 import { AdminModule } from './admin/admin.module';
 import { TestimonialsModule } from './testimonials/testimonials.module';
+import { MarketingModule } from './marketing/marketing.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -22,6 +23,7 @@ import { AppService } from './app.service';
     SessionsModule,
     AdminModule,
     TestimonialsModule,
+    MarketingModule,
   ],
   controllers: [AppController],
   providers: [AppService],

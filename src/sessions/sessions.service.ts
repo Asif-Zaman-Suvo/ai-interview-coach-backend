@@ -1,7 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
+import { RolesService } from '../roles/roles.service';
 import { Session, SessionDocument } from './session.schema';
+import {
+  buildRoleNameMap,
+  summarizeSessionForListRow,
+} from './sessions-list.mapper';
 
 /** Mongo filters for interviews (DSL values are intentionally loose vs schema typing). */
 type SessionsFindArg = Record<string, any>;
@@ -11,6 +16,7 @@ export class SessionsService {
   constructor(
     @InjectModel(Session.name)
     private readonly sessionModel: Model<SessionDocument>,
+    private readonly rolesService: RolesService,
   ) {}
 
   /** Matches both string IDs and accidental ObjectId‑typed userId BSON (legacy docs). */
@@ -196,5 +202,73 @@ export class SessionsService {
     }
 
     return streak;
+  }
+
+  /**
+   * Anonymous-safe aggregates + recent completed rows (no user ids) for the
+   * marketing homepage dashboard mock.
+   */
+  async getPublicLandingDashboardPreview(limitRecent = 3) {
+    const cap = Math.min(10, Math.max(1, limitRecent));
+    const completedMatch = { status: 'completed' as const };
+
+    const [totalSessions, avgAgg, roleAgg, recentDocs, allRoles] =
+      await Promise.all([
+        this.sessionModel.countDocuments(completedMatch).exec(),
+        this.sessionModel
+          .aggregate<{ avgScore: number | null }>([
+            { $match: completedMatch },
+            { $group: { _id: null, avgScore: { $avg: '$score' } } },
+          ])
+          .exec(),
+        this.sessionModel
+          .aggregate<{ _id: string; avgScore: number }>([
+            { $match: completedMatch },
+            { $group: { _id: '$roleId', avgScore: { $avg: '$score' } } },
+            { $sort: { avgScore: -1 } },
+            { $limit: 1 },
+          ])
+          .exec(),
+        this.sessionModel
+          .find(completedMatch)
+          .sort({ updatedAt: -1 })
+          .limit(cap)
+          .exec(),
+        this.rolesService.findAll(),
+      ]);
+
+    const averageScore =
+      avgAgg[0]?.avgScore != null
+        ? Math.round(Number(avgAgg[0].avgScore))
+        : 0;
+
+    const roleNames = buildRoleNameMap(allRoles);
+    const bestRoleId =
+      roleAgg[0]?._id != null ? String(roleAgg[0]._id).trim() : '';
+    const bestRoleLabel =
+      bestRoleId && (roleNames.get(bestRoleId)?.trim() || '')
+        ? roleNames.get(bestRoleId)!.trim()
+        : bestRoleId
+          ? 'Unknown'
+          : null;
+
+    const recent = recentDocs.map((s) => {
+      const row = summarizeSessionForListRow(s, roleNames);
+      return {
+        role: row.role,
+        score: row.score,
+        duration: row.duration,
+        date: row.date,
+      };
+    });
+
+    return {
+      totals: {
+        totalSessions,
+        avgScore: averageScore,
+        bestRole: totalSessions === 0 ? null : bestRoleLabel,
+      },
+      recent,
+    };
   }
 }
