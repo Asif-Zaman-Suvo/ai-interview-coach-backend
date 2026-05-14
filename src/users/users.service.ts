@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import type { Model } from 'mongoose';
+import type { UserRole } from './user-role';
 import type { UserDocument } from './user.schema';
 import { User } from './user.schema';
 
@@ -14,7 +15,14 @@ export class UsersService {
     return this.userModel.findById(id).exec();
   }
 
-  findByEmail(email: string) {
+  getRoleForEmail(email: string): Promise<UserRole> {
+    return this.findByEmail(email).then((doc) => {
+      if (!doc) return 'user';
+      return doc.role === 'admin' ? 'admin' : 'user';
+    });
+  }
+
+  findByEmail(email: string): Promise<UserDocument | null> {
     return this.userModel.findOne({ email: email.toLowerCase() }).exec();
   }
 

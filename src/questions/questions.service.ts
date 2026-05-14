@@ -10,11 +10,11 @@ export class QuestionsService {
     private readonly questionModel: Model<QuestionDocument>,
   ) {}
 
-  async findBySession(sessionId: string): Promise<Question[]> {
+  async findBySession(sessionId: string): Promise<QuestionDocument[]> {
     return this.questionModel.find({ sessionId }).sort({ createdAt: 1 }).exec();
   }
 
-  async findById(id: string): Promise<Question | null> {
+  async findById(id: string): Promise<QuestionDocument | null> {
     return this.questionModel.findById(id).exec();
   }
 
@@ -25,7 +25,7 @@ export class QuestionsService {
     idealAnswer: string;
     type: 'technical' | 'behavioral';
     difficulty: string;
-  }): Promise<Question> {
+  }): Promise<QuestionDocument> {
     const question = new this.questionModel(questionData);
     return question.save();
   }
@@ -42,13 +42,13 @@ export class QuestionsService {
       type?: 'technical' | 'behavioral';
       difficulty?: string;
     },
-  ): Promise<Question | null> {
+  ): Promise<QuestionDocument | null> {
     return this.questionModel
       .findByIdAndUpdate(id, questionData, { new: true })
       .exec();
   }
 
-  async delete(id: string): Promise<Question | null> {
+  async delete(id: string): Promise<QuestionDocument | null> {
     return this.questionModel.findByIdAndDelete(id).exec();
   }
 

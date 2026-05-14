@@ -10,6 +10,12 @@ Add these to your `.env` file:
 # Google Gemini AI API Key (Get from https://makersuite.google.com/app/apikey)
 GEMINI_API_KEY=your_gemini_api_key_here
 
+# Optional: Use mock AI mode for development (no API calls)
+# USE_MOCK_AI=true
+
+# Optional: Specify different Gemini model (default: gemini-1.5-flash)
+# GEMINI_MODEL=gemini-1.5-flash
+
 # MongoDB Connection
 MONGODB_URI=mongodb://localhost:27017/interview-coach
 
@@ -181,6 +187,56 @@ At session completion, AI generates:
 - Overall performance summary
 - Top improvement areas
 
+## ⚠️ Handling API Quota Issues
+
+### Mock Mode for Development
+If you encounter Google Gemini API quota limits or want to develop without API calls, you can use mock mode:
+
+```env
+USE_MOCK_AI=true
+```
+
+**Benefits of Mock Mode:**
+- No API calls required
+- Works offline
+- No rate limiting
+- Predictable responses for testing
+- Includes comprehensive question banks for common roles
+
+**When to Use Mock Mode:**
+- Development and testing
+- When API quota is exceeded
+- Offline development
+- Cost savings during development
+
+### Auto-Fallback on API Failures
+The system automatically falls back to mock mode when:
+- API quota is exceeded (429 errors)
+- API key is missing
+- Network errors occur
+- Invalid API responses
+
+This ensures the application continues working even when the AI service is unavailable.
+
+### API Model Configuration
+The system uses `gemini-1.5-flash` by default for better free tier stability. You can specify a different model:
+
+```env
+GEMINI_MODEL=gemini-1.5-flash
+```
+
+**Recommended Models for Free Tier:**
+- `gemini-1.5-flash` - Best balance of speed and quota
+- `gemini-1.5-flash-8b` - More quota, slightly less capable
+
+### Retry Logic
+The system includes automatic retry logic with exponential backoff for rate-limited requests:
+- 1st retry: 1 second delay
+- 2nd retry: 2 seconds delay
+- 3rd retry: 4 seconds delay
+
+If all retries fail, it falls back to mock mode automatically.
+
 ## 📊 MongoDB Collections
 
 ### Existing Collections (Don't Modify)
@@ -222,6 +278,17 @@ After seeding, you'll have these roles:
 
 ### Issue: TypeScript errors in IDE
 **Solution:** Run `npm run build` to check for compilation errors
+
+### Issue: "API quota exceeded" or 429 errors
+**Solution 1 (Immediate):** Set `USE_MOCK_AI=true` in `.env` file to use mock mode
+**Solution 2 (Long-term):** Upgrade to paid Gemini API plan or wait for quota reset
+**Solution 3 (Optimization):** The system auto-falls back to mock mode on quota errors
+
+### Issue: Questions are repetitive or generic
+**Solution:** This means you're in mock mode. Either:
+- Get a new Gemini API key and set `USE_MOCK_AI=false`
+- Wait for your API quota to reset
+- Add more custom questions to the mock question bank in `ai.service.ts`
 
 ## 🚀 Quick Start Commands
 

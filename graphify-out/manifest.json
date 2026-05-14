@@ -4,27 +4,27 @@
     "hash": "9fa60c14770a9be9d34975695d4c2fe8"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/test/app.e2e-spec.ts": {
-    "mtime": 1778673018.3797722,
-    "hash": "c2f4c06eeefc65ea9c39ca69f66962bf"
+    "mtime": 1778713713.5440917,
+    "hash": "1427313860725da907e3a247e1613112"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/main.ts": {
-    "mtime": 1778680563.558714,
-    "hash": "66cde3b3c1e16b75fbb9d75e4c442f6d"
+    "mtime": 1778713705.88955,
+    "hash": "1e52d01713fdbfc44f7bd00b9ec34bd9"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/app.service.ts": {
     "mtime": 1778679596.2926645,
     "hash": "6e4e2b2b5ae82bd73752e4fdaea9a814"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/app.module.ts": {
-    "mtime": 1778680558.463914,
-    "hash": "3ba9bbd2ee5b16ac385a79c3575bd7af"
+    "mtime": 1778709146.2272222,
+    "hash": "4c296c2cc5e5d0d7244d2124c676d967"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/app.controller.spec.ts": {
     "mtime": 1778673018.379588,
     "hash": "4a1c0e1133dbda6f6e8f3e60d984eddf"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/app.controller.ts": {
-    "mtime": 1778675620.3513086,
+    "mtime": 1778697468.9173384,
     "hash": "60911ad1393686538da6f7b8d4bfd677"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/database/database.config.ts": {
@@ -35,9 +35,21 @@
     "mtime": 1778680521.4489117,
     "hash": "4e45bf89af34829baedd799cae7532ca"
   },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/answers/answers.module.ts": {
+    "mtime": 1778709334.3973207,
+    "hash": "0f21f5e676af2388dc15f200b6567da9"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/answers/answer.schema.ts": {
+    "mtime": 1778709334.395237,
+    "hash": "228cf63ccd33cf4b0229aff606d63623"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/answers/answers.service.ts": {
+    "mtime": 1778712199.8765934,
+    "hash": "639ac7d21ac915d26d21aa47b6d875c5"
+  },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/auth/auth.controller.ts": {
-    "mtime": 1778683681.649813,
-    "hash": "564d6a942fc6055dd3ed806005fe1fbc"
+    "mtime": 1778715729.0918727,
+    "hash": "1a1382f5359e081d320367e38a744a2f"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/auth/auth.service.ts": {
     "mtime": 1778683701.4725697,
@@ -48,8 +60,8 @@
     "hash": "12436b88bda8636f40a0cc64d2c704d2"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/auth/better-auth.factory.ts": {
-    "mtime": 1778680533.2294028,
-    "hash": "532d9e68808f2afc4246b75e38930f7f"
+    "mtime": 1778695568.215693,
+    "hash": "fc49c91fe153866130e1aaa27aed88b3"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/auth/auth.guard.ts": {
     "mtime": 1778680533.4401507,
@@ -67,13 +79,49 @@
     "mtime": 1778680539.846706,
     "hash": "d91b724167ee86fb79e50cc3156ff82e"
   },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/auth/admin.guard.ts": {
+    "mtime": 1778713998.4782646,
+    "hash": "656b40a0e510d30b1a10c12e94fb99b2"
+  },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/auth/dto/sign-up.dto.ts": {
-    "mtime": 1778680538.5310113,
-    "hash": "910ec132f36f994f6dd32285afc25e96"
+    "mtime": 1778695567.0844238,
+    "hash": "11cfcb59d0324e70d139bd5192d59700"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/auth/dto/sign-in.dto.ts": {
-    "mtime": 1778680538.5297163,
-    "hash": "1d7d7090e4d7b6f263c264ba6f90ed93"
+    "mtime": 1778696562.0325162,
+    "hash": "329d1e7b818c72c91cfaea1c49dffd1f"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/admin/admin.controller.ts": {
+    "mtime": 1778709334.352796,
+    "hash": "d05fb2feb616bc72411dda81114f5e9a"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/admin/admin.module.ts": {
+    "mtime": 1778713999.0282388,
+    "hash": "d11d6060aa317da32a553fe3f9ed758a"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/admin/admin.service.ts": {
+    "mtime": 1778709334.3710115,
+    "hash": "10c27d734e1a1a32fa13dcd61ff42065"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/roles/roles.controller.ts": {
+    "mtime": 1778709334.4815164,
+    "hash": "67e21538f170f45dc03b87720a94e42a"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/roles/roles.module.ts": {
+    "mtime": 1778709334.4831586,
+    "hash": "6988487485933171cf6f2cf60b003585"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/roles/roles.service.ts": {
+    "mtime": 1778712169.38895,
+    "hash": "3fbfa62de10ac417f9779b0fc6367e07"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/roles/role.schema.ts": {
+    "mtime": 1778712219.7888827,
+    "hash": "1fe715cd7db9bb709e99090352beb29d"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/common/as-date.ts": {
+    "mtime": 1778712243.533943,
+    "hash": "3c219d310be28d86be694dec8e892c61"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/common/env.ts": {
     "mtime": 1778679542.7814336,
@@ -84,8 +132,8 @@
     "hash": "6b1bb135167d10ad97dad67a7b6a8248"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/common/interceptors/logging.interceptor.ts": {
-    "mtime": 1778680556.1192663,
-    "hash": "5e65c21e593516d48c92f29a5355262f"
+    "mtime": 1778709334.453667,
+    "hash": "73a9046eea77b80cf0e7e4c97545027f"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/common/config/env.schema.ts": {
     "mtime": 1778680557.754469,
@@ -95,20 +143,72 @@
     "mtime": 1778680556.1192663,
     "hash": "b6fbffcdb023365852699c97fbe1b2b4"
   },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/sessions/sessions.module.ts": {
+    "mtime": 1778709334.5148323,
+    "hash": "e4ac11f4c85150b7f981a4bd98945b1a"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/sessions/sessions.service.ts": {
+    "mtime": 1778712169.726946,
+    "hash": "9420508b7d0da5faf926fe2db37e589c"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/sessions/sessions.controller.ts": {
+    "mtime": 1778713419.819524,
+    "hash": "99c4147c13ece0ab8fed279e171c102e"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/sessions/session.schema.ts": {
+    "mtime": 1778712233.9686306,
+    "hash": "af372f508117004a42cf335c3262c723"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/seeds/roles.seed.ts": {
+    "mtime": 1778709334.4938378,
+    "hash": "b6f48687a92fbb994e95e3cc458cc49a"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/seeds/admin.seed.ts": {
+    "mtime": 1778713758.1754365,
+    "hash": "52ff6edef8fbbb9000dd38f8dab78379"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/ai/ai.service.ts": {
+    "mtime": 1778715935.0761442,
+    "hash": "c16442c56659381b117250975705dae8"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/ai/ai.module.ts": {
+    "mtime": 1778709334.3735745,
+    "hash": "ceaa84d6628926613ed87c1ff77ed9c4"
+  },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/users/user.schema.ts": {
-    "mtime": 1778680521.5858629,
-    "hash": "bbe6bff3ec69e009b614a39ad1bb80d3"
+    "mtime": 1778715724.3994875,
+    "hash": "c36f713134300ee7bd9b532ab5575e15"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/users/users.service.ts": {
-    "mtime": 1778683744.4220572,
-    "hash": "3b8056414d86b11448ca743af79d64a4"
+    "mtime": 1778715717.2137237,
+    "hash": "29c90f21825fabb6ca2cbb01b5b79681"
   },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/users/users.module.ts": {
     "mtime": 1778680523.0682664,
     "hash": "4386a211a2ee84fe2d91e18e202f932b"
   },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/users/user-role.ts": {
+    "mtime": 1778715716.9551647,
+    "hash": "e25dd49dff42dd4d538d4a94e5c15a1d"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/questions/question.schema.ts": {
+    "mtime": 1778712220.4598765,
+    "hash": "ff78f4cfc3076f1b066a93c06b91da49"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/questions/questions.module.ts": {
+    "mtime": 1778709334.4727147,
+    "hash": "980caa3a75335d4ad640763d2077f2ea"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/src/questions/questions.service.ts": {
+    "mtime": 1778712198.8534617,
+    "hash": "d754b3613c5a0400c345d8ee7cbcef96"
+  },
   "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/README.md": {
     "mtime": 1778673018.3786714,
     "hash": "f9b30a57e215bc0b63868065fc71a1ac"
+  },
+  "/Users/asif_suvo/PET/ai-interview-coach-full-stack/ai-interview-coach-backend/SETUP_GUIDE.md": {
+    "mtime": 1778714740.9201846,
+    "hash": "2abb4bcc8d06d3ef0617f8439d85a857"
   }
 }

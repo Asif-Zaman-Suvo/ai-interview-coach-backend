@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, Types } from 'mongoose';
-
-export type UserRole = 'user' | 'admin';
+import { HydratedDocument, Types } from 'mongoose';
+import type { UserRole } from './user-role';
 
 @Schema({ collection: 'user_profiles', timestamps: true })
 export class User {
@@ -20,5 +19,7 @@ export class User {
   updatedAt?: Date;
 }
 
-export type UserDocument = User & Document;
+export type { UserRole } from './user-role';
+
+export type UserDocument = HydratedDocument<User>;
 export const UserSchema = SchemaFactory.createForClass(User);

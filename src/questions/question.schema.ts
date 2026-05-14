@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, Types } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 
 export type QuestionType = 'technical' | 'behavioral';
 export type Difficulty = 'Easy' | 'Medium' | 'Hard';
@@ -30,5 +30,5 @@ export class Question {
   updatedAt?: Date;
 }
 
-export type QuestionDocument = Question & Document;
+export type QuestionDocument = HydratedDocument<Question>;
 export const QuestionSchema = SchemaFactory.createForClass(Question);

@@ -10,11 +10,19 @@ export class SessionsService {
     private readonly sessionModel: Model<SessionDocument>,
   ) {}
 
-  async findById(id: string): Promise<Session | null> {
+  async findById(id: string): Promise<SessionDocument | null> {
     return this.sessionModel.findById(id).exec();
   }
 
-  async findByUser(userId: string, page = 1, limit = 10): Promise<Session[]> {
+  async countByUser(userId: string): Promise<number> {
+    return this.sessionModel.countDocuments({ userId }).exec();
+  }
+
+  async findByUser(
+    userId: string,
+    page = 1,
+    limit = 10,
+  ): Promise<SessionDocument[]> {
     return this.sessionModel
       .find({ userId })
       .sort({ createdAt: -1 })
@@ -27,7 +35,7 @@ export class SessionsService {
     userId: string;
     roleId: string;
     difficulty: string;
-  }): Promise<Session> {
+  }): Promise<SessionDocument> {
     const session = new this.sessionModel(sessionData);
     return session.save();
   }
@@ -40,17 +48,20 @@ export class SessionsService {
       summary?: string;
       topImprovements?: string[];
     },
-  ): Promise<Session | null> {
+  ): Promise<SessionDocument | null> {
     return this.sessionModel
       .findByIdAndUpdate(id, updateData, { new: true })
       .exec();
   }
 
-  async delete(id: string): Promise<Session | null> {
+  async delete(id: string): Promise<SessionDocument | null> {
     return this.sessionModel.findByIdAndDelete(id).exec();
   }
 
-  async getRecentSessions(userId: string, limit = 5): Promise<Session[]> {
+  async getRecentSessions(
+    userId: string,
+    limit = 5,
+  ): Promise<SessionDocument[]> {
     return this.sessionModel
       .find({ userId })
       .sort({ createdAt: -1 })
@@ -58,7 +69,10 @@ export class SessionsService {
       .exec();
   }
 
-  async getScoreTrend(userId: string, limit = 10): Promise<Session[]> {
+  async getScoreTrend(
+    userId: string,
+    limit = 10,
+  ): Promise<SessionDocument[]> {
     return this.sessionModel
       .find({ userId, status: 'completed' })
       .sort({ createdAt: -1 })

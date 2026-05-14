@@ -4,20 +4,22 @@ import {
   ExecutionContext,
   ForbiddenException,
 } from '@nestjs/common';
-import { AuthGuard } from '@thallesp/nestjs-better-auth';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
+  constructor(private readonly usersService: UsersService) {}
+
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
+    const sessionUser = request.user as { email?: string } | undefined;
 
-    // Check if user is authenticated
-    if (!request.user) {
+    if (!sessionUser?.email) {
       throw new ForbiddenException('User not authenticated');
     }
 
-    // Check if user has admin role
-    if (request.user.role !== 'admin') {
+    const profile = await this.usersService.findByEmail(sessionUser.email);
+    if (profile?.role !== 'admin') {
       throw new ForbiddenException('Admin access required');
     }
 

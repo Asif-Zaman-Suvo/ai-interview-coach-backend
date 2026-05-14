@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, Types } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 
 @Schema({ timestamps: true })
 export class Role {
@@ -18,5 +18,5 @@ export class Role {
   updatedAt?: Date;
 }
 
-export type RoleDocument = Role & Document;
+export type RoleDocument = HydratedDocument<Role>;
 export const RoleSchema = SchemaFactory.createForClass(Role);

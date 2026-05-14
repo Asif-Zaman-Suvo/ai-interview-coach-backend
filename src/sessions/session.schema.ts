@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, Types } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 
 export type SessionStatus = 'active' | 'completed';
 
@@ -28,9 +28,9 @@ export class Session {
   @Prop({ type: [String], default: [] })
   topImprovements!: string[];
 
-  createdAt?: Date;
-  updatedAt?: Date;
+  createdAt!: Date;
+  updatedAt!: Date;
 }
 
-export type SessionDocument = Session & Document;
+export type SessionDocument = HydratedDocument<Session>;
 export const SessionSchema = SchemaFactory.createForClass(Session);

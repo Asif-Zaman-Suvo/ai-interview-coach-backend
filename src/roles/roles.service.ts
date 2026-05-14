@@ -10,11 +10,11 @@ export class RolesService {
     private readonly roleModel: Model<RoleDocument>,
   ) {}
 
-  async findAll(): Promise<Role[]> {
+  async findAll(): Promise<RoleDocument[]> {
     return this.roleModel.find().exec();
   }
 
-  async findById(id: string): Promise<Role | null> {
+  async findById(id: string): Promise<RoleDocument | null> {
     return this.roleModel.findById(id).exec();
   }
 
@@ -22,7 +22,7 @@ export class RolesService {
     name: string;
     icon: string;
     description: string;
-  }): Promise<Role> {
+  }): Promise<RoleDocument> {
     const role = new this.roleModel(roleData);
     return role.save();
   }
@@ -34,11 +34,11 @@ export class RolesService {
       icon?: string;
       description?: string;
     },
-  ): Promise<Role | null> {
+  ): Promise<RoleDocument | null> {
     return this.roleModel.findByIdAndUpdate(id, roleData, { new: true }).exec();
   }
 
-  async delete(id: string): Promise<Role | null> {
+  async delete(id: string): Promise<RoleDocument | null> {
     return this.roleModel.findByIdAndDelete(id).exec();
   }
 }

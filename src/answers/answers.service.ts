@@ -10,15 +10,15 @@ export class AnswersService {
     private readonly answerModel: Model<AnswerDocument>,
   ) {}
 
-  async findBySession(sessionId: string): Promise<Answer[]> {
+  async findBySession(sessionId: string): Promise<AnswerDocument[]> {
     return this.answerModel.find({ sessionId }).sort({ createdAt: 1 }).exec();
   }
 
-  async findByQuestion(questionId: string): Promise<Answer[]> {
+  async findByQuestion(questionId: string): Promise<AnswerDocument[]> {
     return this.answerModel.find({ questionId }).sort({ createdAt: -1 }).exec();
   }
 
-  async findById(id: string): Promise<Answer | null> {
+  async findById(id: string): Promise<AnswerDocument | null> {
     return this.answerModel.findById(id).exec();
   }
 
@@ -30,7 +30,7 @@ export class AnswersService {
     score: number;
     strengths: string[];
     improvements: string[];
-  }): Promise<Answer> {
+  }): Promise<AnswerDocument> {
     const answer = new this.answerModel(answerData);
     return answer.save();
   }
