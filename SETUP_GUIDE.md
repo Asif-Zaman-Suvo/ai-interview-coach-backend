@@ -4,29 +4,22 @@
 
 ### 1. Environment Variables
 
-Add these to your `.env` file:
+Copy `.env.example` to `.env` and set:
 
 ```env
-# Google Gemini AI API Key (Get from https://makersuite.google.com/app/apikey)
-GEMINI_API_KEY=your_gemini_api_key_here
-
-# Optional: Use mock AI mode for development (no API calls)
-# USE_MOCK_AI=true
-
-# Optional: Specify different Gemini model (default: gemini-1.5-flash)
-# GEMINI_MODEL=gemini-1.5-flash
-
-# MongoDB Connection
-MONGODB_URI=mongodb://localhost:27017/interview-coach
-
-# Better Auth Configuration
+PORT=3333
+MONGODB_URI=mongodb://127.0.0.1:27017/ai-interview-coach
 BETTER_AUTH_SECRET=your_secret_key_here
-BETTER_AUTH_URL=http://localhost:3000
+BETTER_AUTH_URL=http://localhost:3333
+FRONTEND_URL=http://localhost:3000
 ```
+
+Interview questions are loaded only from MongoDB (`questions` collection). Populate them via the admin UI (`/admin/questions`) or seeds — no external AI keys.
 
 ### 2. Database Setup
 
 Make sure MongoDB is running:
+
 ```bash
 # If using local MongoDB
 brew services start mongodb-community
@@ -38,11 +31,13 @@ docker run -d -p 27017:27017 --name mongodb mongo:latest
 ### 3. Seed Initial Data
 
 **Seed Roles (Required):**
+
 ```bash
 npx ts-node src/seeds/roles.seed.ts
 ```
 
 **Create Admin User:**
+
 ```bash
 # First, register a user through your frontend
 # Then promote them to admin:
@@ -63,62 +58,74 @@ npm run start:prod
 ## 📋 API Endpoints
 
 ### Authentication Endpoints (Better Auth)
+
 - `POST /auth/register` - Register new user
 - `POST /auth/login` - Login user
 - `POST /auth/logout` - Logout user
 
 ### Dashboard Endpoints (Auth Required)
+
 - `GET /sessions/me/stats` - Get user statistics
 - `GET /sessions/recent` - Get recent 5 sessions
 - `GET /sessions/score-trend` - Get score trend for charts
 - `GET /sessions/difficulties` - Get available difficulty levels
 
 ### Interview Session Endpoints (Auth Required)
+
 - `GET /roles` - Get all available roles
-- `POST /sessions/start` - Start new interview session
+- `POST /sessions/start` - Start new interview session (samples up to 5 questions from the bank for `roleId` + `difficulty`; fails if pool is empty)
+
   ```json
   {
     "roleId": "role_id_here",
     "difficulty": "Medium",
-    "resumeText": "Optional resume text for tailored questions"
+    "resumeText": "Optional; ignored for question selection"
   }
   ```
+
 - `POST /sessions/:id/answer` - Submit answer to question
+
   ```json
   {
     "questionId": "question_id_here",
     "transcript": "User's spoken answer from Web Speech API"
   }
   ```
+
 - `POST /sessions/:id/complete` - Complete session and get summary
 - `GET /sessions/:id` - Get session details with all Q&A
 - `GET /sessions?page=1&limit=10` - Get paginated session history
 
 ### Admin Endpoints (Admin + Auth Required)
+
 - `GET /admin/stats` - Get platform statistics
 - `GET /admin/users` - Get all users
 - `PUT /admin/users/:id/role` - Update user role
+
   ```json
   {
     "role": "admin"
   }
   ```
+
 - `DELETE /admin/users/:id` - Delete user
-- `POST /admin/questions` - Manually add question to bank
-- `PUT /admin/questions/:id` - Update question
+- `GET /admin/questions/bank` - List question bank entries (ideal answers, categories, difficulties)
+- `POST /admin/questions` - Add question to bank (linked to `roleId`)
+- `PUT /admin/questions/:id` - Update question / ideal answer
 - `DELETE /admin/questions/:id` - Delete question
+- `POST /admin/roles` - Create job role
+- `PUT /admin/roles/:id` - Update job role
+- `DELETE /admin/roles/:id` - Delete job role
 
 ## 🔧 Module Structure
 
 ```
 src/
-├── ai/
-│   ├── ai.module.ts
-│   └── ai.service.ts          # Gemini AI integration
 ├── sessions/
 │   ├── sessions.module.ts
-│   ├── sessions.controller.ts # Session endpoints
+│   ├── sessions.controller.ts  # Session endpoints
 │   ├── sessions.service.ts
+│   ├── interview-evaluation.service.ts  # Deterministic scoring vs ideal answers
 │   └── session.schema.ts
 ├── questions/
 │   ├── questions.module.ts
@@ -130,28 +137,30 @@ src/
 │   └── answer.schema.ts
 ├── roles/
 │   ├── roles.module.ts
-│   ├── roles.controller.ts    # Roles endpoints
+│   ├── roles.controller.ts     # Public roles list
 │   ├── roles.service.ts
 │   └── role.schema.ts
 ├── admin/
 │   ├── admin.module.ts
-│   ├── admin.controller.ts    # Admin endpoints
+│   ├── admin.controller.ts     # Admin endpoints
 │   └── admin.service.ts
 ├── auth/
-│   ├── auth.guard.ts          # Authentication guard
-│   └── admin.guard.ts         # Admin authorization guard
+│   ├── auth.guard.ts           # Authentication guard
+│   └── admin.guard.ts          # Admin authorization guard
 └── seeds/
-    ├── admin.seed.ts          # Promote user to admin
-    └── roles.seed.ts          # Seed initial roles
+    ├── admin.seed.ts           # Promote user to admin
+    └── roles.seed.ts           # Seed initial roles
 ```
 
 ## 🔒 Authentication & Authorization
 
 ### Guards Usage:
+
 - `@UseGuards(AuthGuard)` - Logged in users only
 - `@UseGuards(AuthGuard, AdminGuard)` - Admin users only
 
 ### Example:
+
 ```typescript
 @Post('start')
 @UseGuards(AuthGuard)  // Only authenticated users
@@ -167,92 +176,39 @@ async getStats() {
 }
 ```
 
-## 🤖 AI Features
+## 📊 Interview Flow
 
-### Question Generation
-The system uses Gemini AI to generate contextual interview questions based on:
-- Role (Frontend, Backend, Full Stack, etc.)
-- Difficulty Level (Easy, Medium, Hard)
-- Optional Resume Text (for tailored questions)
+### Questions
+
+Questions are stored per role and difficulty in the admin question bank. Starting a session randomly samples from that pool.
 
 ### Answer Evaluation
-Each answer is evaluated by AI providing:
-- Score (0-100)
-- Detailed feedback (2-3 sentences)
-- Strengths (up to 3 points)
-- Improvements (up to 3 points)
+
+Answers are scored deterministically against each question’s stored ideal/model answer (`InterviewEvaluationService`): score, feedback, strengths, and improvements — no LLM calls.
 
 ### Session Summary
-At session completion, AI generates:
-- Overall performance summary
-- Top improvement areas
 
-## ⚠️ Handling API Quota Issues
-
-### Mock Mode for Development
-If you encounter Google Gemini API quota limits or want to develop without API calls, you can use mock mode:
-
-```env
-USE_MOCK_AI=true
-```
-
-**Benefits of Mock Mode:**
-- No API calls required
-- Works offline
-- No rate limiting
-- Predictable responses for testing
-- Includes comprehensive question banks for common roles
-
-**When to Use Mock Mode:**
-- Development and testing
-- When API quota is exceeded
-- Offline development
-- Cost savings during development
-
-### Auto-Fallback on API Failures
-The system automatically falls back to mock mode when:
-- API quota is exceeded (429 errors)
-- API key is missing
-- Network errors occur
-- Invalid API responses
-
-This ensures the application continues working even when the AI service is unavailable.
-
-### API Model Configuration
-The system uses `gemini-1.5-flash` by default for better free tier stability. You can specify a different model:
-
-```env
-GEMINI_MODEL=gemini-1.5-flash
-```
-
-**Recommended Models for Free Tier:**
-- `gemini-1.5-flash` - Best balance of speed and quota
-- `gemini-1.5-flash-8b` - More quota, slightly less capable
-
-### Retry Logic
-The system includes automatic retry logic with exponential backoff for rate-limited requests:
-- 1st retry: 1 second delay
-- 2nd retry: 2 seconds delay
-- 3rd retry: 4 seconds delay
-
-If all retries fail, it falls back to mock mode automatically.
+Completion aggregates scores and highlights improvement themes from the same deterministic pipeline.
 
 ## 📊 MongoDB Collections
 
 ### Existing Collections (Don't Modify)
+
 - `user_profiles` - User accounts with roles
 - `sessions` - Better Auth sessions
 - `accounts` - Linked accounts
 
-### New Collections
-- `roles` - Interview roles (Frontend, Backend, etc.)
-- `questions` - Generated interview questions
-- `answers` - User answers with AI feedback
-- `sessions` - Interview sessions (note: name collision with auth sessions)
+### Application Collections
+
+- `roles` - Job roles for grouping questions
+- `questions` - Interview question bank (text, category, difficulty, `roleId`, ideal answer)
+- `answers` - User answers with evaluation payloads
+- Interview `sessions` documents (same DB; distinct from Better Auth session storage patterns — see `session.schema.ts`)
 
 ## 🎯 Default Roles
 
 After seeding, you'll have these roles:
+
 - Frontend Developer 🎨
 - Backend Developer ⚙️
 - Full Stack Developer 🔄
@@ -264,31 +220,25 @@ After seeding, you'll have these roles:
 
 ## 🐛 Troubleshooting
 
-### Issue: "GEMINI_API_KEY not set"
-**Solution:** Add your Gemini API key to `.env` file
-
 ### Issue: "MongoDB connection failed"
-**Solution:** Make sure MongoDB is running and MONGODB_URI is correct
+
+**Solution:** Make sure MongoDB is running and `MONGODB_URI` is correct
 
 ### Issue: "User not found" when running admin seed
+
 **Solution:** User must be registered first through the frontend
 
 ### Issue: "Role not found" when starting session
+
 **Solution:** Run `npx ts-node src/seeds/roles.seed.ts` first
 
+### Issue: Empty question pool / 400 when starting interview
+
+**Solution:** Add questions for that role and difficulty in `/admin/questions` (or via `POST /admin/questions`)
+
 ### Issue: TypeScript errors in IDE
+
 **Solution:** Run `npm run build` to check for compilation errors
-
-### Issue: "API quota exceeded" or 429 errors
-**Solution 1 (Immediate):** Set `USE_MOCK_AI=true` in `.env` file to use mock mode
-**Solution 2 (Long-term):** Upgrade to paid Gemini API plan or wait for quota reset
-**Solution 3 (Optimization):** The system auto-falls back to mock mode on quota errors
-
-### Issue: Questions are repetitive or generic
-**Solution:** This means you're in mock mode. Either:
-- Get a new Gemini API key and set `USE_MOCK_AI=false`
-- Wait for your API quota to reset
-- Add more custom questions to the mock question bank in `ai.service.ts`
 
 ## 🚀 Quick Start Commands
 
@@ -298,7 +248,7 @@ npm install
 
 # 2. Set up environment
 cp .env.example .env
-# Edit .env with your keys
+# Edit .env with secrets and URLs
 
 # 3. Start MongoDB
 brew services start mongodb-community
@@ -316,11 +266,9 @@ npx ts-node src/seeds/admin.seed.ts user@example.com
 ## 📝 Notes
 
 - All sessions are tied to the authenticated user
-- Questions are dynamically generated by AI
-- Answers are evaluated in real-time
-- Admin users can manage the entire platform
-- Web Speech API integration happens on the frontend
-- Backend only receives the transcript text
+- Questions come only from the database (admin-maintained bank)
+- Answers are evaluated server-side against ideal answers
+- Admin users manage roles, question bank, and users via `/admin/*` APIs
 
 ## 🔐 Security Notes
 
@@ -333,6 +281,7 @@ npx ts-node src/seeds/admin.seed.ts user@example.com
 ## 📱 Frontend Integration
 
 The backend expects these frontend features:
+
 - Web Speech API for voice-to-text
 - Session management for interview flow
 - Real-time feedback display
@@ -342,10 +291,11 @@ The backend expects these frontend features:
 ## 🎉 Success Indicators
 
 If everything is set up correctly:
+
 1. Server starts without errors
 2. MongoDB connections successful
 3. Can register/login users
-4. Can start interview sessions
-5. AI generates questions and evaluates answers
+4. Can start interview sessions when the bank has questions for the chosen role/difficulty
+5. Answers receive scores and feedback after each submission
 6. Admin endpoints work for admin users
 7. Session history and statistics work correctly

@@ -10,12 +10,13 @@ import {
   Req,
   NotFoundException,
   ForbiddenException,
+  BadRequestException,
 } from '@nestjs/common';
 import { SessionsService } from './sessions.service';
 import { QuestionsService } from '../questions/questions.service';
 import { AnswersService } from '../answers/answers.service';
 import { RolesService } from '../roles/roles.service';
-import { AiService } from '../ai/ai.service';
+import { InterviewEvaluationService } from './interview-evaluation.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { asDate } from '../common/as-date';
 import type { SessionDocument } from './session.schema';
@@ -24,6 +25,13 @@ import {
   summarizeSessionForListRow,
   uniqueRoleIdsFromSessions,
 } from './sessions-list.mapper';
+
+function shuffleInPlace<T>(items: T[]): void {
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+}
 
 function canonicalUserId(value: unknown): string {
   if (value === null || value === undefined) return '';
@@ -46,7 +54,7 @@ export class SessionsController {
     private readonly questionsService: QuestionsService,
     private readonly answersService: AnswersService,
     private readonly rolesService: RolesService,
-    private readonly aiService: AiService,
+    private readonly interviewEvaluation: InterviewEvaluationService,
   ) {}
 
   private async resolveRoleLabels(
@@ -245,22 +253,27 @@ export class SessionsController {
       return { message: 'Role not found' };
     }
 
-    // Generate questions using AI
-    const generatedQuestions = await this.aiService.generateQuestions(
-      role.name,
+    const pool = await this.questionsService.findBankByRoleAndDifficulty(
+      body.roleId,
       body.difficulty,
-      body.resumeText,
     );
+    if (!pool.length) {
+      throw new BadRequestException(
+        'No questions in the bank for this role and difficulty. Add questions in the admin panel.',
+      );
+    }
 
-    // Create session
+    shuffleInPlace(pool);
+    const maxPerSession = Math.min(5, pool.length);
+    const picked = pool.slice(0, maxPerSession);
+
     const session = await this.sessionsService.create({
       userId: canonicalUserId(req.user.id),
       roleId: body.roleId,
       difficulty: body.difficulty,
     });
 
-    // Save questions to database
-    const questionsToSave = generatedQuestions.map((q) => ({
+    const questionsToSave = picked.map((q) => ({
       sessionId: String(session._id),
       roleId: body.roleId,
       text: q.text,
@@ -311,8 +324,7 @@ export class SessionsController {
       return { message: 'Question not found' };
     }
 
-    // Evaluate answer using AI
-    const evaluation = await this.aiService.evaluateAnswer(
+    const evaluation = this.interviewEvaluation.evaluateAnswer(
       question.text,
       question.idealAnswer,
       body.transcript,
@@ -379,8 +391,7 @@ export class SessionsController {
     const scores = answers.map((a) => a.score);
     const feedbacks = answers.map((a) => a.feedback);
 
-    // Generate summary using AI
-    const summary = await this.aiService.generateSessionSummary(
+    const summary = this.interviewEvaluation.summarizeSession(
       scores,
       feedbacks,
     );

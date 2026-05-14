@@ -7,7 +7,6 @@ import { QuestionsModule } from './questions/questions.module';
 import { AnswersModule } from './answers/answers.module';
 import { SessionsModule } from './sessions/sessions.module';
 import { AdminModule } from './admin/admin.module';
-import { AiModule } from './ai/ai.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -21,7 +20,6 @@ import { AppService } from './app.service';
     AnswersModule,
     SessionsModule,
     AdminModule,
-    AiModule,
   ],
   controllers: [AppController],
   providers: [AppService],
