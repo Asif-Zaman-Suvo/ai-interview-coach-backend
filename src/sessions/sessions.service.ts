@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { Session, SessionDocument } from './session.schema';
+
+/** Mongo filters for interviews (DSL values are intentionally loose vs schema typing). */
+type SessionsFindArg = Record<string, any>;
 
 @Injectable()
 export class SessionsService {
@@ -10,12 +13,45 @@ export class SessionsService {
     private readonly sessionModel: Model<SessionDocument>,
   ) {}
 
+  /** Matches both string IDs and accidental ObjectId‑typed userId BSON (legacy docs). */
+  private userIdClause(userIdRaw: string): SessionsFindArg {
+    const id = (userIdRaw ?? '').trim();
+    if (!id) {
+      return { userId: '__no_user__' };
+    }
+    if (/^[a-f0-9]{24}$/i.test(id)) {
+      return {
+        $or: [{ userId: id }, { userId: new Types.ObjectId(id) }],
+      };
+    }
+    return { userId: id };
+  }
+
+  private matchUser(
+    userId: string,
+    extra: SessionsFindArg = {},
+  ): SessionsFindArg {
+    const clause = this.userIdClause(userId);
+    const hasExtra =
+      extra !== null &&
+      typeof extra === 'object' &&
+      Object.keys(extra as object).length > 0;
+
+    if ('$or' in clause && hasExtra) {
+      return { $and: [clause, extra] } as SessionsFindArg;
+    }
+
+    return hasExtra
+      ? ({ ...clause, ...extra } as SessionsFindArg)
+      : clause;
+  }
+
   async findById(id: string): Promise<SessionDocument | null> {
     return this.sessionModel.findById(id).exec();
   }
 
   async countByUser(userId: string): Promise<number> {
-    return this.sessionModel.countDocuments({ userId }).exec();
+    return this.sessionModel.countDocuments(this.matchUser(userId)).exec();
   }
 
   async findByUser(
@@ -24,7 +60,7 @@ export class SessionsService {
     limit = 10,
   ): Promise<SessionDocument[]> {
     return this.sessionModel
-      .find({ userId })
+      .find(this.matchUser(userId))
       .sort({ createdAt: -1 })
       .skip((page - 1) * limit)
       .limit(limit)
@@ -63,7 +99,7 @@ export class SessionsService {
     limit = 5,
   ): Promise<SessionDocument[]> {
     return this.sessionModel
-      .find({ userId })
+      .find(this.matchUser(userId))
       .sort({ createdAt: -1 })
       .limit(limit)
       .exec();
@@ -74,7 +110,7 @@ export class SessionsService {
     limit = 10,
   ): Promise<SessionDocument[]> {
     return this.sessionModel
-      .find({ userId, status: 'completed' })
+      .find(this.matchUser(userId, { status: 'completed' }))
       .sort({ createdAt: -1 })
       .limit(limit)
       .exec();
@@ -87,7 +123,7 @@ export class SessionsService {
     currentStreak: number;
   }> {
     const sessions = await this.sessionModel
-      .find({ userId, status: 'completed' })
+      .find(this.matchUser(userId, { status: 'completed' }))
       .exec();
 
     const totalSessions = sessions.length;
@@ -130,7 +166,7 @@ export class SessionsService {
 
   private async calculateCurrentStreak(userId: string): Promise<number> {
     const sessions = await this.sessionModel
-      .find({ userId, status: 'completed' })
+      .find(this.matchUser(userId, { status: 'completed' }))
       .sort({ createdAt: -1 })
       .exec();
 

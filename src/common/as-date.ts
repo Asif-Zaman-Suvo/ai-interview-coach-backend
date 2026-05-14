@@ -9,6 +9,15 @@ export function asDate(value: unknown): Date {
   if (
     typeof value === 'object' &&
     value !== null &&
+    '$numberLong' in (value as Record<string, unknown>)
+  ) {
+    const n = Number((value as { $numberLong: string }).$numberLong);
+    const d = new Date(n);
+    return Number.isNaN(d.getTime()) ? new Date() : d;
+  }
+  if (
+    typeof value === 'object' &&
+    value !== null &&
     '$date' in (value as Record<string, unknown>)
   ) {
     return asDate((value as { $date: unknown }).$date);

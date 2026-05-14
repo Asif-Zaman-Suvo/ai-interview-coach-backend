@@ -18,6 +18,17 @@ import { RolesService } from '../roles/roles.service';
 import { AiService } from '../ai/ai.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { asDate } from '../common/as-date';
+import type { SessionDocument } from './session.schema';
+import {
+  buildRoleNameMap,
+  summarizeSessionForListRow,
+  uniqueRoleIdsFromSessions,
+} from './sessions-list.mapper';
+
+function canonicalUserId(value: unknown): string {
+  if (value === null || value === undefined) return '';
+  return String(value);
+}
 
 interface AuthenticatedRequest extends Request {
   user: {
@@ -38,6 +49,26 @@ export class SessionsController {
     private readonly aiService: AiService,
   ) {}
 
+  private async resolveRoleLabels(
+    sessions: SessionDocument[],
+  ): Promise<Map<string, string>> {
+    const rolesList = await this.rolesService.findAll();
+    const roleNames = buildRoleNameMap(rolesList);
+    const missing = uniqueRoleIdsFromSessions(sessions).filter(
+      (id) => !roleNames.has(id),
+    );
+    if (missing.length > 0) {
+      const docs = await Promise.all(
+        missing.map((id) => this.rolesService.findById(id)),
+      );
+      missing.forEach((id, i) => {
+        const doc = docs[i];
+        roleNames.set(id, doc?.name?.trim() ? doc.name.trim() : 'Unknown');
+      });
+    }
+    return roleNames;
+  }
+
   @Get('difficulties')
   getDifficulties() {
     return ['Easy', 'Medium', 'Hard'];
@@ -45,7 +76,9 @@ export class SessionsController {
 
   @Get('me/stats')
   async getUserStats(@Req() req: AuthenticatedRequest) {
-    const stats = await this.sessionsService.getUserStats(req.user.id);
+    const stats = await this.sessionsService.getUserStats(
+      canonicalUserId(req.user.id),
+    );
     if (!stats.bestRole) {
       return stats;
     }
@@ -58,29 +91,30 @@ export class SessionsController {
 
   @Get('recent')
   async getRecentSessions(@Req() req: AuthenticatedRequest) {
-    const sessions = await this.sessionsService.getRecentSessions(req.user.id);
-    const roles = await this.rolesService.findAll();
+    const sessions = await this.sessionsService.getRecentSessions(
+      canonicalUserId(req.user.id),
+    );
+    const labels = await this.resolveRoleLabels(sessions);
 
     return sessions.map((session) => {
-      const role = roles.find((r) => String(r._id) === session.roleId);
-      const createdAt = asDate(session.createdAt as unknown);
+      const row = summarizeSessionForListRow(session, labels);
       return {
-        id: String(session._id),
-        role: role ? role.name : 'Unknown',
-        date: createdAt,
-        duration: Math.floor(
-          (new Date().getTime() - createdAt.getTime()) / (1000 * 60),
-        ),
-        score: session.score,
+        id: row.id,
+        role: row.role,
+        date: row.date,
+        duration: row.duration,
+        score: row.score,
       };
     });
   }
 
   @Get('score-trend')
   async getScoreTrend(@Req() req: AuthenticatedRequest) {
-    const sessions = await this.sessionsService.getScoreTrend(req.user.id);
+    const sessions = await this.sessionsService.getScoreTrend(
+      canonicalUserId(req.user.id),
+    );
     return sessions.map((session) => ({
-      date: asDate(session.createdAt as unknown),
+      date: asDate(session.createdAt as unknown).toISOString(),
       score: session.score,
     }));
   }
@@ -91,31 +125,20 @@ export class SessionsController {
     @Query('page') page = 1,
     @Query('limit') limit = 10,
   ) {
-    const pageNum = Number(page);
-    const limitNum = Number(limit);
+    const pageNum = Math.max(1, Math.min(10_000, Number(page) || 1));
+    const limitNum = Math.max(1, Math.min(100, Number(limit) || 10));
+
+    const userId = canonicalUserId(req.user.id);
 
     const [sessions, total] = await Promise.all([
-      this.sessionsService.findByUser(req.user.id, pageNum, limitNum),
-      this.sessionsService.countByUser(req.user.id),
+      this.sessionsService.findByUser(userId, pageNum, limitNum),
+      this.sessionsService.countByUser(userId),
     ]);
 
-    const roles = await this.rolesService.findAll();
-
-    const items = sessions.map((session) => {
-      const role = roles.find((r) => String(r._id) === session.roleId);
-      const createdAt = asDate(session.createdAt as unknown);
-      return {
-        id: String(session._id),
-        role: role?.name ?? 'Unknown',
-        date: createdAt,
-        duration: Math.floor(
-          (Date.now() - createdAt.getTime()) / (1000 * 60),
-        ),
-        score: session.score,
-        status: session.status === 'completed' ? 'completed' : 'in_progress',
-        difficulty: session.difficulty,
-      };
-    });
+    const labels = await this.resolveRoleLabels(sessions);
+    const items = sessions.map((session) =>
+      summarizeSessionForListRow(session, labels),
+    );
 
     const totalPages = Math.max(1, Math.ceil(total / limitNum) || 1);
 
@@ -135,7 +158,7 @@ export class SessionsController {
       throw new NotFoundException('Session not found');
     }
 
-    if (session.userId !== req.user.id) {
+    if (canonicalUserId(session.userId) !== canonicalUserId(req.user.id)) {
       throw new ForbiddenException('Unauthorized');
     }
 
@@ -231,7 +254,7 @@ export class SessionsController {
 
     // Create session
     const session = await this.sessionsService.create({
-      userId: req.user.id,
+      userId: canonicalUserId(req.user.id),
       roleId: body.roleId,
       difficulty: body.difficulty,
     });
@@ -279,7 +302,7 @@ export class SessionsController {
       return { message: 'Session not found' };
     }
 
-    if (session.userId !== req.user.id) {
+    if (canonicalUserId(session.userId) !== canonicalUserId(req.user.id)) {
       return { message: 'Unauthorized' };
     }
 
@@ -343,7 +366,7 @@ export class SessionsController {
       return { message: 'Session not found' };
     }
 
-    if (session.userId !== req.user.id) {
+    if (canonicalUserId(session.userId) !== canonicalUserId(req.user.id)) {
       return { message: 'Unauthorized' };
     }
 
@@ -387,7 +410,7 @@ export class SessionsController {
       return { message: 'Session not found' };
     }
 
-    if (session.userId !== req.user.id) {
+    if (canonicalUserId(session.userId) !== canonicalUserId(req.user.id)) {
       return { message: 'Unauthorized' };
     }
 
