@@ -1,6 +1,8 @@
 # AI Interview Coach — Backend
 
-NestJS API for an interview practice product: **authenticated users** run **timed role/difficulty sessions** using a **MongoDB question bank**, submit answers, and receive **rule-based scoring and feedback** (no external LLM required). **Administrators** manage roles, users, and the question bank.
+NestJS API for an interview practice product: **authenticated users** run role/difficulty **sessions** backed by a **MongoDB question bank**, submit answers, and receive **rule-based scoring, feedback, and session summaries** (no external LLM required). **Administrators** manage roles, users, and the question bank.
+
+**Marketing / growth:** anonymous **landing dashboard preview** aggregates (completed-session stats + recent rows, no user IDs) and a **testimonials** API (public list + per-user upsert).
 
 ## Stack
 
@@ -27,7 +29,7 @@ npm run start:dev
 
 - **API base:** `http://localhost:<PORT>/api` (default port **3333**)
 - **Health:** `GET /health` (no `/api` prefix — see [Routing](#routing))
-- **Better Auth:** mounted at `/api/auth/*` (see Better Auth docs for sign-in, session cookies, etc.)
+- **Better Auth:** mounted at `/api/auth/*` (sign-in, session cookies, etc.)
 
 ### Initial data
 
@@ -90,60 +92,84 @@ CORS allows `FRONTEND_URL` with **`credentials: true`** (cookie-based sessions).
 
 ## API overview
 
-All application JSON APIs under `/api` expect an authenticated session (Better Auth cookie / headers as configured) unless noted.
+Routes under `/api` use the global prefix unless [noted above](#routing). **`@AllowAnonymous()`** endpoints still live under `/api/...` but skip the auth guard.
 
-**Sessions**
+### Public (anonymous)
 
-- `GET /api/sessions/difficulties` — `Easy` | `Medium` | `Hard`
-- `GET /api/sessions` — paginated list
-- `GET /api/sessions/:id` — session detail (questions, answers, feedback, duration)
-- `POST /api/sessions/start` — body: `roleId`, `difficulty`; samples up to **5** questions from the **bank**
-- `POST /api/sessions/:id/answer` — body: `questionId`, `transcript`
-- `POST /api/sessions/:id/complete` — finalize score and summary fields on the session
-- `DELETE /api/sessions/:id`
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/api/testimonials/public` | Published testimonials; optional query `limit` (default 12) |
+| `GET` | `/api/marketing/dashboard-preview` | Landing-page safe stats: totals + recent completed sessions (no user ids); optional `recentLimit` (1–10, default 3) |
 
-**Roles (catalog)**
+### Sessions (authenticated)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/api/sessions/difficulties` | `Easy` \| `Medium` \| `Hard` |
+| `GET` | `/api/sessions/me/stats` | User stats (e.g. best role, aggregates) |
+| `GET` | `/api/sessions/recent` | Recent sessions with duration/score for lists |
+| `GET` | `/api/sessions/score-trend` | Points for charts |
+| `GET` | `/api/sessions` | Paginated history (`page`, `limit`) |
+| `GET` | `/api/sessions/:id` | Full detail: questions, answers, feedback, **`duration`**, timestamps |
+| `POST` | `/api/sessions/start` | Body: `roleId`, `difficulty`; optional `resumeText` (ignored for bank sampling). Up to **5** bank questions; uses `scheduledBankQuestionIds` |
+| `POST` | `/api/sessions/:id/answer` | Body: `questionId`, `transcript` |
+| `POST` | `/api/sessions/:id/complete` | Computes final score + **rule-based** summary/`topImprovements` |
+| `DELETE` | `/api/sessions/:id` | Deletes session and related answers/questions copies where applicable |
+
+When the question bank has no items for the selected role and difficulty, `POST /api/sessions/start` returns **400** with `message`, `code: QUESTION_BANK_EMPTY`, `roleId`, and `difficulty`.
+
+### Testimonials (authenticated, except public list)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/api/testimonials/me` | Current user’s testimonial (or `null`) |
+| `POST` | `/api/testimonials` | Create/update testimonial for the current user (validated DTO) |
+
+Published rows are served from `GET /api/testimonials/public` (see [marketing](#public-anonymous)).
+
+### Roles (catalog)
 
 - `GET /api/roles` — list job roles for the UI
 
-**Auth (custom + Better Auth)**
+### Auth (custom + Better Auth)
 
-- `POST /auth/register` — app registration DTO (see `SignUpDto`)
-- `GET /auth/me` — session + merged `user_profiles` **role** (`user` | `admin`)
+- `POST /auth/register` — app registration DTO (`SignUpDto`, strong password policy)
+- `GET /auth/me` — session + merged `user_profiles` **role** (`user` \| `admin`)
 
-Better Auth core routes (sign-in, sign-out, etc.) remain under **`/api/auth/*`**.
+Better Auth core routes (sign-in, sign-out, etc.): **`/api/auth/*`**.
 
-**Admin** (`AuthGuard` + `AdminGuard`)
+### Admin (`AuthGuard` + `AdminGuard`)
 
 - `GET /api/admin/stats`, `GET /api/admin/users`, `PUT /api/admin/users/:id/role`, `DELETE /api/admin/users/:id`
 - Question bank: `GET/POST/PUT/DELETE /api/admin/questions/...`, `GET /api/admin/questions/bank`
 - Roles: `POST/PUT/DELETE /api/admin/roles/...`
 
-When the question bank has no items for the selected role and difficulty, `POST /api/sessions/start` returns **400** with `message`, `code: QUESTION_BANK_EMPTY`, `roleId`, and `difficulty` for display in the client.
-
 ## Data model (high level)
 
-- **Better Auth** — `user`, `session`, `account`, `verification` (Mongo collections; exact names depend on adapter config)
-- **`user_profiles`** — app profile + **`role`** (`user` | `admin`), keyed by email; merged in `/auth/me`
+- **Better Auth** — `user`, `session`, `account`, `verification` (Mongo collections; names depend on adapter config)
+- **`user_profiles`** — app profile + **`role`** (`user` \| `admin`), keyed by email; merged in `/auth/me`
 - **`roles`** — job roles (name, icon, description)
 - **Question bank** — reusable questions with `roleId`, difficulty, type, ideal answer
-- **`sessions`** — user attempts; bank-backed sessions store `scheduledBankQuestionIds`
+- **`sessions`** — user attempts; bank-backed sessions store **`scheduledBankQuestionIds`** (references bank ids; avoids duplicating bank docs in `questions` per session where this path is used)
 - **`answers`** — per-question transcript, score, feedback, strengths, improvements
+- **`testimonials`** — one doc per user (`userId` unique): rating, quote, author fields, **`published`** flag for public list
 
 ## Project layout
 
 ```
 src/
-  auth/           # Better Auth factory, guards, register, /auth/me
-  admin/          # Admin HTTP API
-  sessions/       # Sessions, interview evaluation (rule-based)
-  questions/      # Bank + session-linked question access
+  auth/             # Better Auth factory, guards, register, /auth/me
+  admin/            # Admin HTTP API
+  marketing/        # Public landing dashboard preview
+  testimonials/     # Public list + authenticated CRUD for user’s testimonial
+  sessions/         # Sessions, list mappers, interview evaluation (rule-based)
+  questions/        # Bank + session-linked question access
   answers/
   roles/
-  users/          # user_profiles (Mongoose)
-  database/       # Mongo connection config
-  common/         # validation, pipes, utilities
-  seeds/          # roles.seed, admin.seed
+  users/            # user_profiles (Mongoose)
+  database/         # Mongo connection config
+  common/           # validation, pipes, utilities
+  seeds/            # roles.seed, admin.seed
 ```
 
 ## Security notes
@@ -151,10 +177,11 @@ src/
 - Keep `BETTER_AUTH_SECRET` long and random; rotate if compromised.
 - Use HTTPS in production; tighten `FRONTEND_URL` / `BETTER_AUTH_URL` to real origins.
 - Admin routes require `user_profiles.role === 'admin'`.
+- Marketing and public testimonial endpoints are aggregated / redacted for anonymous use; do not expose raw user identifiers there.
 
 ## More documentation
 
-For a longer walkthrough and endpoint notes, see **`SETUP_GUIDE.md`** in this repo.
+For step-by-step setup and extra endpoint examples, see **`SETUP_GUIDE.md`**.
 
 ## License
 
