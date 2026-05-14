@@ -147,10 +147,11 @@ export class SessionsController {
     const updatedAt = session.updatedAt
       ? asDate(session.updatedAt as unknown)
       : createdAt;
-    const durationSeconds = Math.max(
-      0,
-      Math.floor((updatedAt.getTime() - createdAt.getTime()) / 1000),
-    );
+    const deltaMs = updatedAt.getTime() - createdAt.getTime();
+    const durationSeconds =
+      Number.isFinite(deltaMs) && deltaMs > 0
+        ? Math.floor(deltaMs / 1000)
+        : 0;
 
     const mapCategory = (
       qt: string,
