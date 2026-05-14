@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import type { Model } from 'mongoose';
 import type { UserRole } from './user-role';
+import { normalizeUserPlan, type UserPlan } from './user-plan';
 import type { UserDocument } from './user.schema';
 import { User } from './user.schema';
 
@@ -30,6 +31,20 @@ export class UsersService {
     return this.userModel.findOne({ email: email.toLowerCase() }).exec();
   }
 
+  async getPlanForEmail(email: string): Promise<UserPlan> {
+    const doc = await this.findByEmail(email);
+    return normalizeUserPlan(doc?.plan as string | undefined);
+  }
+
+  updatePlanByProfileId(
+    profileId: string,
+    plan: UserPlan,
+  ): Promise<UserDocument | null> {
+    return this.userModel
+      .findByIdAndUpdate(profileId, { plan }, { new: true })
+      .exec();
+  }
+
   async update(id: string, patch: Partial<Pick<User, 'email' | 'name'>>) {
     return this.userModel.findByIdAndUpdate(id, patch, { new: true }).exec();
   }
@@ -39,7 +54,7 @@ export class UsersService {
     return this.userModel
       .findOneAndUpdate(
         { email },
-        { $setOnInsert: { email, name: params.name } },
+        { $setOnInsert: { email, name: params.name, plan: 'free' as const } },
         { upsert: true, new: true },
       )
       .exec();

@@ -7,6 +7,7 @@ import { Session, SessionSchema } from './session.schema';
 import { QuestionsModule } from '../questions/questions.module';
 import { AnswersModule } from '../answers/answers.module';
 import { RolesModule } from '../roles/roles.module';
+import { UsersModule } from '../users/users.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { RolesModule } from '../roles/roles.module';
     QuestionsModule,
     AnswersModule,
     RolesModule,
+    UsersModule,
   ],
   controllers: [SessionsController],
   providers: [SessionsService, InterviewEvaluationService],

@@ -57,6 +57,14 @@ export class AdminController {
     return this.adminService.updateUserRole(id, body.role);
   }
 
+  @Put('users/:id/plan')
+  async updateUserPlan(
+    @Param('id') id: string,
+    @Body() body: { plan: 'free' | 'pack_10' | 'pack_30' },
+  ) {
+    return this.adminService.updateUserPlan(id, body.plan);
+  }
+
   @Delete('users/:id')
   async deleteUser(
     @Param('id') id: string,

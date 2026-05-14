@@ -6,6 +6,8 @@ import { Session, SessionDocument } from '../sessions/session.schema';
 import { RolesService } from '../roles/roles.service';
 import { QuestionsService } from '../questions/questions.service';
 import { UsersService } from '../users/users.service';
+import type { UserPlan } from '../users/user-plan';
+import { normalizeUserPlan } from '../users/user-plan';
 import { PRIMARY_QUESTION_BANK_SESSION_ID } from '../questions/question-bank.constants';
 
 /** Better Auth Mongo adapter default (`usePlural: false`). */
@@ -68,6 +70,7 @@ export class AdminService {
       email: string;
       name?: string;
       role: User['role'];
+      plan: UserPlan;
       createdAt?: Date;
       sessionsCount: number;
     }[]
@@ -121,6 +124,7 @@ export class AdminService {
         email: u.email,
         name: u.name,
         role: u.role,
+        plan: normalizeUserPlan(u.plan as string | undefined),
         createdAt: u.createdAt,
         sessionsCount,
       };
@@ -187,6 +191,14 @@ export class AdminService {
     return this.userModel
       .findByIdAndUpdate(userId, { role }, { new: true })
       .exec();
+  }
+
+  async updateUserPlan(profileId: string, plan: UserPlan): Promise<User | null> {
+    const allowed: UserPlan[] = ['free', 'pack_10', 'pack_30'];
+    if (!allowed.includes(plan)) {
+      throw new BadRequestException('plan must be free, pack_10, or pack_30');
+    }
+    return this.usersService.updatePlanByProfileId(profileId, plan);
   }
 
   async deleteUser(

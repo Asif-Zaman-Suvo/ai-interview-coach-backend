@@ -11,6 +11,7 @@ import { SessionsService } from '../sessions/sessions.service';
 import { TestimonialsService } from '../testimonials/testimonials.service';
 import { UsersService } from '../users/users.service';
 import type { UserDocument } from '../users/user.schema';
+import { normalizeUserPlan } from '../users/user-plan';
 import type { UpdateSettingsDto } from './dto/update-settings.dto';
 
 @Injectable()
@@ -33,6 +34,7 @@ export class SettingsService {
     return {
       email,
       name: doc?.name ?? '',
+      plan: normalizeUserPlan(doc?.plan as string | undefined),
       weeklyDigest: doc?.weeklyDigest ?? true,
       sessionReminders: doc?.sessionReminders ?? false,
       productTips: doc?.productTips ?? true,

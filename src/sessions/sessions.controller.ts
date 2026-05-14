@@ -26,6 +26,8 @@ import {
   summarizeSessionForListRow,
   uniqueRoleIdsFromSessions,
 } from './sessions-list.mapper';
+import { UsersService } from '../users/users.service';
+import { sessionLimitForPlan } from '../common/billing.constants';
 
 function shuffleInPlace<T>(items: T[]): void {
   for (let i = items.length - 1; i > 0; i--) {
@@ -60,6 +62,7 @@ export class SessionsController {
     private readonly answersService: AnswersService,
     private readonly rolesService: RolesService,
     private readonly interviewEvaluation: InterviewEvaluationService,
+    private readonly usersService: UsersService,
   ) {}
 
   /** Bank-backed sessions use `scheduledBankQuestionIds`; legacy sessions use per-session Question copies. */
@@ -142,6 +145,23 @@ export class SessionsController {
       date: asDate(session.createdAt as unknown).toISOString(),
       score: session.score,
     }));
+  }
+
+  @Get('quota')
+  async getSessionQuota(@Req() req: AuthenticatedRequest) {
+    const userId = canonicalUserId(req.user.id);
+    const email = (req.user.email ?? '').trim().toLowerCase();
+    await this.usersService.createProfileIfAbsent({ email });
+    const plan = await this.usersService.getPlanForEmail(email);
+    const sessionsUsed = await this.sessionsService.countByUser(userId);
+    const sessionLimit = sessionLimitForPlan(plan);
+    const canStartNewSession = sessionsUsed < sessionLimit;
+    return {
+      plan,
+      sessionsUsed,
+      sessionLimit,
+      canStartNewSession,
+    };
   }
 
   @Get()
@@ -268,6 +288,21 @@ export class SessionsController {
       return { message: 'Role not found' };
     }
 
+    const userId = canonicalUserId(req.user.id);
+    const email = (req.user.email ?? '').trim().toLowerCase();
+    await this.usersService.createProfileIfAbsent({ email });
+    const plan = await this.usersService.getPlanForEmail(email);
+    const limit = sessionLimitForPlan(plan);
+    const count = await this.sessionsService.countByUser(userId);
+    if (count >= limit) {
+      throw new ForbiddenException({
+        statusCode: 403,
+        error: 'Forbidden',
+        message: `Your plan includes ${limit} interview session${limit === 1 ? '' : 's'}. Purchase a higher pack for more.`,
+        code: 'SESSION_LIMIT_REACHED',
+      });
+    }
+
     const pool = await this.questionsService.findBankByRoleAndDifficulty(
       body.roleId,
       body.difficulty,
@@ -291,7 +326,7 @@ export class SessionsController {
     const picked = pool.slice(0, maxPerSession);
 
     const session = await this.sessionsService.create({
-      userId: canonicalUserId(req.user.id),
+      userId,
       roleId: body.roleId,
       difficulty: body.difficulty,
       scheduledBankQuestionIds: picked.map((q) => String(q._id)),
