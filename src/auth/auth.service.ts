@@ -59,7 +59,7 @@ export class AuthService {
     }
   }
 
-  private toWebHeaders(req: Request): Headers {
+  toWebHeaders(req: Request): Headers {
     const out = new Headers();
     for (const [key, value] of Object.entries(req.headers)) {
       if (value === undefined) continue;

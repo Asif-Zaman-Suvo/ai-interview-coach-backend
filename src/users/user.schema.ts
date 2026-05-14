@@ -15,6 +15,21 @@ export class User {
   @Prop({ type: String, enum: ['user', 'admin'], default: 'user' })
   role!: UserRole;
 
+  @Prop({ default: true })
+  weeklyDigest!: boolean;
+
+  @Prop({ default: false })
+  sessionReminders!: boolean;
+
+  @Prop({ default: true })
+  productTips!: boolean;
+
+  @Prop()
+  interviewDefaultRole?: string;
+
+  @Prop()
+  interviewDefaultDifficulty?: string;
+
   createdAt?: Date;
   updatedAt?: Date;
 }

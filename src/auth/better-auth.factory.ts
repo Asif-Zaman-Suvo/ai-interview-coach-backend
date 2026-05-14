@@ -46,6 +46,11 @@ export async function createBetterAuthRootOptions() {
         },
       },
     },
+    user: {
+      deleteUser: {
+        enabled: true,
+      },
+    },
   });
 
   return {

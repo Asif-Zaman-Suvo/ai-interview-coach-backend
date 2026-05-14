@@ -11,6 +11,10 @@ export class UsersService {
     @InjectModel(User.name) private readonly userModel: Model<UserDocument>,
   ) {}
 
+  get mongoDb() {
+    return this.userModel.db;
+  }
+
   findById(id: string) {
     return this.userModel.findById(id).exec();
   }
@@ -38,6 +42,49 @@ export class UsersService {
         { $setOnInsert: { email, name: params.name } },
         { upsert: true, new: true },
       )
+      .exec();
+  }
+
+  async deleteProfileByEmail(email: string): Promise<void> {
+    await this.userModel.deleteOne({ email: email.toLowerCase() }).exec();
+  }
+
+  async updateSettingsByEmail(
+    email: string,
+    patch: {
+      name?: string;
+      weeklyDigest?: boolean;
+      sessionReminders?: boolean;
+      productTips?: boolean;
+      interviewDefaultRole?: string | null;
+      interviewDefaultDifficulty?: string | null;
+    },
+  ): Promise<UserDocument | null> {
+    const em = email.toLowerCase();
+    const $set: Record<string, unknown> = {};
+    if (patch.name !== undefined) {
+      $set.name = patch.name.trim() || undefined;
+    }
+    if (patch.weeklyDigest !== undefined) {
+      $set.weeklyDigest = patch.weeklyDigest;
+    }
+    if (patch.sessionReminders !== undefined) {
+      $set.sessionReminders = patch.sessionReminders;
+    }
+    if (patch.productTips !== undefined) {
+      $set.productTips = patch.productTips;
+    }
+    if (patch.interviewDefaultRole !== undefined) {
+      const v = patch.interviewDefaultRole?.trim();
+      $set.interviewDefaultRole = v === '' || v == null ? undefined : v;
+    }
+    if (patch.interviewDefaultDifficulty !== undefined) {
+      const v = patch.interviewDefaultDifficulty?.trim();
+      $set.interviewDefaultDifficulty =
+        v === '' || v == null ? undefined : v;
+    }
+    return this.userModel
+      .findOneAndUpdate({ email: em }, { $set }, { new: true })
       .exec();
   }
 }

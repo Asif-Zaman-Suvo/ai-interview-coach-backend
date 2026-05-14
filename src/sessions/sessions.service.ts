@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
+import { AnswersService } from '../answers/answers.service';
+import { QuestionsService } from '../questions/questions.service';
 import { RolesService } from '../roles/roles.service';
 import { Session, SessionDocument } from './session.schema';
 import {
@@ -17,6 +19,8 @@ export class SessionsService {
     @InjectModel(Session.name)
     private readonly sessionModel: Model<SessionDocument>,
     private readonly rolesService: RolesService,
+    private readonly answersService: AnswersService,
+    private readonly questionsService: QuestionsService,
   ) {}
 
   /** Matches both string IDs and accidental ObjectId‑typed userId BSON (legacy docs). */
@@ -270,5 +274,21 @@ export class SessionsService {
       },
       recent,
     };
+  }
+
+  /** Removes all interview sessions, answers, and per-session questions for a Better Auth user id. */
+  async deleteAllInterviewDataForUser(authUserId: string): Promise<void> {
+    const filter = this.matchUser(authUserId);
+    const sessions = await this.sessionModel
+      .find(filter)
+      .select('_id')
+      .lean()
+      .exec();
+    for (const s of sessions) {
+      const id = String(s._id);
+      await this.answersService.deleteBySession(id);
+      await this.questionsService.deleteBySession(id);
+    }
+    await this.sessionModel.deleteMany(filter).exec();
   }
 }

@@ -46,4 +46,10 @@ export class TestimonialsService {
       .exec();
     return doc;
   }
+
+  async deleteByUserId(userId: string): Promise<void> {
+    const id = (userId ?? '').trim();
+    if (!id) return;
+    await this.testimonialModel.deleteOne({ userId: id }).exec();
+  }
 }

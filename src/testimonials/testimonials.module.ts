@@ -12,5 +12,6 @@ import { TestimonialsController } from './testimonials.controller';
   ],
   controllers: [TestimonialsController],
   providers: [TestimonialsService],
+  exports: [TestimonialsService],
 })
 export class TestimonialsModule {}
