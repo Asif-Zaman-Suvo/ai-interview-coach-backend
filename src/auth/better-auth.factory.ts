@@ -31,7 +31,7 @@ export async function createBetterAuthRootOptions() {
     }),
     emailAndPassword: {
       enabled: true,
-      autoSignIn: true,
+      autoSignIn: false,
       minPasswordLength: PASSWORD_MIN_LENGTH,
       maxPasswordLength: PASSWORD_MAX_LENGTH,
       password: {

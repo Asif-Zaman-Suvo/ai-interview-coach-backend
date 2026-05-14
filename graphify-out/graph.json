@@ -9,7 +9,7 @@
       "source_file": "eslint.config.mjs",
       "source_location": "L1",
       "id": "eslint_config_mjs",
-      "community": 20,
+      "community": 23,
       "norm_label": "eslint.config.mjs"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "test/app.e2e-spec.ts",
       "source_location": "L1",
       "id": "test_app_e2e_spec_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "app.e2e-spec.ts"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "src/main.ts",
       "source_location": "L1",
       "id": "src_main_ts",
-      "community": 2,
+      "community": 17,
       "norm_label": "main.ts"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "src/main.ts",
       "source_location": "L7",
       "id": "src_main_bootstrap",
-      "community": 2,
+      "community": 17,
       "norm_label": "bootstrap()"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "src/app.service.ts",
       "source_location": "L1",
       "id": "src_app_service_ts",
-      "community": 2,
+      "community": 14,
       "norm_label": "app.service.ts"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "src/app.service.ts",
       "source_location": "L4",
       "id": "src_app_service_appservice",
-      "community": 2,
+      "community": 14,
       "norm_label": "appservice"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "src/app.service.ts",
       "source_location": "L5",
       "id": "src_app_service_appservice_gethello",
-      "community": 2,
+      "community": 14,
       "norm_label": ".gethello()"
     },
     {
@@ -72,16 +72,16 @@
       "source_file": "src/app.module.ts",
       "source_location": "L1",
       "id": "src_app_module_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "app.module.ts"
     },
     {
       "label": "AppModule",
       "file_type": "code",
       "source_file": "src/app.module.ts",
-      "source_location": "L29",
+      "source_location": "L27",
       "id": "src_app_module_appmodule",
-      "community": 2,
+      "community": 1,
       "norm_label": "appmodule"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "src/app.controller.spec.ts",
       "source_location": "L1",
       "id": "src_app_controller_spec_ts",
-      "community": 2,
+      "community": 14,
       "norm_label": "app.controller.spec.ts"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "src/app.controller.ts",
       "source_location": "L1",
       "id": "src_app_controller_ts",
-      "community": 2,
+      "community": 14,
       "norm_label": "app.controller.ts"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "src/app.controller.ts",
       "source_location": "L7",
       "id": "src_app_controller_appcontroller",
-      "community": 2,
+      "community": 14,
       "norm_label": "appcontroller"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "src/app.controller.ts",
       "source_location": "L8",
       "id": "src_app_controller_appcontroller_constructor",
-      "community": 2,
+      "community": 14,
       "norm_label": ".constructor()"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "src/app.controller.ts",
       "source_location": "L11",
       "id": "src_app_controller_appcontroller_gethello",
-      "community": 2,
+      "community": 14,
       "norm_label": ".gethello()"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "src/app.controller.ts",
       "source_location": "L16",
       "id": "src_app_controller_appcontroller_health",
-      "community": 2,
+      "community": 14,
       "norm_label": ".health()"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "src/database/database.config.ts",
       "source_location": "L1",
       "id": "src_database_database_config_ts",
-      "community": 5,
+      "community": 2,
       "norm_label": "database.config.ts"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "src/database/database.config.ts",
       "source_location": "L3",
       "id": "database_database_config_databaseconfig",
-      "community": 5,
+      "community": 2,
       "norm_label": "databaseconfig"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "src/database/database.config.ts",
       "source_location": "L8",
       "id": "database_database_config_loaddatabaseconfig",
-      "community": 5,
+      "community": 2,
       "norm_label": "loaddatabaseconfig()"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "src/database/database.module.ts",
       "source_location": "L1",
       "id": "src_database_database_module_ts",
-      "community": 5,
+      "community": 2,
       "norm_label": "database.module.ts"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "src/database/database.module.ts",
       "source_location": "L9",
       "id": "database_database_module_cfg",
-      "community": 5,
+      "community": 2,
       "norm_label": "cfg"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "src/database/database.module.ts",
       "source_location": "L18",
       "id": "database_database_module_databasemodule",
-      "community": 5,
+      "community": 2,
       "norm_label": "databasemodule"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "src/answers/answers.module.ts",
       "source_location": "L13",
       "id": "answers_answers_module_answersmodule",
-      "community": 2,
+      "community": 8,
       "norm_label": "answersmodule"
     },
     {
@@ -333,7 +333,7 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L1",
       "id": "src_auth_auth_controller_ts",
-      "community": 3,
+      "community": 6,
       "norm_label": "auth.controller.ts"
     },
     {
@@ -342,7 +342,7 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L12",
       "id": "auth_auth_controller_authcontroller",
-      "community": 3,
+      "community": 6,
       "norm_label": "authcontroller"
     },
     {
@@ -351,7 +351,7 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L13",
       "id": "auth_auth_controller_authcontroller_constructor",
-      "community": 3,
+      "community": 6,
       "norm_label": ".constructor()"
     },
     {
@@ -360,7 +360,7 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L20",
       "id": "auth_auth_controller_authcontroller_register",
-      "community": 3,
+      "community": 6,
       "norm_label": ".register()"
     },
     {
@@ -369,7 +369,7 @@
       "source_file": "src/auth/auth.controller.ts",
       "source_location": "L25",
       "id": "auth_auth_controller_authcontroller_me",
-      "community": 3,
+      "community": 6,
       "norm_label": ".me()"
     },
     {
@@ -378,7 +378,7 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L1",
       "id": "src_auth_auth_service_ts",
-      "community": 3,
+      "community": 6,
       "norm_label": "auth.service.ts"
     },
     {
@@ -387,7 +387,7 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L9",
       "id": "auth_auth_service_authservice",
-      "community": 3,
+      "community": 6,
       "norm_label": "authservice"
     },
     {
@@ -396,7 +396,7 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L10",
       "id": "auth_auth_service_authservice_constructor",
-      "community": 3,
+      "community": 6,
       "norm_label": ".constructor()"
     },
     {
@@ -405,7 +405,7 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L15",
       "id": "auth_auth_service_authservice_api",
-      "community": 3,
+      "community": 6,
       "norm_label": ".api()"
     },
     {
@@ -414,7 +414,7 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L19",
       "id": "auth_auth_service_authservice_instance",
-      "community": 3,
+      "community": 6,
       "norm_label": ".instance()"
     },
     {
@@ -423,7 +423,7 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L23",
       "id": "auth_auth_service_authservice_registerwithemail",
-      "community": 3,
+      "community": 6,
       "norm_label": ".registerwithemail()"
     },
     {
@@ -432,7 +432,7 @@
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L62",
       "id": "auth_auth_service_authservice_towebheaders",
-      "community": 3,
+      "community": 6,
       "norm_label": ".towebheaders()"
     },
     {
@@ -441,7 +441,7 @@
       "source_file": "src/auth/better-auth.config.ts",
       "source_location": "L1",
       "id": "src_auth_better_auth_config_ts",
-      "community": 5,
+      "community": 2,
       "norm_label": "better-auth.config.ts"
     },
     {
@@ -450,7 +450,7 @@
       "source_file": "src/auth/better-auth.config.ts",
       "source_location": "L3",
       "id": "auth_better_auth_config_betterauthenvconfig",
-      "community": 5,
+      "community": 2,
       "norm_label": "betterauthenvconfig"
     },
     {
@@ -459,7 +459,7 @@
       "source_file": "src/auth/better-auth.config.ts",
       "source_location": "L11",
       "id": "auth_better_auth_config_loadbetterauthenvconfig",
-      "community": 5,
+      "community": 2,
       "norm_label": "loadbetterauthenvconfig()"
     },
     {
@@ -468,7 +468,7 @@
       "source_file": "src/auth/better-auth.factory.ts",
       "source_location": "L1",
       "id": "src_auth_better_auth_factory_ts",
-      "community": 5,
+      "community": 2,
       "norm_label": "better-auth.factory.ts"
     },
     {
@@ -477,7 +477,7 @@
       "source_file": "src/auth/better-auth.factory.ts",
       "source_location": "L15",
       "id": "auth_better_auth_factory_createbetterauthrootoptions",
-      "community": 5,
+      "community": 2,
       "norm_label": "createbetterauthrootoptions()"
     },
     {
@@ -486,7 +486,7 @@
       "source_file": "src/auth/auth.guard.ts",
       "source_location": "L1",
       "id": "src_auth_auth_guard_ts",
-      "community": 1,
+      "community": 4,
       "norm_label": "auth.guard.ts"
     },
     {
@@ -495,7 +495,7 @@
       "source_file": "src/auth/session.decorator.ts",
       "source_location": "L1",
       "id": "src_auth_session_decorator_ts",
-      "community": 3,
+      "community": 6,
       "norm_label": "session.decorator.ts"
     },
     {
@@ -504,7 +504,7 @@
       "source_file": "src/auth/auth.types.ts",
       "source_location": "L1",
       "id": "src_auth_auth_types_ts",
-      "community": 3,
+      "community": 6,
       "norm_label": "auth.types.ts"
     },
     {
@@ -513,7 +513,7 @@
       "source_file": "src/auth/auth.types.ts",
       "source_location": "L6",
       "id": "auth_auth_types_authuser",
-      "community": 3,
+      "community": 6,
       "norm_label": "authuser"
     },
     {
@@ -522,7 +522,7 @@
       "source_file": "src/auth/auth.module.ts",
       "source_location": "L1",
       "id": "src_auth_auth_module_ts",
-      "community": 5,
+      "community": 2,
       "norm_label": "auth.module.ts"
     },
     {
@@ -531,7 +531,7 @@
       "source_file": "src/auth/auth.module.ts",
       "source_location": "L20",
       "id": "auth_auth_module_authmodule",
-      "community": 5,
+      "community": 2,
       "norm_label": "authmodule"
     },
     {
@@ -540,7 +540,7 @@
       "source_file": "src/auth/admin.guard.ts",
       "source_location": "L1",
       "id": "src_auth_admin_guard_ts",
-      "community": 1,
+      "community": 4,
       "norm_label": "admin.guard.ts"
     },
     {
@@ -549,7 +549,7 @@
       "source_file": "src/auth/admin.guard.ts",
       "source_location": "L10",
       "id": "auth_admin_guard_adminguard",
-      "community": 1,
+      "community": 4,
       "norm_label": "adminguard"
     },
     {
@@ -558,7 +558,7 @@
       "source_file": "src/auth/admin.guard.ts",
       "source_location": "L11",
       "id": "auth_admin_guard_adminguard_constructor",
-      "community": 1,
+      "community": 4,
       "norm_label": ".constructor()"
     },
     {
@@ -567,7 +567,7 @@
       "source_file": "src/auth/admin.guard.ts",
       "source_location": "L13",
       "id": "auth_admin_guard_adminguard_canactivate",
-      "community": 1,
+      "community": 4,
       "norm_label": ".canactivate()"
     },
     {
@@ -576,7 +576,7 @@
       "source_file": "src/auth/dto/sign-up.dto.ts",
       "source_location": "L1",
       "id": "src_auth_dto_sign_up_dto_ts",
-      "community": 3,
+      "community": 6,
       "norm_label": "sign-up.dto.ts"
     },
     {
@@ -585,7 +585,7 @@
       "source_file": "src/auth/dto/sign-up.dto.ts",
       "source_location": "L14",
       "id": "dto_sign_up_dto_signupdto",
-      "community": 3,
+      "community": 6,
       "norm_label": "signupdto"
     },
     {
@@ -594,7 +594,7 @@
       "source_file": "src/auth/dto/sign-in.dto.ts",
       "source_location": "L1",
       "id": "src_auth_dto_sign_in_dto_ts",
-      "community": 19,
+      "community": 22,
       "norm_label": "sign-in.dto.ts"
     },
     {
@@ -603,7 +603,7 @@
       "source_file": "src/auth/dto/sign-in.dto.ts",
       "source_location": "L7",
       "id": "dto_sign_in_dto_signindto",
-      "community": 19,
+      "community": 22,
       "norm_label": "signindto"
     },
     {
@@ -612,7 +612,7 @@
       "source_file": "src/admin/admin.controller.ts",
       "source_location": "L1",
       "id": "src_admin_admin_controller_ts",
-      "community": 1,
+      "community": 4,
       "norm_label": "admin.controller.ts"
     },
     {
@@ -621,7 +621,7 @@
       "source_file": "src/admin/admin.controller.ts",
       "source_location": "L17",
       "id": "admin_admin_controller_admincontroller",
-      "community": 12,
+      "community": 4,
       "norm_label": "admincontroller"
     },
     {
@@ -630,71 +630,107 @@
       "source_file": "src/admin/admin.controller.ts",
       "source_location": "L18",
       "id": "admin_admin_controller_admincontroller_constructor",
-      "community": 12,
+      "community": 4,
       "norm_label": ".constructor()"
+    },
+    {
+      "label": ".getQuestionBank()",
+      "file_type": "code",
+      "source_file": "src/admin/admin.controller.ts",
+      "source_location": "L21",
+      "id": "admin_admin_controller_admincontroller_getquestionbank",
+      "community": 4,
+      "norm_label": ".getquestionbank()"
     },
     {
       "label": ".getAllUsers()",
       "file_type": "code",
       "source_file": "src/admin/admin.controller.ts",
-      "source_location": "L21",
+      "source_location": "L26",
       "id": "admin_admin_controller_admincontroller_getallusers",
-      "community": 12,
+      "community": 4,
       "norm_label": ".getallusers()"
     },
     {
       "label": ".getStats()",
       "file_type": "code",
       "source_file": "src/admin/admin.controller.ts",
-      "source_location": "L33",
+      "source_location": "L38",
       "id": "admin_admin_controller_admincontroller_getstats",
-      "community": 12,
+      "community": 4,
       "norm_label": ".getstats()"
     },
     {
       "label": ".createQuestion()",
       "file_type": "code",
       "source_file": "src/admin/admin.controller.ts",
-      "source_location": "L38",
+      "source_location": "L43",
       "id": "admin_admin_controller_admincontroller_createquestion",
-      "community": 12,
+      "community": 4,
       "norm_label": ".createquestion()"
     },
     {
       "label": ".updateQuestion()",
       "file_type": "code",
       "source_file": "src/admin/admin.controller.ts",
-      "source_location": "L43",
+      "source_location": "L48",
       "id": "admin_admin_controller_admincontroller_updatequestion",
-      "community": 12,
+      "community": 4,
       "norm_label": ".updatequestion()"
     },
     {
       "label": ".deleteQuestion()",
       "file_type": "code",
       "source_file": "src/admin/admin.controller.ts",
-      "source_location": "L48",
+      "source_location": "L53",
       "id": "admin_admin_controller_admincontroller_deletequestion",
-      "community": 12,
+      "community": 4,
       "norm_label": ".deletequestion()"
     },
     {
       "label": ".updateUserRole()",
       "file_type": "code",
       "source_file": "src/admin/admin.controller.ts",
-      "source_location": "L53",
+      "source_location": "L58",
       "id": "admin_admin_controller_admincontroller_updateuserrole",
-      "community": 12,
+      "community": 4,
       "norm_label": ".updateuserrole()"
     },
     {
       "label": ".deleteUser()",
       "file_type": "code",
       "source_file": "src/admin/admin.controller.ts",
-      "source_location": "L61",
+      "source_location": "L66",
       "id": "admin_admin_controller_admincontroller_deleteuser",
-      "community": 12,
+      "community": 4,
       "norm_label": ".deleteuser()"
+    },
+    {
+      "label": ".createRole()",
+      "file_type": "code",
+      "source_file": "src/admin/admin.controller.ts",
+      "source_location": "L71",
+      "id": "admin_admin_controller_admincontroller_createrole",
+      "community": 4,
+      "norm_label": ".createrole()"
+    },
+    {
+      "label": ".updateRole()",
+      "file_type": "code",
+      "source_file": "src/admin/admin.controller.ts",
+      "source_location": "L84",
+      "id": "admin_admin_controller_admincontroller_updaterole",
+      "community": 4,
+      "norm_label": ".updaterole()"
+    },
+    {
+      "label": ".deleteRole()",
+      "file_type": "code",
+      "source_file": "src/admin/admin.controller.ts",
+      "source_location": "L99",
+      "id": "admin_admin_controller_admincontroller_deleterole",
+      "community": 4,
+      "norm_label": ".deleterole()"
     },
     {
       "label": "admin.module.ts",
@@ -709,7 +745,7 @@
       "label": "AdminModule",
       "file_type": "code",
       "source_file": "src/admin/admin.module.ts",
-      "source_location": "L24",
+      "source_location": "L26",
       "id": "admin_admin_module_adminmodule",
       "community": 1,
       "norm_label": "adminmodule"
@@ -727,82 +763,118 @@
       "label": "AdminService",
       "file_type": "code",
       "source_file": "src/admin/admin.service.ts",
-      "source_location": "L9",
+      "source_location": "L11",
       "id": "admin_admin_service_adminservice",
-      "community": 1,
+      "community": 11,
       "norm_label": "adminservice"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/admin/admin.service.ts",
-      "source_location": "L10",
+      "source_location": "L12",
       "id": "admin_admin_service_adminservice_constructor",
-      "community": 1,
+      "community": 11,
       "norm_label": ".constructor()"
     },
     {
       "label": ".getAllUsers()",
       "file_type": "code",
       "source_file": "src/admin/admin.service.ts",
-      "source_location": "L19",
+      "source_location": "L21",
       "id": "admin_admin_service_adminservice_getallusers",
-      "community": 1,
+      "community": 11,
       "norm_label": ".getallusers()"
     },
     {
       "label": ".getStats()",
       "file_type": "code",
       "source_file": "src/admin/admin.service.ts",
-      "source_location": "L23",
+      "source_location": "L25",
       "id": "admin_admin_service_adminservice_getstats",
-      "community": 1,
+      "community": 11,
       "norm_label": ".getstats()"
     },
     {
       "label": ".updateUserRole()",
       "file_type": "code",
       "source_file": "src/admin/admin.service.ts",
-      "source_location": "L62",
+      "source_location": "L64",
       "id": "admin_admin_service_adminservice_updateuserrole",
-      "community": 1,
+      "community": 11,
       "norm_label": ".updateuserrole()"
     },
     {
       "label": ".deleteUser()",
       "file_type": "code",
       "source_file": "src/admin/admin.service.ts",
-      "source_location": "L71",
+      "source_location": "L73",
       "id": "admin_admin_service_adminservice_deleteuser",
-      "community": 1,
+      "community": 11,
       "norm_label": ".deleteuser()"
+    },
+    {
+      "label": ".getQuestionBank()",
+      "file_type": "code",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L77",
+      "id": "admin_admin_service_adminservice_getquestionbank",
+      "community": 11,
+      "norm_label": ".getquestionbank()"
     },
     {
       "label": ".createQuestion()",
       "file_type": "code",
       "source_file": "src/admin/admin.service.ts",
-      "source_location": "L75",
+      "source_location": "L105",
       "id": "admin_admin_service_adminservice_createquestion",
-      "community": 1,
+      "community": 11,
       "norm_label": ".createquestion()"
     },
     {
       "label": ".updateQuestion()",
       "file_type": "code",
       "source_file": "src/admin/admin.service.ts",
-      "source_location": "L89",
+      "source_location": "L118",
       "id": "admin_admin_service_adminservice_updatequestion",
-      "community": 1,
+      "community": 11,
       "norm_label": ".updatequestion()"
     },
     {
       "label": ".deleteQuestion()",
       "file_type": "code",
       "source_file": "src/admin/admin.service.ts",
-      "source_location": "L103",
+      "source_location": "L130",
       "id": "admin_admin_service_adminservice_deletequestion",
-      "community": 1,
+      "community": 11,
       "norm_label": ".deletequestion()"
+    },
+    {
+      "label": ".createRole()",
+      "file_type": "code",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L134",
+      "id": "admin_admin_service_adminservice_createrole",
+      "community": 11,
+      "norm_label": ".createrole()"
+    },
+    {
+      "label": ".updateRole()",
+      "file_type": "code",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L142",
+      "id": "admin_admin_service_adminservice_updaterole",
+      "community": 11,
+      "norm_label": ".updaterole()"
+    },
+    {
+      "label": ".deleteRole()",
+      "file_type": "code",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L149",
+      "id": "admin_admin_service_adminservice_deleterole",
+      "community": 11,
+      "norm_label": ".deleterole()"
     },
     {
       "label": "roles.controller.ts",
@@ -864,7 +936,7 @@
       "source_file": "src/roles/roles.module.ts",
       "source_location": "L15",
       "id": "roles_roles_module_rolesmodule",
-      "community": 2,
+      "community": 1,
       "norm_label": "rolesmodule"
     },
     {
@@ -981,7 +1053,7 @@
       "source_file": "src/common/as-date.ts",
       "source_location": "L1",
       "id": "src_common_as_date_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "as-date.ts"
     },
     {
@@ -990,7 +1062,7 @@
       "source_file": "src/common/as-date.ts",
       "source_location": "L2",
       "id": "common_as_date_asdate",
-      "community": 4,
+      "community": 3,
       "norm_label": "asdate()"
     },
     {
@@ -999,7 +1071,7 @@
       "source_file": "src/common/env.ts",
       "source_location": "L1",
       "id": "src_common_env_ts",
-      "community": 5,
+      "community": 2,
       "norm_label": "env.ts"
     },
     {
@@ -1008,7 +1080,7 @@
       "source_file": "src/common/env.ts",
       "source_location": "L1",
       "id": "common_env_requireenv",
-      "community": 5,
+      "community": 2,
       "norm_label": "requireenv()"
     },
     {
@@ -1017,7 +1089,7 @@
       "source_file": "src/common/filters/http-exception.filter.ts",
       "source_location": "L1",
       "id": "src_common_filters_http_exception_filter_ts",
-      "community": 16,
+      "community": 19,
       "norm_label": "http-exception.filter.ts"
     },
     {
@@ -1026,7 +1098,7 @@
       "source_file": "src/common/filters/http-exception.filter.ts",
       "source_location": "L11",
       "id": "filters_http_exception_filter_httpexceptionfilter",
-      "community": 16,
+      "community": 19,
       "norm_label": "httpexceptionfilter"
     },
     {
@@ -1035,7 +1107,7 @@
       "source_file": "src/common/filters/http-exception.filter.ts",
       "source_location": "L12",
       "id": "filters_http_exception_filter_httpexceptionfilter_catch",
-      "community": 16,
+      "community": 19,
       "norm_label": ".catch()"
     },
     {
@@ -1044,7 +1116,7 @@
       "source_file": "src/common/interceptors/logging.interceptor.ts",
       "source_location": "L1",
       "id": "src_common_interceptors_logging_interceptor_ts",
-      "community": 17,
+      "community": 20,
       "norm_label": "logging.interceptor.ts"
     },
     {
@@ -1053,7 +1125,7 @@
       "source_file": "src/common/interceptors/logging.interceptor.ts",
       "source_location": "L12",
       "id": "interceptors_logging_interceptor_logginginterceptor",
-      "community": 17,
+      "community": 20,
       "norm_label": "logginginterceptor"
     },
     {
@@ -1062,7 +1134,7 @@
       "source_file": "src/common/interceptors/logging.interceptor.ts",
       "source_location": "L15",
       "id": "interceptors_logging_interceptor_logginginterceptor_intercept",
-      "community": 17,
+      "community": 20,
       "norm_label": ".intercept()"
     },
     {
@@ -1071,7 +1143,7 @@
       "source_file": "src/common/config/env.schema.ts",
       "source_location": "L1",
       "id": "src_common_config_env_schema_ts",
-      "community": 18,
+      "community": 21,
       "norm_label": "env.schema.ts"
     },
     {
@@ -1080,7 +1152,7 @@
       "source_file": "src/common/config/env.schema.ts",
       "source_location": "L5",
       "id": "config_env_schema_appenvkeys",
-      "community": 18,
+      "community": 21,
       "norm_label": "appenvkeys"
     },
     {
@@ -1089,7 +1161,7 @@
       "source_file": "src/common/config/env.schema.ts",
       "source_location": "L15",
       "id": "config_env_schema_appenvkey",
-      "community": 18,
+      "community": 21,
       "norm_label": "appenvkey"
     },
     {
@@ -1098,7 +1170,7 @@
       "source_file": "src/common/pipes/validation.pipe.ts",
       "source_location": "L1",
       "id": "src_common_pipes_validation_pipe_ts",
-      "community": 2,
+      "community": 17,
       "norm_label": "validation.pipe.ts"
     },
     {
@@ -1107,8 +1179,62 @@
       "source_file": "src/common/pipes/validation.pipe.ts",
       "source_location": "L3",
       "id": "pipes_validation_pipe_createappvalidationpipe",
-      "community": 2,
+      "community": 17,
       "norm_label": "createappvalidationpipe()"
+    },
+    {
+      "label": "interview-evaluation.service.ts",
+      "file_type": "code",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L1",
+      "id": "src_sessions_interview_evaluation_service_ts",
+      "community": 3,
+      "norm_label": "interview-evaluation.service.ts"
+    },
+    {
+      "label": "STOPWORDS",
+      "file_type": "code",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L3",
+      "id": "sessions_interview_evaluation_service_stopwords",
+      "community": 3,
+      "norm_label": "stopwords"
+    },
+    {
+      "label": "normalizeWords()",
+      "file_type": "code",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L61",
+      "id": "sessions_interview_evaluation_service_normalizewords",
+      "community": 3,
+      "norm_label": "normalizewords()"
+    },
+    {
+      "label": "InterviewEvaluationService",
+      "file_type": "code",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L71",
+      "id": "sessions_interview_evaluation_service_interviewevaluationservice",
+      "community": 3,
+      "norm_label": "interviewevaluationservice"
+    },
+    {
+      "label": ".evaluateAnswer()",
+      "file_type": "code",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L72",
+      "id": "sessions_interview_evaluation_service_interviewevaluationservice_evaluateanswer",
+      "community": 3,
+      "norm_label": ".evaluateanswer()"
+    },
+    {
+      "label": ".summarizeSession()",
+      "file_type": "code",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L149",
+      "id": "sessions_interview_evaluation_service_interviewevaluationservice_summarizesession",
+      "community": 3,
+      "norm_label": ".summarizesession()"
     },
     {
       "label": "sessions.module.ts",
@@ -1116,16 +1242,16 @@
       "source_file": "src/sessions/sessions.module.ts",
       "source_location": "L1",
       "id": "src_sessions_sessions_module_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "sessions.module.ts"
     },
     {
       "label": "SessionsModule",
       "file_type": "code",
       "source_file": "src/sessions/sessions.module.ts",
-      "source_location": "L23",
+      "source_location": "L22",
       "id": "sessions_sessions_module_sessionsmodule",
-      "community": 2,
+      "community": 1,
       "norm_label": "sessionsmodule"
     },
     {
@@ -1138,102 +1264,138 @@
       "norm_label": "sessions.service.ts"
     },
     {
-      "label": "SessionsService",
+      "label": "SessionsFindArg",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
       "source_location": "L7",
+      "id": "sessions_sessions_service_sessionsfindarg",
+      "community": 1,
+      "norm_label": "sessionsfindarg"
+    },
+    {
+      "label": "SessionsService",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L10",
       "id": "sessions_sessions_service_sessionsservice",
-      "community": 10,
+      "community": 9,
       "norm_label": "sessionsservice"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
-      "source_location": "L8",
+      "source_location": "L11",
       "id": "sessions_sessions_service_sessionsservice_constructor",
-      "community": 10,
+      "community": 9,
       "norm_label": ".constructor()"
+    },
+    {
+      "label": ".userIdClause()",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L17",
+      "id": "sessions_sessions_service_sessionsservice_useridclause",
+      "community": 9,
+      "norm_label": ".useridclause()"
+    },
+    {
+      "label": ".matchUser()",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L30",
+      "id": "sessions_sessions_service_sessionsservice_matchuser",
+      "community": 9,
+      "norm_label": ".matchuser()"
     },
     {
       "label": ".findById()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
-      "source_location": "L13",
+      "source_location": "L49",
       "id": "sessions_sessions_service_sessionsservice_findbyid",
-      "community": 10,
+      "community": 9,
       "norm_label": ".findbyid()"
+    },
+    {
+      "label": ".countByUser()",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L53",
+      "id": "sessions_sessions_service_sessionsservice_countbyuser",
+      "community": 9,
+      "norm_label": ".countbyuser()"
     },
     {
       "label": ".findByUser()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
-      "source_location": "L17",
+      "source_location": "L57",
       "id": "sessions_sessions_service_sessionsservice_findbyuser",
-      "community": 10,
+      "community": 9,
       "norm_label": ".findbyuser()"
     },
     {
       "label": ".create()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
-      "source_location": "L30",
+      "source_location": "L70",
       "id": "sessions_sessions_service_sessionsservice_create",
-      "community": 10,
+      "community": 9,
       "norm_label": ".create()"
     },
     {
       "label": ".update()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
-      "source_location": "L39",
+      "source_location": "L79",
       "id": "sessions_sessions_service_sessionsservice_update",
-      "community": 10,
+      "community": 9,
       "norm_label": ".update()"
     },
     {
       "label": ".delete()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
-      "source_location": "L53",
+      "source_location": "L93",
       "id": "sessions_sessions_service_sessionsservice_delete",
-      "community": 10,
+      "community": 9,
       "norm_label": ".delete()"
     },
     {
       "label": ".getRecentSessions()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
-      "source_location": "L57",
+      "source_location": "L97",
       "id": "sessions_sessions_service_sessionsservice_getrecentsessions",
-      "community": 10,
+      "community": 9,
       "norm_label": ".getrecentsessions()"
     },
     {
       "label": ".getScoreTrend()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
-      "source_location": "L68",
+      "source_location": "L108",
       "id": "sessions_sessions_service_sessionsservice_getscoretrend",
-      "community": 10,
+      "community": 9,
       "norm_label": ".getscoretrend()"
     },
     {
       "label": ".getUserStats()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
-      "source_location": "L79",
+      "source_location": "L119",
       "id": "sessions_sessions_service_sessionsservice_getuserstats",
-      "community": 10,
+      "community": 9,
       "norm_label": ".getuserstats()"
     },
     {
       "label": ".calculateCurrentStreak()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.service.ts",
-      "source_location": "L127",
+      "source_location": "L167",
       "id": "sessions_sessions_service_sessionsservice_calculatecurrentstreak",
-      "community": 10,
+      "community": 9,
       "norm_label": ".calculatecurrentstreak()"
     },
     {
@@ -1242,125 +1404,188 @@
       "source_file": "src/sessions/sessions.controller.ts",
       "source_location": "L1",
       "id": "src_sessions_sessions_controller_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "sessions.controller.ts"
+    },
+    {
+      "label": "shuffleInPlace()",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L29",
+      "id": "sessions_sessions_controller_shuffleinplace",
+      "community": 3,
+      "norm_label": "shuffleinplace()"
+    },
+    {
+      "label": "canonicalUserId()",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L36",
+      "id": "sessions_sessions_controller_canonicaluserid",
+      "community": 3,
+      "norm_label": "canonicaluserid()"
     },
     {
       "label": "AuthenticatedRequest",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L20",
+      "source_location": "L45",
       "id": "sessions_sessions_controller_authenticatedrequest",
-      "community": 4,
+      "community": 3,
       "norm_label": "authenticatedrequest"
     },
     {
       "label": "SessionsController",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L30",
+      "source_location": "L55",
       "id": "sessions_sessions_controller_sessionscontroller",
-      "community": 4,
+      "community": 3,
       "norm_label": "sessionscontroller"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L31",
+      "source_location": "L56",
       "id": "sessions_sessions_controller_sessionscontroller_constructor",
-      "community": 4,
+      "community": 3,
       "norm_label": ".constructor()"
+    },
+    {
+      "label": ".resolveRoleLabels()",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L64",
+      "id": "sessions_sessions_controller_sessionscontroller_resolverolelabels",
+      "community": 3,
+      "norm_label": ".resolverolelabels()"
     },
     {
       "label": ".getDifficulties()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L40",
+      "source_location": "L85",
       "id": "sessions_sessions_controller_sessionscontroller_getdifficulties",
-      "community": 4,
+      "community": 3,
       "norm_label": ".getdifficulties()"
     },
     {
       "label": ".getUserStats()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L45",
+      "source_location": "L90",
       "id": "sessions_sessions_controller_sessionscontroller_getuserstats",
-      "community": 4,
+      "community": 3,
       "norm_label": ".getuserstats()"
     },
     {
       "label": ".getRecentSessions()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L58",
+      "source_location": "L105",
       "id": "sessions_sessions_controller_sessionscontroller_getrecentsessions",
-      "community": 4,
+      "community": 3,
       "norm_label": ".getrecentsessions()"
     },
     {
       "label": ".getScoreTrend()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L78",
+      "source_location": "L124",
       "id": "sessions_sessions_controller_sessionscontroller_getscoretrend",
-      "community": 4,
+      "community": 3,
       "norm_label": ".getscoretrend()"
     },
     {
       "label": ".getSessions()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L87",
+      "source_location": "L135",
       "id": "sessions_sessions_controller_sessionscontroller_getsessions",
-      "community": 4,
+      "community": 3,
       "norm_label": ".getsessions()"
     },
     {
       "label": ".getSession()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L109",
+      "source_location": "L167",
       "id": "sessions_sessions_controller_sessionscontroller_getsession",
-      "community": 4,
+      "community": 3,
       "norm_label": ".getsession()"
     },
     {
       "label": ".startSession()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L144",
+      "source_location": "L242",
       "id": "sessions_sessions_controller_sessionscontroller_startsession",
-      "community": 4,
+      "community": 3,
       "norm_label": ".startsession()"
     },
     {
       "label": ".submitAnswer()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L201",
+      "source_location": "L312",
       "id": "sessions_sessions_controller_sessionscontroller_submitanswer",
-      "community": 4,
+      "community": 3,
       "norm_label": ".submitanswer()"
     },
     {
       "label": ".completeSession()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L270",
+      "source_location": "L380",
       "id": "sessions_sessions_controller_sessionscontroller_completesession",
-      "community": 4,
+      "community": 3,
       "norm_label": ".completesession()"
     },
     {
       "label": ".deleteSession()",
       "file_type": "code",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L314",
+      "source_location": "L423",
       "id": "sessions_sessions_controller_sessionscontroller_deletesession",
-      "community": 4,
+      "community": 3,
       "norm_label": ".deletesession()"
+    },
+    {
+      "label": "sessions-list.mapper.ts",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L1",
+      "id": "src_sessions_sessions_list_mapper_ts",
+      "community": 3,
+      "norm_label": "sessions-list.mapper.ts"
+    },
+    {
+      "label": "buildRoleNameMap()",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L6",
+      "id": "sessions_sessions_list_mapper_buildrolenamemap",
+      "community": 3,
+      "norm_label": "buildrolenamemap()"
+    },
+    {
+      "label": "uniqueRoleIdsFromSessions()",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L16",
+      "id": "sessions_sessions_list_mapper_uniqueroleidsfromsessions",
+      "community": 3,
+      "norm_label": "uniqueroleidsfromsessions()"
+    },
+    {
+      "label": "summarizeSessionForListRow()",
+      "file_type": "code",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L25",
+      "id": "sessions_sessions_list_mapper_summarizesessionforlistrow",
+      "community": 3,
+      "norm_label": "summarizesessionforlistrow()"
     },
     {
       "label": "session.schema.ts",
@@ -1413,7 +1638,7 @@
       "source_file": "src/seeds/roles.seed.ts",
       "source_location": "L1",
       "id": "src_seeds_roles_seed_ts",
-      "community": 15,
+      "community": 18,
       "norm_label": "roles.seed.ts"
     },
     {
@@ -1422,7 +1647,7 @@
       "source_file": "src/seeds/roles.seed.ts",
       "source_location": "L6",
       "id": "seeds_roles_seed_roleschema",
-      "community": 15,
+      "community": 18,
       "norm_label": "roleschema"
     },
     {
@@ -1431,7 +1656,7 @@
       "source_file": "src/seeds/roles.seed.ts",
       "source_location": "L17",
       "id": "seeds_roles_seed_role",
-      "community": 15,
+      "community": 18,
       "norm_label": "role"
     },
     {
@@ -1440,7 +1665,7 @@
       "source_file": "src/seeds/roles.seed.ts",
       "source_location": "L19",
       "id": "seeds_roles_seed_seedroles",
-      "community": 15,
+      "community": 18,
       "norm_label": "seedroles()"
     },
     {
@@ -1449,7 +1674,7 @@
       "source_file": "src/seeds/admin.seed.ts",
       "source_location": "L1",
       "id": "src_seeds_admin_seed_ts",
-      "community": 14,
+      "community": 16,
       "norm_label": "admin.seed.ts"
     },
     {
@@ -1458,7 +1683,7 @@
       "source_file": "src/seeds/admin.seed.ts",
       "source_location": "L6",
       "id": "seeds_admin_seed_escaperegexp",
-      "community": 14,
+      "community": 16,
       "norm_label": "escaperegexp()"
     },
     {
@@ -1467,7 +1692,7 @@
       "source_file": "src/seeds/admin.seed.ts",
       "source_location": "L10",
       "id": "seeds_admin_seed_userschema",
-      "community": 14,
+      "community": 16,
       "norm_label": "userschema"
     },
     {
@@ -1476,7 +1701,7 @@
       "source_file": "src/seeds/admin.seed.ts",
       "source_location": "L22",
       "id": "seeds_admin_seed_user",
-      "community": 14,
+      "community": 16,
       "norm_label": "user"
     },
     {
@@ -1485,215 +1710,8 @@
       "source_file": "src/seeds/admin.seed.ts",
       "source_location": "L28",
       "id": "seeds_admin_seed_seedadmin",
-      "community": 14,
+      "community": 16,
       "norm_label": "seedadmin()"
-    },
-    {
-      "label": "ai.service.ts",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L1",
-      "id": "src_ai_ai_service_ts",
-      "community": 6,
-      "norm_label": "ai.service.ts"
-    },
-    {
-      "label": "GeneratedQuestion",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L8",
-      "id": "ai_ai_service_generatedquestion",
-      "community": 6,
-      "norm_label": "generatedquestion"
-    },
-    {
-      "label": "AnswerEvaluation",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L15",
-      "id": "ai_ai_service_answerevaluation",
-      "community": 6,
-      "norm_label": "answerevaluation"
-    },
-    {
-      "label": "SessionSummary",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L22",
-      "id": "ai_ai_service_sessionsummary",
-      "community": 6,
-      "norm_label": "sessionsummary"
-    },
-    {
-      "label": "errMessage()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L27",
-      "id": "ai_ai_service_errmessage",
-      "community": 6,
-      "norm_label": "errmessage()"
-    },
-    {
-      "label": "isQuotaOrRateLimitError()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L31",
-      "id": "ai_ai_service_isquotaorratelimiterror",
-      "community": 6,
-      "norm_label": "isquotaorratelimiterror()"
-    },
-    {
-      "label": "stripJsonFences()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L38",
-      "id": "ai_ai_service_stripjsonfences",
-      "community": 6,
-      "norm_label": "stripjsonfences()"
-    },
-    {
-      "label": "asStringArray()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L42",
-      "id": "ai_ai_service_asstringarray",
-      "community": 6,
-      "norm_label": "asstringarray()"
-    },
-    {
-      "label": "parseQuestionsPayload()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L47",
-      "id": "ai_ai_service_parsequestionspayload",
-      "community": 6,
-      "norm_label": "parsequestionspayload()"
-    },
-    {
-      "label": "parseOneGeneratedQuestion()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L59",
-      "id": "ai_ai_service_parseonegeneratedquestion",
-      "community": 6,
-      "norm_label": "parseonegeneratedquestion()"
-    },
-    {
-      "label": "parseEvaluationPayload()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L77",
-      "id": "ai_ai_service_parseevaluationpayload",
-      "community": 6,
-      "norm_label": "parseevaluationpayload()"
-    },
-    {
-      "label": "parseSummaryPayload()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L96",
-      "id": "ai_ai_service_parsesummarypayload",
-      "community": 6,
-      "norm_label": "parsesummarypayload()"
-    },
-    {
-      "label": "AiService",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L111",
-      "id": "ai_ai_service_aiservice",
-      "community": 6,
-      "norm_label": "aiservice"
-    },
-    {
-      "label": ".constructor()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L116",
-      "id": "ai_ai_service_aiservice_constructor",
-      "community": 6,
-      "norm_label": ".constructor()"
-    },
-    {
-      "label": ".retryWithBackoff()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L138",
-      "id": "ai_ai_service_aiservice_retrywithbackoff",
-      "community": 6,
-      "norm_label": ".retrywithbackoff()"
-    },
-    {
-      "label": ".generateQuestions()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L166",
-      "id": "ai_ai_service_aiservice_generatequestions",
-      "community": 6,
-      "norm_label": ".generatequestions()"
-    },
-    {
-      "label": ".evaluateAnswer()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L212",
-      "id": "ai_ai_service_aiservice_evaluateanswer",
-      "community": 6,
-      "norm_label": ".evaluateanswer()"
-    },
-    {
-      "label": ".generateSessionSummary()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L258",
-      "id": "ai_ai_service_aiservice_generatesessionsummary",
-      "community": 6,
-      "norm_label": ".generatesessionsummary()"
-    },
-    {
-      "label": ".getMockQuestions()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L302",
-      "id": "ai_ai_service_aiservice_getmockquestions",
-      "community": 6,
-      "norm_label": ".getmockquestions()"
-    },
-    {
-      "label": ".getMockEvaluation()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L415",
-      "id": "ai_ai_service_aiservice_getmockevaluation",
-      "community": 6,
-      "norm_label": ".getmockevaluation()"
-    },
-    {
-      "label": ".getMockSummary()",
-      "file_type": "code",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L435",
-      "id": "ai_ai_service_aiservice_getmocksummary",
-      "community": 6,
-      "norm_label": ".getmocksummary()"
-    },
-    {
-      "label": "ai.module.ts",
-      "file_type": "code",
-      "source_file": "src/ai/ai.module.ts",
-      "source_location": "L1",
-      "id": "src_ai_ai_module_ts",
-      "community": 2,
-      "norm_label": "ai.module.ts"
-    },
-    {
-      "label": "AiModule",
-      "file_type": "code",
-      "source_file": "src/ai/ai.module.ts",
-      "source_location": "L8",
-      "id": "ai_ai_module_aimodule",
-      "community": 2,
-      "norm_label": "aimodule"
     },
     {
       "label": "user.schema.ts",
@@ -1701,7 +1719,7 @@
       "source_file": "src/users/user.schema.ts",
       "source_location": "L1",
       "id": "src_users_user_schema_ts",
-      "community": 3,
+      "community": 1,
       "norm_label": "user.schema.ts"
     },
     {
@@ -1719,7 +1737,7 @@
       "source_file": "src/users/user.schema.ts",
       "source_location": "L24",
       "id": "users_user_schema_userdocument",
-      "community": 3,
+      "community": 1,
       "norm_label": "userdocument"
     },
     {
@@ -1737,7 +1755,7 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L1",
       "id": "src_users_users_service_ts",
-      "community": 3,
+      "community": 1,
       "norm_label": "users.service.ts"
     },
     {
@@ -1746,7 +1764,7 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L9",
       "id": "users_users_service_usersservice",
-      "community": 3,
+      "community": 4,
       "norm_label": "usersservice"
     },
     {
@@ -1755,7 +1773,7 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L10",
       "id": "users_users_service_usersservice_constructor",
-      "community": 3,
+      "community": 4,
       "norm_label": ".constructor()"
     },
     {
@@ -1764,7 +1782,7 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L14",
       "id": "users_users_service_usersservice_findbyid",
-      "community": 3,
+      "community": 4,
       "norm_label": ".findbyid()"
     },
     {
@@ -1773,7 +1791,7 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L18",
       "id": "users_users_service_usersservice_getroleforemail",
-      "community": 3,
+      "community": 4,
       "norm_label": ".getroleforemail()"
     },
     {
@@ -1782,7 +1800,7 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L25",
       "id": "users_users_service_usersservice_findbyemail",
-      "community": 3,
+      "community": 4,
       "norm_label": ".findbyemail()"
     },
     {
@@ -1791,7 +1809,7 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L29",
       "id": "users_users_service_usersservice_update",
-      "community": 3,
+      "community": 4,
       "norm_label": ".update()"
     },
     {
@@ -1800,7 +1818,7 @@
       "source_file": "src/users/users.service.ts",
       "source_location": "L33",
       "id": "users_users_service_usersservice_createprofileifabsent",
-      "community": 3,
+      "community": 4,
       "norm_label": ".createprofileifabsent()"
     },
     {
@@ -1827,7 +1845,7 @@
       "source_file": "src/users/user-role.ts",
       "source_location": "L1",
       "id": "src_users_user_role_ts",
-      "community": 3,
+      "community": 1,
       "norm_label": "user-role.ts"
     },
     {
@@ -1836,8 +1854,26 @@
       "source_file": "src/users/user-role.ts",
       "source_location": "L1",
       "id": "users_user_role_userrole",
-      "community": 3,
+      "community": 1,
       "norm_label": "userrole"
+    },
+    {
+      "label": "question-bank.constants.ts",
+      "file_type": "code",
+      "source_file": "src/questions/question-bank.constants.ts",
+      "source_location": "L1",
+      "id": "src_questions_question_bank_constants_ts",
+      "community": 1,
+      "norm_label": "question-bank.constants.ts"
+    },
+    {
+      "label": "QUESTION_BANK_SESSION_IDS",
+      "file_type": "code",
+      "source_file": "src/questions/question-bank.constants.ts",
+      "source_location": "L3",
+      "id": "questions_question_bank_constants_question_bank_session_ids",
+      "community": 1,
+      "norm_label": "question_bank_session_ids"
     },
     {
       "label": "question.schema.ts",
@@ -1899,7 +1935,7 @@
       "source_file": "src/questions/questions.module.ts",
       "source_location": "L1",
       "id": "src_questions_questions_module_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "questions.module.ts"
     },
     {
@@ -1908,7 +1944,7 @@
       "source_file": "src/questions/questions.module.ts",
       "source_location": "L15",
       "id": "questions_questions_module_questionsmodule",
-      "community": 2,
+      "community": 1,
       "norm_label": "questionsmodule"
     },
     {
@@ -1924,82 +1960,109 @@
       "label": "QuestionsService",
       "file_type": "code",
       "source_file": "src/questions/questions.service.ts",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "questions_questions_service_questionsservice",
-      "community": 4,
+      "community": 12,
       "norm_label": "questionsservice"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/questions/questions.service.ts",
-      "source_location": "L8",
+      "source_location": "L9",
       "id": "questions_questions_service_questionsservice_constructor",
-      "community": 4,
+      "community": 12,
       "norm_label": ".constructor()"
     },
     {
       "label": ".findBySession()",
       "file_type": "code",
       "source_file": "src/questions/questions.service.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "questions_questions_service_questionsservice_findbysession",
-      "community": 4,
+      "community": 12,
       "norm_label": ".findbysession()"
     },
     {
       "label": ".findById()",
       "file_type": "code",
       "source_file": "src/questions/questions.service.ts",
-      "source_location": "L17",
+      "source_location": "L18",
       "id": "questions_questions_service_questionsservice_findbyid",
-      "community": 4,
+      "community": 12,
       "norm_label": ".findbyid()"
     },
     {
       "label": ".create()",
       "file_type": "code",
       "source_file": "src/questions/questions.service.ts",
-      "source_location": "L21",
+      "source_location": "L22",
       "id": "questions_questions_service_questionsservice_create",
-      "community": 4,
+      "community": 12,
       "norm_label": ".create()"
     },
     {
       "label": ".createMany()",
       "file_type": "code",
       "source_file": "src/questions/questions.service.ts",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "questions_questions_service_questionsservice_createmany",
-      "community": 4,
+      "community": 12,
       "norm_label": ".createmany()"
     },
     {
       "label": ".update()",
       "file_type": "code",
       "source_file": "src/questions/questions.service.ts",
-      "source_location": "L37",
+      "source_location": "L38",
       "id": "questions_questions_service_questionsservice_update",
-      "community": 4,
+      "community": 12,
       "norm_label": ".update()"
     },
     {
       "label": ".delete()",
       "file_type": "code",
       "source_file": "src/questions/questions.service.ts",
-      "source_location": "L51",
+      "source_location": "L52",
       "id": "questions_questions_service_questionsservice_delete",
-      "community": 4,
+      "community": 12,
       "norm_label": ".delete()"
     },
     {
       "label": ".deleteBySession()",
       "file_type": "code",
       "source_file": "src/questions/questions.service.ts",
-      "source_location": "L55",
+      "source_location": "L56",
       "id": "questions_questions_service_questionsservice_deletebysession",
-      "community": 4,
+      "community": 12,
       "norm_label": ".deletebysession()"
+    },
+    {
+      "label": ".bankFilter()",
+      "file_type": "code",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L60",
+      "id": "questions_questions_service_questionsservice_bankfilter",
+      "community": 12,
+      "norm_label": ".bankfilter()"
+    },
+    {
+      "label": ".findBankByRoleAndDifficulty()",
+      "file_type": "code",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L64",
+      "id": "questions_questions_service_questionsservice_findbankbyroleanddifficulty",
+      "community": 12,
+      "norm_label": ".findbankbyroleanddifficulty()"
+    },
+    {
+      "label": ".findAllBank()",
+      "file_type": "code",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L77",
+      "id": "questions_questions_service_questionsservice_findallbank",
+      "community": 12,
+      "norm_label": ".findallbank()"
     },
     {
       "label": "README.md",
@@ -2007,7 +2070,7 @@
       "source_file": "README.md",
       "source_location": "L1",
       "id": "readme_md",
-      "community": 9,
+      "community": 10,
       "norm_label": "readme.md"
     },
     {
@@ -2016,7 +2079,7 @@
       "source_file": "README.md",
       "source_location": "L24",
       "id": "ai_interview_coach_backend_readme_description",
-      "community": 9,
+      "community": 10,
       "norm_label": "description"
     },
     {
@@ -2025,7 +2088,7 @@
       "source_file": "README.md",
       "source_location": "L28",
       "id": "ai_interview_coach_backend_readme_project_setup",
-      "community": 9,
+      "community": 10,
       "norm_label": "project setup"
     },
     {
@@ -2034,7 +2097,7 @@
       "source_file": "README.md",
       "source_location": "L30",
       "id": "ai_interview_coach_backend_readme_codeblock_1",
-      "community": 9,
+      "community": 10,
       "norm_label": "code:bash ($ npm install)"
     },
     {
@@ -2043,7 +2106,7 @@
       "source_file": "README.md",
       "source_location": "L34",
       "id": "ai_interview_coach_backend_readme_compile_and_run_the_project",
-      "community": 9,
+      "community": 10,
       "norm_label": "compile and run the project"
     },
     {
@@ -2052,7 +2115,7 @@
       "source_file": "README.md",
       "source_location": "L36",
       "id": "ai_interview_coach_backend_readme_codeblock_2",
-      "community": 9,
+      "community": 10,
       "norm_label": "code:bash (# development)"
     },
     {
@@ -2061,7 +2124,7 @@
       "source_file": "README.md",
       "source_location": "L47",
       "id": "ai_interview_coach_backend_readme_run_tests",
-      "community": 9,
+      "community": 10,
       "norm_label": "run tests"
     },
     {
@@ -2070,7 +2133,7 @@
       "source_file": "README.md",
       "source_location": "L49",
       "id": "ai_interview_coach_backend_readme_codeblock_3",
-      "community": 9,
+      "community": 10,
       "norm_label": "code:bash (# unit tests)"
     },
     {
@@ -2079,7 +2142,7 @@
       "source_file": "README.md",
       "source_location": "L60",
       "id": "ai_interview_coach_backend_readme_deployment",
-      "community": 9,
+      "community": 10,
       "norm_label": "deployment"
     },
     {
@@ -2088,7 +2151,7 @@
       "source_file": "README.md",
       "source_location": "L66",
       "id": "ai_interview_coach_backend_readme_codeblock_4",
-      "community": 9,
+      "community": 10,
       "norm_label": "code:bash ($ npm install -g @nestjs/mau)"
     },
     {
@@ -2097,7 +2160,7 @@
       "source_file": "README.md",
       "source_location": "L73",
       "id": "ai_interview_coach_backend_readme_resources",
-      "community": 9,
+      "community": 10,
       "norm_label": "resources"
     },
     {
@@ -2106,7 +2169,7 @@
       "source_file": "README.md",
       "source_location": "L86",
       "id": "ai_interview_coach_backend_readme_support",
-      "community": 9,
+      "community": 10,
       "norm_label": "support"
     },
     {
@@ -2115,7 +2178,7 @@
       "source_file": "README.md",
       "source_location": "L90",
       "id": "ai_interview_coach_backend_readme_stay_in_touch",
-      "community": 9,
+      "community": 10,
       "norm_label": "stay in touch"
     },
     {
@@ -2124,7 +2187,7 @@
       "source_file": "README.md",
       "source_location": "L96",
       "id": "ai_interview_coach_backend_readme_license",
-      "community": 9,
+      "community": 10,
       "norm_label": "license"
     },
     {
@@ -2151,7 +2214,7 @@
       "source_file": "SETUP_GUIDE.md",
       "source_location": "L3",
       "id": "ai_interview_coach_backend_setup_guide_complete_setup_instructions",
-      "community": 11,
+      "community": 13,
       "norm_label": "\ud83d\ude80 complete setup instructions"
     },
     {
@@ -2160,158 +2223,158 @@
       "source_file": "SETUP_GUIDE.md",
       "source_location": "L5",
       "id": "ai_interview_coach_backend_setup_guide_1_environment_variables",
-      "community": 11,
+      "community": 13,
       "norm_label": "1. environment variables"
     },
     {
-      "label": "code:env (# Google Gemini AI API Key (Get from https://makersuite.goog)",
+      "label": "code:env (PORT=3333)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
       "source_location": "L9",
       "id": "ai_interview_coach_backend_setup_guide_codeblock_1",
-      "community": 11,
-      "norm_label": "code:env (# google gemini ai api key (get from https://makersuite.goog)"
+      "community": 13,
+      "norm_label": "code:env (port=3333)"
     },
     {
       "label": "2. Database Setup",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L27",
+      "source_location": "L19",
       "id": "ai_interview_coach_backend_setup_guide_2_database_setup",
-      "community": 11,
+      "community": 13,
       "norm_label": "2. database setup"
     },
     {
       "label": "code:bash (# If using local MongoDB)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L30",
+      "source_location": "L23",
       "id": "ai_interview_coach_backend_setup_guide_codeblock_2",
-      "community": 11,
+      "community": 13,
       "norm_label": "code:bash (# if using local mongodb)"
     },
     {
       "label": "3. Seed Initial Data",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L38",
+      "source_location": "L31",
       "id": "ai_interview_coach_backend_setup_guide_3_seed_initial_data",
-      "community": 11,
+      "community": 13,
       "norm_label": "3. seed initial data"
     },
     {
       "label": "code:bash (npx ts-node src/seeds/roles.seed.ts)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L41",
+      "source_location": "L35",
       "id": "ai_interview_coach_backend_setup_guide_codeblock_3",
-      "community": 11,
+      "community": 13,
       "norm_label": "code:bash (npx ts-node src/seeds/roles.seed.ts)"
     },
     {
       "label": "code:bash (# First, register a user through your frontend)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L46",
+      "source_location": "L41",
       "id": "ai_interview_coach_backend_setup_guide_codeblock_4",
-      "community": 11,
+      "community": 13,
       "norm_label": "code:bash (# first, register a user through your frontend)"
     },
     {
       "label": "4. Start the Server",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L52",
+      "source_location": "L47",
       "id": "ai_interview_coach_backend_setup_guide_4_start_the_server",
-      "community": 11,
+      "community": 13,
       "norm_label": "4. start the server"
     },
     {
       "label": "code:bash (# Development mode)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L54",
+      "source_location": "L49",
       "id": "ai_interview_coach_backend_setup_guide_codeblock_5",
-      "community": 11,
+      "community": 13,
       "norm_label": "code:bash (# development mode)"
     },
     {
       "label": "\ud83d\udccb API Endpoints",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L63",
+      "source_location": "L58",
       "id": "ai_interview_coach_backend_setup_guide_api_endpoints",
-      "community": 13,
+      "community": 15,
       "norm_label": "\ud83d\udccb api endpoints"
     },
     {
       "label": "Authentication Endpoints (Better Auth)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L65",
+      "source_location": "L60",
       "id": "ai_interview_coach_backend_setup_guide_authentication_endpoints_better_auth",
-      "community": 13,
+      "community": 15,
       "norm_label": "authentication endpoints (better auth)"
     },
     {
       "label": "Dashboard Endpoints (Auth Required)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L70",
+      "source_location": "L66",
       "id": "ai_interview_coach_backend_setup_guide_dashboard_endpoints_auth_required",
-      "community": 13,
+      "community": 15,
       "norm_label": "dashboard endpoints (auth required)"
     },
     {
       "label": "Interview Session Endpoints (Auth Required)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L76",
+      "source_location": "L73",
       "id": "ai_interview_coach_backend_setup_guide_interview_session_endpoints_auth_required",
-      "community": 13,
+      "community": 15,
       "norm_label": "interview session endpoints (auth required)"
     },
     {
       "label": "code:json ({)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L79",
+      "source_location": "L78",
       "id": "ai_interview_coach_backend_setup_guide_codeblock_6",
-      "community": 13,
+      "community": 15,
       "norm_label": "code:json ({)"
     },
     {
       "label": "code:json ({)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L87",
+      "source_location": "L88",
       "id": "ai_interview_coach_backend_setup_guide_codeblock_7",
-      "community": 13,
+      "community": 15,
       "norm_label": "code:json ({)"
     },
     {
       "label": "Admin Endpoints (Admin + Auth Required)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L97",
+      "source_location": "L99",
       "id": "ai_interview_coach_backend_setup_guide_admin_endpoints_admin_auth_required",
-      "community": 13,
+      "community": 15,
       "norm_label": "admin endpoints (admin + auth required)"
     },
     {
       "label": "code:json ({)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L101",
+      "source_location": "L105",
       "id": "ai_interview_coach_backend_setup_guide_codeblock_8",
-      "community": 13,
+      "community": 15,
       "norm_label": "code:json ({)"
     },
     {
       "label": "\ud83d\udd27 Module Structure",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L111",
+      "source_location": "L120",
       "id": "ai_interview_coach_backend_setup_guide_module_structure",
       "community": 0,
       "norm_label": "\ud83d\udd27 module structure"
@@ -2320,7 +2383,7 @@
       "label": "code:block9 (src/)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L113",
+      "source_location": "L122",
       "id": "ai_interview_coach_backend_setup_guide_codeblock_9",
       "community": 0,
       "norm_label": "code:block9 (src/)"
@@ -2329,7 +2392,7 @@
       "label": "\ud83d\udd12 Authentication & Authorization",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L148",
+      "source_location": "L155",
       "id": "ai_interview_coach_backend_setup_guide_authentication_authorization",
       "community": 0,
       "norm_label": "\ud83d\udd12 authentication & authorization"
@@ -2338,7 +2401,7 @@
       "label": "Guards Usage:",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L150",
+      "source_location": "L157",
       "id": "ai_interview_coach_backend_setup_guide_guards_usage",
       "community": 0,
       "norm_label": "guards usage:"
@@ -2347,7 +2410,7 @@
       "label": "Example:",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L154",
+      "source_location": "L162",
       "id": "ai_interview_coach_backend_setup_guide_example",
       "community": 0,
       "norm_label": "example:"
@@ -2356,34 +2419,34 @@
       "label": "code:typescript (@Post('start'))",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L155",
+      "source_location": "L164",
       "id": "ai_interview_coach_backend_setup_guide_codeblock_10",
       "community": 0,
       "norm_label": "code:typescript (@post('start'))"
     },
     {
-      "label": "\ud83e\udd16 AI Features",
+      "label": "\ud83d\udcca Interview Flow",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L170",
-      "id": "ai_interview_coach_backend_setup_guide_ai_features",
+      "source_location": "L179",
+      "id": "ai_interview_coach_backend_setup_guide_interview_flow",
       "community": 0,
-      "norm_label": "\ud83e\udd16 ai features"
+      "norm_label": "\ud83d\udcca interview flow"
     },
     {
-      "label": "Question Generation",
+      "label": "Questions",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L172",
-      "id": "ai_interview_coach_backend_setup_guide_question_generation",
+      "source_location": "L181",
+      "id": "ai_interview_coach_backend_setup_guide_questions",
       "community": 0,
-      "norm_label": "question generation"
+      "norm_label": "questions"
     },
     {
       "label": "Answer Evaluation",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L178",
+      "source_location": "L185",
       "id": "ai_interview_coach_backend_setup_guide_answer_evaluation",
       "community": 0,
       "norm_label": "answer evaluation"
@@ -2392,79 +2455,16 @@
       "label": "Session Summary",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L185",
+      "source_location": "L189",
       "id": "ai_interview_coach_backend_setup_guide_session_summary",
       "community": 0,
       "norm_label": "session summary"
     },
     {
-      "label": "\u26a0\ufe0f Handling API Quota Issues",
-      "file_type": "document",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L190",
-      "id": "ai_interview_coach_backend_setup_guide_handling_api_quota_issues",
-      "community": 0,
-      "norm_label": "\u26a0\ufe0f handling api quota issues"
-    },
-    {
-      "label": "Mock Mode for Development",
-      "file_type": "document",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L192",
-      "id": "ai_interview_coach_backend_setup_guide_mock_mode_for_development",
-      "community": 0,
-      "norm_label": "mock mode for development"
-    },
-    {
-      "label": "code:env (USE_MOCK_AI=true)",
-      "file_type": "document",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L195",
-      "id": "ai_interview_coach_backend_setup_guide_codeblock_11",
-      "community": 0,
-      "norm_label": "code:env (use_mock_ai=true)"
-    },
-    {
-      "label": "Auto-Fallback on API Failures",
-      "file_type": "document",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L212",
-      "id": "ai_interview_coach_backend_setup_guide_auto_fallback_on_api_failures",
-      "community": 0,
-      "norm_label": "auto-fallback on api failures"
-    },
-    {
-      "label": "API Model Configuration",
-      "file_type": "document",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L221",
-      "id": "ai_interview_coach_backend_setup_guide_api_model_configuration",
-      "community": 0,
-      "norm_label": "api model configuration"
-    },
-    {
-      "label": "code:env (GEMINI_MODEL=gemini-1.5-flash)",
-      "file_type": "document",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L224",
-      "id": "ai_interview_coach_backend_setup_guide_codeblock_12",
-      "community": 0,
-      "norm_label": "code:env (gemini_model=gemini-1.5-flash)"
-    },
-    {
-      "label": "Retry Logic",
-      "file_type": "document",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L232",
-      "id": "ai_interview_coach_backend_setup_guide_retry_logic",
-      "community": 0,
-      "norm_label": "retry logic"
-    },
-    {
       "label": "\ud83d\udcca MongoDB Collections",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L240",
+      "source_location": "L193",
       "id": "ai_interview_coach_backend_setup_guide_mongodb_collections",
       "community": 0,
       "norm_label": "\ud83d\udcca mongodb collections"
@@ -2473,25 +2473,25 @@
       "label": "Existing Collections (Don't Modify)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L242",
+      "source_location": "L195",
       "id": "ai_interview_coach_backend_setup_guide_existing_collections_don_t_modify",
       "community": 0,
       "norm_label": "existing collections (don't modify)"
     },
     {
-      "label": "New Collections",
+      "label": "Application Collections",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L247",
-      "id": "ai_interview_coach_backend_setup_guide_new_collections",
+      "source_location": "L201",
+      "id": "ai_interview_coach_backend_setup_guide_application_collections",
       "community": 0,
-      "norm_label": "new collections"
+      "norm_label": "application collections"
     },
     {
       "label": "\ud83c\udfaf Default Roles",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L253",
+      "source_location": "L208",
       "id": "ai_interview_coach_backend_setup_guide_default_roles",
       "community": 0,
       "norm_label": "\ud83c\udfaf default roles"
@@ -2500,25 +2500,16 @@
       "label": "\ud83d\udc1b Troubleshooting",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L265",
+      "source_location": "L221",
       "id": "ai_interview_coach_backend_setup_guide_troubleshooting",
       "community": 0,
       "norm_label": "\ud83d\udc1b troubleshooting"
     },
     {
-      "label": "Issue: \"GEMINI_API_KEY not set\"",
-      "file_type": "document",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L267",
-      "id": "ai_interview_coach_backend_setup_guide_issue_gemini_api_key_not_set",
-      "community": 0,
-      "norm_label": "issue: \"gemini_api_key not set\""
-    },
-    {
       "label": "Issue: \"MongoDB connection failed\"",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L270",
+      "source_location": "L223",
       "id": "ai_interview_coach_backend_setup_guide_issue_mongodb_connection_failed",
       "community": 0,
       "norm_label": "issue: \"mongodb connection failed\""
@@ -2527,7 +2518,7 @@
       "label": "Issue: \"User not found\" when running admin seed",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L273",
+      "source_location": "L227",
       "id": "ai_interview_coach_backend_setup_guide_issue_user_not_found_when_running_admin_seed",
       "community": 0,
       "norm_label": "issue: \"user not found\" when running admin seed"
@@ -2536,43 +2527,34 @@
       "label": "Issue: \"Role not found\" when starting session",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L276",
+      "source_location": "L231",
       "id": "ai_interview_coach_backend_setup_guide_issue_role_not_found_when_starting_session",
       "community": 0,
       "norm_label": "issue: \"role not found\" when starting session"
     },
     {
+      "label": "Issue: Empty question pool / 400 when starting interview",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L235",
+      "id": "ai_interview_coach_backend_setup_guide_issue_empty_question_pool_400_when_starting_interview",
+      "community": 0,
+      "norm_label": "issue: empty question pool / 400 when starting interview"
+    },
+    {
       "label": "Issue: TypeScript errors in IDE",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L279",
+      "source_location": "L239",
       "id": "ai_interview_coach_backend_setup_guide_issue_typescript_errors_in_ide",
       "community": 0,
       "norm_label": "issue: typescript errors in ide"
     },
     {
-      "label": "Issue: \"API quota exceeded\" or 429 errors",
-      "file_type": "document",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L282",
-      "id": "ai_interview_coach_backend_setup_guide_issue_api_quota_exceeded_or_429_errors",
-      "community": 0,
-      "norm_label": "issue: \"api quota exceeded\" or 429 errors"
-    },
-    {
-      "label": "Issue: Questions are repetitive or generic",
-      "file_type": "document",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L287",
-      "id": "ai_interview_coach_backend_setup_guide_issue_questions_are_repetitive_or_generic",
-      "community": 0,
-      "norm_label": "issue: questions are repetitive or generic"
-    },
-    {
       "label": "\ud83d\ude80 Quick Start Commands",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L293",
+      "source_location": "L243",
       "id": "ai_interview_coach_backend_setup_guide_quick_start_commands",
       "community": 0,
       "norm_label": "\ud83d\ude80 quick start commands"
@@ -2581,8 +2563,8 @@
       "label": "code:bash (# 1. Install dependencies)",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L295",
-      "id": "ai_interview_coach_backend_setup_guide_codeblock_13",
+      "source_location": "L245",
+      "id": "ai_interview_coach_backend_setup_guide_codeblock_11",
       "community": 0,
       "norm_label": "code:bash (# 1. install dependencies)"
     },
@@ -2590,7 +2572,7 @@
       "label": "\ud83d\udcdd Notes",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L316",
+      "source_location": "L266",
       "id": "ai_interview_coach_backend_setup_guide_notes",
       "community": 0,
       "norm_label": "\ud83d\udcdd notes"
@@ -2599,7 +2581,7 @@
       "label": "\ud83d\udd10 Security Notes",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L325",
+      "source_location": "L273",
       "id": "ai_interview_coach_backend_setup_guide_security_notes",
       "community": 0,
       "norm_label": "\ud83d\udd10 security notes"
@@ -2608,7 +2590,7 @@
       "label": "\ud83d\udcf1 Frontend Integration",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L333",
+      "source_location": "L281",
       "id": "ai_interview_coach_backend_setup_guide_frontend_integration",
       "community": 0,
       "norm_label": "\ud83d\udcf1 frontend integration"
@@ -2617,17 +2599,341 @@
       "label": "\ud83c\udf89 Success Indicators",
       "file_type": "document",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L342",
+      "source_location": "L291",
       "id": "ai_interview_coach_backend_setup_guide_success_indicators",
       "community": 0,
       "norm_label": "\ud83c\udf89 success indicators"
+    },
+    {
+      "label": "ai.service.ts",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "ai.service.ts",
+      "id": "src_ai_ai_service_ts"
+    },
+    {
+      "label": "GeneratedQuestion",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L8",
+      "community": 5,
+      "norm_label": "generatedquestion",
+      "id": "ai_ai_service_generatedquestion"
+    },
+    {
+      "label": "AnswerEvaluation",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L15",
+      "community": 5,
+      "norm_label": "answerevaluation",
+      "id": "ai_ai_service_answerevaluation"
+    },
+    {
+      "label": "SessionSummary",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L22",
+      "community": 5,
+      "norm_label": "sessionsummary",
+      "id": "ai_ai_service_sessionsummary"
+    },
+    {
+      "label": "errMessage()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L27",
+      "community": 5,
+      "norm_label": "errmessage()",
+      "id": "ai_ai_service_errmessage"
+    },
+    {
+      "label": "isQuotaOrRateLimitError()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L31",
+      "community": 5,
+      "norm_label": "isquotaorratelimiterror()",
+      "id": "ai_ai_service_isquotaorratelimiterror"
+    },
+    {
+      "label": "stripJsonFences()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L38",
+      "community": 5,
+      "norm_label": "stripjsonfences()",
+      "id": "ai_ai_service_stripjsonfences"
+    },
+    {
+      "label": "asStringArray()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L42",
+      "community": 5,
+      "norm_label": "asstringarray()",
+      "id": "ai_ai_service_asstringarray"
+    },
+    {
+      "label": "parseQuestionsPayload()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L47",
+      "community": 5,
+      "norm_label": "parsequestionspayload()",
+      "id": "ai_ai_service_parsequestionspayload"
+    },
+    {
+      "label": "parseOneGeneratedQuestion()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L59",
+      "community": 5,
+      "norm_label": "parseonegeneratedquestion()",
+      "id": "ai_ai_service_parseonegeneratedquestion"
+    },
+    {
+      "label": "parseEvaluationPayload()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L77",
+      "community": 5,
+      "norm_label": "parseevaluationpayload()",
+      "id": "ai_ai_service_parseevaluationpayload"
+    },
+    {
+      "label": "parseSummaryPayload()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L96",
+      "community": 5,
+      "norm_label": "parsesummarypayload()",
+      "id": "ai_ai_service_parsesummarypayload"
+    },
+    {
+      "label": "AiService",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L111",
+      "community": 5,
+      "norm_label": "aiservice",
+      "id": "ai_ai_service_aiservice"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L116",
+      "community": 5,
+      "norm_label": ".constructor()",
+      "id": "ai_ai_service_aiservice_constructor"
+    },
+    {
+      "label": ".retryWithBackoff()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L138",
+      "community": 5,
+      "norm_label": ".retrywithbackoff()",
+      "id": "ai_ai_service_aiservice_retrywithbackoff"
+    },
+    {
+      "label": ".generateQuestions()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L166",
+      "community": 5,
+      "norm_label": ".generatequestions()",
+      "id": "ai_ai_service_aiservice_generatequestions"
+    },
+    {
+      "label": ".evaluateAnswer()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L212",
+      "community": 5,
+      "norm_label": ".evaluateanswer()",
+      "id": "ai_ai_service_aiservice_evaluateanswer"
+    },
+    {
+      "label": ".generateSessionSummary()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L258",
+      "community": 5,
+      "norm_label": ".generatesessionsummary()",
+      "id": "ai_ai_service_aiservice_generatesessionsummary"
+    },
+    {
+      "label": ".getMockQuestions()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L302",
+      "community": 5,
+      "norm_label": ".getmockquestions()",
+      "id": "ai_ai_service_aiservice_getmockquestions"
+    },
+    {
+      "label": ".getMockEvaluation()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L415",
+      "community": 5,
+      "norm_label": ".getmockevaluation()",
+      "id": "ai_ai_service_aiservice_getmockevaluation"
+    },
+    {
+      "label": ".getMockSummary()",
+      "file_type": "code",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L435",
+      "community": 5,
+      "norm_label": ".getmocksummary()",
+      "id": "ai_ai_service_aiservice_getmocksummary"
+    },
+    {
+      "label": "ai.module.ts",
+      "file_type": "code",
+      "source_file": "src/ai/ai.module.ts",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "ai.module.ts",
+      "id": "src_ai_ai_module_ts"
+    },
+    {
+      "label": "AiModule",
+      "file_type": "code",
+      "source_file": "src/ai/ai.module.ts",
+      "source_location": "L8",
+      "community": 1,
+      "norm_label": "aimodule",
+      "id": "ai_ai_module_aimodule"
+    },
+    {
+      "label": "\ud83e\udd16 AI Features",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L170",
+      "community": 0,
+      "norm_label": "\ud83e\udd16 ai features",
+      "id": "ai_interview_coach_backend_setup_guide_ai_features"
+    },
+    {
+      "label": "Question Generation",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L172",
+      "community": 0,
+      "norm_label": "question generation",
+      "id": "ai_interview_coach_backend_setup_guide_question_generation"
+    },
+    {
+      "label": "\u26a0\ufe0f Handling API Quota Issues",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L190",
+      "community": 0,
+      "norm_label": "\u26a0\ufe0f handling api quota issues",
+      "id": "ai_interview_coach_backend_setup_guide_handling_api_quota_issues"
+    },
+    {
+      "label": "Mock Mode for Development",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L192",
+      "community": 0,
+      "norm_label": "mock mode for development",
+      "id": "ai_interview_coach_backend_setup_guide_mock_mode_for_development"
+    },
+    {
+      "label": "Auto-Fallback on API Failures",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L212",
+      "community": 0,
+      "norm_label": "auto-fallback on api failures",
+      "id": "ai_interview_coach_backend_setup_guide_auto_fallback_on_api_failures"
+    },
+    {
+      "label": "API Model Configuration",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L221",
+      "community": 0,
+      "norm_label": "api model configuration",
+      "id": "ai_interview_coach_backend_setup_guide_api_model_configuration"
+    },
+    {
+      "label": "code:env (GEMINI_MODEL=gemini-1.5-flash)",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L224",
+      "community": 0,
+      "norm_label": "code:env (gemini_model=gemini-1.5-flash)",
+      "id": "ai_interview_coach_backend_setup_guide_codeblock_12"
+    },
+    {
+      "label": "Retry Logic",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L232",
+      "community": 0,
+      "norm_label": "retry logic",
+      "id": "ai_interview_coach_backend_setup_guide_retry_logic"
+    },
+    {
+      "label": "New Collections",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L247",
+      "community": 0,
+      "norm_label": "new collections",
+      "id": "ai_interview_coach_backend_setup_guide_new_collections"
+    },
+    {
+      "label": "Issue: \"GEMINI_API_KEY not set\"",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L267",
+      "community": 0,
+      "norm_label": "issue: \"gemini_api_key not set\"",
+      "id": "ai_interview_coach_backend_setup_guide_issue_gemini_api_key_not_set"
+    },
+    {
+      "label": "Issue: \"API quota exceeded\" or 429 errors",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L282",
+      "community": 0,
+      "norm_label": "issue: \"api quota exceeded\" or 429 errors",
+      "id": "ai_interview_coach_backend_setup_guide_issue_api_quota_exceeded_or_429_errors"
+    },
+    {
+      "label": "Issue: Questions are repetitive or generic",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L287",
+      "community": 0,
+      "norm_label": "issue: questions are repetitive or generic",
+      "id": "ai_interview_coach_backend_setup_guide_issue_questions_are_repetitive_or_generic"
+    },
+    {
+      "label": "code:bash (# 1. Install dependencies)",
+      "file_type": "document",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L295",
+      "community": 0,
+      "norm_label": "code:bash (# 1. install dependencies)",
+      "id": "ai_interview_coach_backend_setup_guide_codeblock_13"
     },
     {
       "label": ".headersFromExpress()",
       "file_type": "code",
       "source_file": "src/auth/auth.service.ts",
       "source_location": "L67",
-      "community": 3,
+      "community": 6,
       "norm_label": ".headersfromexpress()",
       "id": "auth_auth_service_authservice_headersfromexpress"
     },
@@ -2636,7 +2942,7 @@
       "file_type": "code",
       "source_file": "src/auth/auth.config.ts",
       "source_location": "L1",
-      "community": 5,
+      "community": 2,
       "norm_label": "auth.config.ts",
       "id": "src_auth_auth_config_ts"
     },
@@ -2645,7 +2951,7 @@
       "file_type": "code",
       "source_file": "src/auth/auth.config.ts",
       "source_location": "L3",
-      "community": 5,
+      "community": 2,
       "norm_label": "authconfig",
       "id": "auth_auth_config_authconfig"
     },
@@ -2654,7 +2960,7 @@
       "file_type": "code",
       "source_file": "src/auth/auth.config.ts",
       "source_location": "L13",
-      "community": 5,
+      "community": 2,
       "norm_label": "loadauthconfig()",
       "id": "auth_auth_config_loadauthconfig"
     },
@@ -2663,7 +2969,7 @@
       "file_type": "code",
       "source_file": "src/auth/index.ts",
       "source_location": "L1",
-      "community": 2,
+      "community": 1,
       "norm_label": "index.ts",
       "id": "src_auth_index_ts"
     },
@@ -2672,7 +2978,7 @@
       "file_type": "code",
       "source_file": "src/auth/config/auth.env.ts",
       "source_location": "L1",
-      "community": 5,
+      "community": 2,
       "norm_label": "auth.env.ts",
       "id": "src_auth_config_auth_env_ts"
     },
@@ -2681,7 +2987,7 @@
       "file_type": "code",
       "source_file": "src/auth/config/auth.env.ts",
       "source_location": "L3",
-      "community": 5,
+      "community": 2,
       "norm_label": "authenvconfig",
       "id": "config_auth_env_authenvconfig"
     },
@@ -2690,7 +2996,7 @@
       "file_type": "code",
       "source_file": "src/auth/config/auth.env.ts",
       "source_location": "L13",
-      "community": 5,
+      "community": 2,
       "norm_label": "loadauthenvconfig()",
       "id": "config_auth_env_loadauthenvconfig"
     },
@@ -2699,7 +3005,7 @@
       "file_type": "code",
       "source_file": "src/auth/factories/better-auth-root.factory.ts",
       "source_location": "L1",
-      "community": 5,
+      "community": 2,
       "norm_label": "better-auth-root.factory.ts",
       "id": "src_auth_factories_better_auth_root_factory_ts"
     },
@@ -2708,7 +3014,7 @@
       "file_type": "code",
       "source_file": "src/auth/factories/better-auth-root.factory.ts",
       "source_location": "L7",
-      "community": 5,
+      "community": 2,
       "norm_label": "createbetterauthrootoptions()",
       "id": "factories_better_auth_root_factory_createbetterauthrootoptions"
     },
@@ -3140,28 +3446,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app_module_ts",
-      "target": "src_ai_ai_module_ts"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app.module.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app_module_ts",
-      "target": "ai_ai_module_aimodule"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app.module.ts",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -3188,6 +3472,28 @@
       "confidence_score": 1.0,
       "source": "src_app_module_ts",
       "target": "src_app_module_appmodule"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "src_ai_ai_module_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.module.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_module_ts",
+      "target": "ai_ai_module_aimodule"
     },
     {
       "relation": "imports_from",
@@ -4428,6 +4734,16 @@
       "source_file": "src/admin/admin.controller.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "source": "admin_admin_controller_admincontroller",
+      "target": "admin_admin_controller_admincontroller_getquestionbank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.controller.ts",
+      "source_location": "L21",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "admin_admin_controller_admincontroller",
       "target": "admin_admin_controller_admincontroller_getallusers"
@@ -4493,6 +4809,36 @@
       "target": "admin_admin_controller_admincontroller_deleteuser"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.controller.ts",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "admin_admin_controller_admincontroller",
+      "target": "admin_admin_controller_admincontroller_createrole",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.controller.ts",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "admin_admin_controller_admincontroller",
+      "target": "admin_admin_controller_admincontroller_updaterole",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.controller.ts",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "admin_admin_controller_admincontroller",
+      "target": "admin_admin_controller_admincontroller_deleterole",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -4546,6 +4892,50 @@
       "confidence_score": 1.0,
       "source": "src_admin_admin_module_ts",
       "target": "users_users_module_usersmodule"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.module.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_admin_admin_module_ts",
+      "target": "src_roles_roles_module_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.module.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_admin_admin_module_ts",
+      "target": "roles_roles_module_rolesmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.module.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_admin_admin_module_ts",
+      "target": "src_questions_questions_module_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.module.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_admin_admin_module_ts",
+      "target": "questions_questions_module_questionsmodule",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -4614,6 +5004,16 @@
       "target": "sessions_session_schema_sessionschema"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.module.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_admin_admin_module_ts",
+      "target": "admin_admin_module_adminmodule"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -4645,16 +5045,6 @@
       "confidence_score": 1.0,
       "source": "src_admin_admin_module_ts",
       "target": "questions_question_schema_questionschema"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/admin/admin.module.ts",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_admin_admin_module_ts",
-      "target": "admin_admin_module_adminmodule"
     },
     {
       "relation": "imports_from",
@@ -4729,6 +5119,71 @@
       "source_file": "src/admin/admin.service.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "source": "src_admin_admin_service_ts",
+      "target": "src_roles_roles_service_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_admin_admin_service_ts",
+      "target": "roles_roles_service_rolesservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_admin_admin_service_ts",
+      "target": "src_questions_questions_service_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_admin_admin_service_ts",
+      "target": "questions_questions_service_questionsservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_admin_admin_service_ts",
+      "target": "src_questions_question_bank_constants_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_admin_admin_service_ts",
+      "target": "admin_admin_service_adminservice"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L6",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_admin_admin_service_ts",
       "target": "src_questions_question_schema_ts"
@@ -4754,16 +5209,6 @@
       "confidence_score": 1.0,
       "source": "src_admin_admin_service_ts",
       "target": "questions_question_schema_questiondocument"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/admin/admin.service.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_admin_admin_service_ts",
-      "target": "admin_admin_service_adminservice"
     },
     {
       "relation": "method",
@@ -4819,6 +5264,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/admin/admin.service.ts",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "admin_admin_service_adminservice",
+      "target": "admin_admin_service_adminservice_getquestionbank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.service.ts",
       "source_location": "L75",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4844,6 +5299,36 @@
       "confidence_score": 1.0,
       "source": "admin_admin_service_adminservice",
       "target": "admin_admin_service_adminservice_deletequestion"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "admin_admin_service_adminservice",
+      "target": "admin_admin_service_adminservice_createrole",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "admin_admin_service_adminservice",
+      "target": "admin_admin_service_adminservice_updaterole",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/admin/admin.service.ts",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "admin_admin_service_adminservice",
+      "target": "admin_admin_service_adminservice_deleterole",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -5172,6 +5657,28 @@
       "target": "roles_role_schema_roleschema"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_list_mapper_ts",
+      "target": "src_roles_role_schema_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_list_mapper_ts",
+      "target": "roles_role_schema_roledocument",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/common/as-date.ts",
@@ -5193,6 +5700,17 @@
       "target": "src_common_as_date_ts"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_list_mapper_ts",
+      "target": "src_common_as_date_ts",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -5204,6 +5722,17 @@
       "target": "common_as_date_asdate"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_list_mapper_ts",
+      "target": "common_as_date_asdate",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -5212,6 +5741,17 @@
       "source_location": "L131",
       "weight": 1.0,
       "source": "sessions_sessions_controller_sessionscontroller_getsession",
+      "target": "common_as_date_asdate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "sessions_sessions_list_mapper_summarizesessionforlistrow",
       "target": "common_as_date_asdate"
     },
     {
@@ -5383,6 +5923,111 @@
       "target": "pipes_validation_pipe_createappvalidationpipe"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_sessions_interview_evaluation_service_ts",
+      "target": "sessions_interview_evaluation_service_stopwords",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "src_sessions_interview_evaluation_service_ts",
+      "target": "sessions_interview_evaluation_service_normalizewords",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "src_sessions_interview_evaluation_service_ts",
+      "target": "sessions_interview_evaluation_service_interviewevaluationservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.module.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_module_ts",
+      "target": "src_sessions_interview_evaluation_service_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_controller_ts",
+      "target": "src_sessions_interview_evaluation_service_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "sessions_interview_evaluation_service_interviewevaluationservice_evaluateanswer",
+      "target": "sessions_interview_evaluation_service_normalizewords",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "sessions_interview_evaluation_service_interviewevaluationservice",
+      "target": "sessions_interview_evaluation_service_interviewevaluationservice_evaluateanswer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/interview-evaluation.service.ts",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "sessions_interview_evaluation_service_interviewevaluationservice",
+      "target": "sessions_interview_evaluation_service_interviewevaluationservice_summarizesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.module.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_module_ts",
+      "target": "sessions_interview_evaluation_service_interviewevaluationservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_controller_ts",
+      "target": "sessions_interview_evaluation_service_interviewevaluationservice",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -5482,6 +6127,16 @@
       "target": "questions_questions_module_questionsmodule"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.module.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_sessions_sessions_module_ts",
+      "target": "sessions_sessions_module_sessionsmodule"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -5502,16 +6157,6 @@
       "confidence_score": 1.0,
       "source": "src_sessions_sessions_module_ts",
       "target": "ai_ai_module_aimodule"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/sessions/sessions.module.ts",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_sessions_sessions_module_ts",
-      "target": "sessions_sessions_module_sessionsmodule"
     },
     {
       "relation": "imports_from",
@@ -5552,6 +6197,16 @@
       "source_file": "src/sessions/sessions.service.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "source": "src_sessions_sessions_service_ts",
+      "target": "sessions_sessions_service_sessionsfindarg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L7",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_sessions_sessions_service_ts",
       "target": "sessions_sessions_service_sessionsservice"
@@ -5581,11 +6236,41 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "sessions_sessions_service_sessionsservice",
+      "target": "sessions_sessions_service_sessionsservice_useridclause",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "sessions_sessions_service_sessionsservice",
+      "target": "sessions_sessions_service_sessionsservice_matchuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
       "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "sessions_sessions_service_sessionsservice",
       "target": "sessions_sessions_service_sessionsservice_findbyid"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "sessions_sessions_service_sessionsservice",
+      "target": "sessions_sessions_service_sessionsservice_countbyuser",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -5683,6 +6368,83 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "sessions_sessions_service_sessionsservice_matchuser",
+      "target": "sessions_sessions_service_sessionsservice_useridclause",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "sessions_sessions_service_sessionsservice_countbyuser",
+      "target": "sessions_sessions_service_sessionsservice_matchuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "sessions_sessions_service_sessionsservice_findbyuser",
+      "target": "sessions_sessions_service_sessionsservice_matchuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "sessions_sessions_service_sessionsservice_getrecentsessions",
+      "target": "sessions_sessions_service_sessionsservice_matchuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "sessions_sessions_service_sessionsservice_getscoretrend",
+      "target": "sessions_sessions_service_sessionsservice_matchuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "sessions_sessions_service_sessionsservice_getuserstats",
+      "target": "sessions_sessions_service_sessionsservice_matchuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
+      "source_location": "L169",
+      "weight": 1.0,
+      "source": "sessions_sessions_service_sessionsservice_calculatecurrentstreak",
+      "target": "sessions_sessions_service_sessionsservice_matchuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.service.ts",
       "source_location": "L117",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -5716,22 +6478,86 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L16",
+      "source_location": "L22",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_sessions_sessions_controller_ts",
-      "target": "src_ai_ai_service_ts"
+      "target": "src_sessions_session_schema_ts",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/sessions/sessions.controller.ts",
-      "source_location": "L16",
+      "source_location": "L22",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_sessions_sessions_controller_ts",
-      "target": "ai_ai_service_aiservice"
+      "target": "sessions_session_schema_sessiondocument",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_controller_ts",
+      "target": "src_sessions_sessions_list_mapper_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_controller_ts",
+      "target": "sessions_sessions_list_mapper_buildrolenamemap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_controller_ts",
+      "target": "sessions_sessions_list_mapper_summarizesessionforlistrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_controller_ts",
+      "target": "sessions_sessions_list_mapper_uniqueroleidsfromsessions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_controller_ts",
+      "target": "sessions_sessions_controller_shuffleinplace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_controller_ts",
+      "target": "sessions_sessions_controller_canonicaluserid",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -5754,6 +6580,138 @@
       "target": "sessions_sessions_controller_sessionscontroller"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_sessions_sessions_controller_ts",
+      "target": "src_ai_ai_service_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_sessions_sessions_controller_ts",
+      "target": "ai_ai_service_aiservice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L274",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_startsession",
+      "target": "sessions_sessions_controller_shuffleinplace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_getuserstats",
+      "target": "sessions_sessions_controller_canonicaluserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_getrecentsessions",
+      "target": "sessions_sessions_controller_canonicaluserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_getscoretrend",
+      "target": "sessions_sessions_controller_canonicaluserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_getsessions",
+      "target": "sessions_sessions_controller_canonicaluserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L173",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_getsession",
+      "target": "sessions_sessions_controller_canonicaluserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L279",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_startsession",
+      "target": "sessions_sessions_controller_canonicaluserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L326",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_submitanswer",
+      "target": "sessions_sessions_controller_canonicaluserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L389",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_completesession",
+      "target": "sessions_sessions_controller_canonicaluserid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L432",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_deletesession",
+      "target": "sessions_sessions_controller_canonicaluserid",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/sessions/sessions.controller.ts",
@@ -5762,6 +6720,16 @@
       "confidence_score": 1.0,
       "source": "sessions_sessions_controller_sessionscontroller",
       "target": "sessions_sessions_controller_sessionscontroller_constructor"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller",
+      "target": "sessions_sessions_controller_sessionscontroller_resolverolelabels",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -5862,6 +6830,102 @@
       "confidence_score": 1.0,
       "source": "sessions_sessions_controller_sessionscontroller",
       "target": "sessions_sessions_controller_sessionscontroller_deletesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_getrecentsessions",
+      "target": "sessions_sessions_controller_sessionscontroller_resolverolelabels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_getsessions",
+      "target": "sessions_sessions_controller_sessionscontroller_resolverolelabels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_resolverolelabels",
+      "target": "sessions_sessions_list_mapper_buildrolenamemap"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/sessions/sessions.controller.ts",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "sessions_sessions_controller_sessionscontroller_resolverolelabels",
+      "target": "sessions_sessions_list_mapper_uniqueroleidsfromsessions"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_list_mapper_ts",
+      "target": "src_sessions_session_schema_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_list_mapper_ts",
+      "target": "sessions_session_schema_sessiondocument",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_list_mapper_ts",
+      "target": "sessions_sessions_list_mapper_buildrolenamemap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_list_mapper_ts",
+      "target": "sessions_sessions_list_mapper_uniqueroleidsfromsessions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/sessions/sessions-list.mapper.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_sessions_sessions_list_mapper_ts",
+      "target": "sessions_sessions_list_mapper_summarizesessionforlistrow",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -5983,414 +7047,6 @@
       "confidence_score": 1.0,
       "source": "seeds_admin_seed_seedadmin",
       "target": "seeds_admin_seed_escaperegexp"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_generatedquestion"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_answerevaluation"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_sessionsummary"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_errmessage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L31",
-      "weight": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_isquotaorratelimiterror",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_stripjsonfences",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L42",
-      "weight": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_asstringarray",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L47",
-      "weight": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_parsequestionspayload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L59",
-      "weight": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_parseonegeneratedquestion",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L77",
-      "weight": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_parseevaluationpayload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L96",
-      "weight": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_parsesummarypayload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ai_ai_service_ts",
-      "target": "ai_ai_service_aiservice"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.module.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ai_ai_module_ts",
-      "target": "src_ai_ai_service_ts"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L35",
-      "weight": 1.0,
-      "source": "ai_ai_service_isquotaorratelimiterror",
-      "target": "ai_ai_service_errmessage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L201",
-      "weight": 1.0,
-      "source": "ai_ai_service_aiservice_generatequestions",
-      "target": "ai_ai_service_errmessage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L247",
-      "weight": 1.0,
-      "source": "ai_ai_service_aiservice_evaluateanswer",
-      "target": "ai_ai_service_errmessage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L289",
-      "weight": 1.0,
-      "source": "ai_ai_service_aiservice_generatesessionsummary",
-      "target": "ai_ai_service_errmessage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L150",
-      "weight": 1.0,
-      "source": "ai_ai_service_aiservice_retrywithbackoff",
-      "target": "ai_ai_service_isquotaorratelimiterror",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L203",
-      "weight": 1.0,
-      "source": "ai_ai_service_aiservice_generatequestions",
-      "target": "ai_ai_service_isquotaorratelimiterror",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L249",
-      "weight": 1.0,
-      "source": "ai_ai_service_aiservice_evaluateanswer",
-      "target": "ai_ai_service_isquotaorratelimiterror",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L291",
-      "weight": 1.0,
-      "source": "ai_ai_service_aiservice_generatesessionsummary",
-      "target": "ai_ai_service_isquotaorratelimiterror",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L91",
-      "weight": 1.0,
-      "source": "ai_ai_service_parseevaluationpayload",
-      "target": "ai_ai_service_asstringarray",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L106",
-      "weight": 1.0,
-      "source": "ai_ai_service_parsesummarypayload",
-      "target": "ai_ai_service_asstringarray",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice",
-      "target": "ai_ai_service_aiservice_constructor"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L53",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice",
-      "target": "ai_ai_service_aiservice_retrywithbackoff"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L82",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice",
-      "target": "ai_ai_service_aiservice_generatequestions"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L141",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice",
-      "target": "ai_ai_service_aiservice_evaluateanswer"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L196",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice",
-      "target": "ai_ai_service_aiservice_generatesessionsummary"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L245",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice",
-      "target": "ai_ai_service_aiservice_getmockquestions"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L358",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice",
-      "target": "ai_ai_service_aiservice_getmockevaluation"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L378",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice",
-      "target": "ai_ai_service_aiservice_getmocksummary"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.module.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ai_ai_module_ts",
-      "target": "ai_ai_service_aiservice"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L94",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice_generatequestions",
-      "target": "ai_ai_service_aiservice_retrywithbackoff"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L153",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice_evaluateanswer",
-      "target": "ai_ai_service_aiservice_retrywithbackoff"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L207",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice_generatesessionsummary",
-      "target": "ai_ai_service_aiservice_retrywithbackoff"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L90",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice_generatequestions",
-      "target": "ai_ai_service_aiservice_getmockquestions"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L149",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice_evaluateanswer",
-      "target": "ai_ai_service_aiservice_getmockevaluation"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.service.ts",
-      "source_location": "L203",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_ai_service_aiservice_generatesessionsummary",
-      "target": "ai_ai_service_aiservice_getmocksummary"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/ai/ai.module.ts",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ai_ai_module_ts",
-      "target": "ai_ai_module_aimodule"
     },
     {
       "relation": "imports_from",
@@ -6658,6 +7314,38 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/questions/question-bank.constants.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_questions_question_bank_constants_ts",
+      "target": "questions_question_bank_constants_question_bank_session_ids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_questions_questions_service_ts",
+      "target": "src_questions_question_bank_constants_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_questions_questions_service_ts",
+      "target": "questions_question_bank_constants_question_bank_session_ids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/questions/question.schema.ts",
       "source_location": "L4",
       "weight": 1.0,
@@ -6726,6 +7414,17 @@
       "confidence_score": 1.0,
       "source": "src_questions_questions_service_ts",
       "target": "src_questions_question_schema_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_questions_questions_service_ts",
+      "target": "questions_question_schema_difficulty",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -6892,6 +7591,58 @@
       "confidence_score": 1.0,
       "source": "questions_questions_service_questionsservice",
       "target": "questions_questions_service_questionsservice_deletebysession"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "questions_questions_service_questionsservice",
+      "target": "questions_questions_service_questionsservice_bankfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "questions_questions_service_questionsservice",
+      "target": "questions_questions_service_questionsservice_findbankbyroleanddifficulty",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "questions_questions_service_questionsservice",
+      "target": "questions_questions_service_questionsservice_findallbank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "questions_questions_service_questionsservice_findbankbyroleanddifficulty",
+      "target": "questions_questions_service_questionsservice_bankfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/questions/questions.service.ts",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "questions_questions_service_questionsservice_findallbank",
+      "target": "questions_questions_service_questionsservice_bankfilter",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7077,21 +7828,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L170",
+      "source_location": "L179",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "ai_interview_coach_backend_setup_guide_interview_coach_backend_setup_guide",
-      "target": "ai_interview_coach_backend_setup_guide_ai_features"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L190",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_interview_coach_backend_setup_guide",
-      "target": "ai_interview_coach_backend_setup_guide_handling_api_quota_issues"
+      "target": "ai_interview_coach_backend_setup_guide_interview_flow",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7172,6 +7913,26 @@
       "confidence_score": 1.0,
       "source": "ai_interview_coach_backend_setup_guide_interview_coach_backend_setup_guide",
       "target": "ai_interview_coach_backend_setup_guide_success_indicators"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L170",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_interview_coach_backend_setup_guide",
+      "target": "ai_interview_coach_backend_setup_guide_ai_features"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L190",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_interview_coach_backend_setup_guide",
+      "target": "ai_interview_coach_backend_setup_guide_handling_api_quota_issues"
     },
     {
       "relation": "contains",
@@ -7377,11 +8138,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L172",
+      "source_location": "L181",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_ai_features",
-      "target": "ai_interview_coach_backend_setup_guide_question_generation"
+      "source": "ai_interview_coach_backend_setup_guide_interview_flow",
+      "target": "ai_interview_coach_backend_setup_guide_questions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L185",
+      "weight": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_interview_flow",
+      "target": "ai_interview_coach_backend_setup_guide_answer_evaluation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L189",
+      "weight": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_interview_flow",
+      "target": "ai_interview_coach_backend_setup_guide_session_summary",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7402,6 +8183,564 @@
       "confidence_score": 1.0,
       "source": "ai_interview_coach_backend_setup_guide_ai_features",
       "target": "ai_interview_coach_backend_setup_guide_session_summary"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L242",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_mongodb_collections",
+      "target": "ai_interview_coach_backend_setup_guide_existing_collections_don_t_modify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_mongodb_collections",
+      "target": "ai_interview_coach_backend_setup_guide_application_collections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L247",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_mongodb_collections",
+      "target": "ai_interview_coach_backend_setup_guide_new_collections"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L270",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
+      "target": "ai_interview_coach_backend_setup_guide_issue_mongodb_connection_failed"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L273",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
+      "target": "ai_interview_coach_backend_setup_guide_issue_user_not_found_when_running_admin_seed"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L276",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
+      "target": "ai_interview_coach_backend_setup_guide_issue_role_not_found_when_starting_session"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L235",
+      "weight": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
+      "target": "ai_interview_coach_backend_setup_guide_issue_empty_question_pool_400_when_starting_interview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L279",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
+      "target": "ai_interview_coach_backend_setup_guide_issue_typescript_errors_in_ide"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L267",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
+      "target": "ai_interview_coach_backend_setup_guide_issue_gemini_api_key_not_set"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L282",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
+      "target": "ai_interview_coach_backend_setup_guide_issue_api_quota_exceeded_or_429_errors"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L287",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
+      "target": "ai_interview_coach_backend_setup_guide_issue_questions_are_repetitive_or_generic"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L245",
+      "weight": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_quick_start_commands",
+      "target": "ai_interview_coach_backend_setup_guide_codeblock_11",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L295",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_quick_start_commands",
+      "target": "ai_interview_coach_backend_setup_guide_codeblock_13"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L195",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_mock_mode_for_development",
+      "target": "ai_interview_coach_backend_setup_guide_codeblock_11"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_generatedquestion"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_answerevaluation"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_sessionsummary"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_errmessage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_isquotaorratelimiterror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_stripjsonfences"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_asstringarray"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_parsequestionspayload"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_parseonegeneratedquestion"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_parseevaluationpayload"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_parsesummarypayload"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_service_ts",
+      "target": "ai_ai_service_aiservice"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.module.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_module_ts",
+      "target": "src_ai_ai_service_ts"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_isquotaorratelimiterror",
+      "target": "ai_ai_service_errmessage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L201",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_generatequestions",
+      "target": "ai_ai_service_errmessage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L247",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_evaluateanswer",
+      "target": "ai_ai_service_errmessage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L289",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_generatesessionsummary",
+      "target": "ai_ai_service_errmessage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L150",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_retrywithbackoff",
+      "target": "ai_ai_service_isquotaorratelimiterror"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L203",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_generatequestions",
+      "target": "ai_ai_service_isquotaorratelimiterror"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L249",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_evaluateanswer",
+      "target": "ai_ai_service_isquotaorratelimiterror"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L291",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_generatesessionsummary",
+      "target": "ai_ai_service_isquotaorratelimiterror"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L91",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_parseevaluationpayload",
+      "target": "ai_ai_service_asstringarray"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_parsesummarypayload",
+      "target": "ai_ai_service_asstringarray"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice",
+      "target": "ai_ai_service_aiservice_constructor"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice",
+      "target": "ai_ai_service_aiservice_retrywithbackoff"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice",
+      "target": "ai_ai_service_aiservice_generatequestions"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L141",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice",
+      "target": "ai_ai_service_aiservice_evaluateanswer"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice",
+      "target": "ai_ai_service_aiservice_generatesessionsummary"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L245",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice",
+      "target": "ai_ai_service_aiservice_getmockquestions"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L358",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice",
+      "target": "ai_ai_service_aiservice_getmockevaluation"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L378",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice",
+      "target": "ai_ai_service_aiservice_getmocksummary"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.module.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_module_ts",
+      "target": "ai_ai_service_aiservice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L94",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_generatequestions",
+      "target": "ai_ai_service_aiservice_retrywithbackoff"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L153",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_evaluateanswer",
+      "target": "ai_ai_service_aiservice_retrywithbackoff"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L207",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_generatesessionsummary",
+      "target": "ai_ai_service_aiservice_retrywithbackoff"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L90",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_generatequestions",
+      "target": "ai_ai_service_aiservice_getmockquestions"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L149",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_evaluateanswer",
+      "target": "ai_ai_service_aiservice_getmockevaluation"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.service.ts",
+      "source_location": "L203",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_ai_service_aiservice_generatesessionsummary",
+      "target": "ai_ai_service_aiservice_getmocksummary"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/ai/ai.module.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_ai_ai_module_ts",
+      "target": "ai_ai_module_aimodule"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SETUP_GUIDE.md",
+      "source_location": "L172",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_interview_coach_backend_setup_guide_ai_features",
+      "target": "ai_interview_coach_backend_setup_guide_question_generation"
     },
     {
       "relation": "contains",
@@ -7447,121 +8786,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "SETUP_GUIDE.md",
-      "source_location": "L195",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_mock_mode_for_development",
-      "target": "ai_interview_coach_backend_setup_guide_codeblock_11"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
       "source_location": "L224",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "ai_interview_coach_backend_setup_guide_api_model_configuration",
       "target": "ai_interview_coach_backend_setup_guide_codeblock_12"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L242",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_mongodb_collections",
-      "target": "ai_interview_coach_backend_setup_guide_existing_collections_don_t_modify"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L247",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_mongodb_collections",
-      "target": "ai_interview_coach_backend_setup_guide_new_collections"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L267",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
-      "target": "ai_interview_coach_backend_setup_guide_issue_gemini_api_key_not_set"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L270",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
-      "target": "ai_interview_coach_backend_setup_guide_issue_mongodb_connection_failed"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L273",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
-      "target": "ai_interview_coach_backend_setup_guide_issue_user_not_found_when_running_admin_seed"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L276",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
-      "target": "ai_interview_coach_backend_setup_guide_issue_role_not_found_when_starting_session"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L279",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
-      "target": "ai_interview_coach_backend_setup_guide_issue_typescript_errors_in_ide"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L282",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
-      "target": "ai_interview_coach_backend_setup_guide_issue_api_quota_exceeded_or_429_errors"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L287",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_troubleshooting",
-      "target": "ai_interview_coach_backend_setup_guide_issue_questions_are_repetitive_or_generic"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SETUP_GUIDE.md",
-      "source_location": "L295",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ai_interview_coach_backend_setup_guide_quick_start_commands",
-      "target": "ai_interview_coach_backend_setup_guide_codeblock_13"
     },
     {
       "relation": "contains",
@@ -7718,5 +8947,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "51d16387ef314827b05585a50e493333f12f5f8a"
+  "built_at_commit": "74539437df26a15c4f042f6b7eec18ebce2d292d"
 }

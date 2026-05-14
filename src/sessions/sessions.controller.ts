@@ -35,7 +35,11 @@ function shuffleInPlace<T>(items: T[]): void {
 
 function canonicalUserId(value: unknown): string {
   if (value === null || value === undefined) return '';
-  return String(value);
+  if (typeof value === 'string') return value;
+  if (typeof value === 'number' || typeof value === 'boolean') {
+    return String(value);
+  }
+  return '';
 }
 
 interface AuthenticatedRequest extends Request {
@@ -174,15 +178,11 @@ export class SessionsController {
     const answers = await this.answersService.findBySession(id);
     const roleDoc = await this.rolesService.findById(session.roleId);
 
-    const createdAt = asDate(session.createdAt as unknown);
-    const updatedAt = session.updatedAt
-      ? asDate(session.updatedAt as unknown)
-      : createdAt;
+    const createdAt = asDate(session.createdAt);
+    const updatedAt = session.updatedAt ? asDate(session.updatedAt) : createdAt;
     const deltaMs = updatedAt.getTime() - createdAt.getTime();
     const durationSeconds =
-      Number.isFinite(deltaMs) && deltaMs > 0
-        ? Math.floor(deltaMs / 1000)
-        : 0;
+      Number.isFinite(deltaMs) && deltaMs > 0 ? Math.floor(deltaMs / 1000) : 0;
 
     const mapCategory = (
       qt: string,
@@ -193,7 +193,7 @@ export class SessionsController {
       id: String(q._id),
       text: q.text,
       category: mapCategory(q.type),
-      difficulty: q.difficulty as 'Easy' | 'Medium' | 'Hard',
+      difficulty: q.difficulty,
     }));
 
     const answerDtos = answers.map((a) => {
@@ -258,9 +258,17 @@ export class SessionsController {
       body.difficulty,
     );
     if (!pool.length) {
-      throw new BadRequestException(
-        'No questions in the bank for this role and difficulty. Add questions in the admin panel.',
-      );
+      const message =
+        `There are no practice questions for "${role.name}" at ${body.difficulty} difficulty yet. ` +
+        'Try another difficulty, or ask an administrator to add questions in the admin panel.';
+      throw new BadRequestException({
+        statusCode: 400,
+        error: 'Bad Request',
+        message,
+        code: 'QUESTION_BANK_EMPTY',
+        roleId: body.roleId,
+        difficulty: body.difficulty,
+      });
     }
 
     shuffleInPlace(pool);
