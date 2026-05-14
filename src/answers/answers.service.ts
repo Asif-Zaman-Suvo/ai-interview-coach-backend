@@ -31,7 +31,11 @@ export class AnswersService {
     strengths: string[];
     improvements: string[];
   }): Promise<AnswerDocument> {
-    const answer = new this.answerModel(answerData);
+    const payload = {
+      ...answerData,
+      userAnswer: answerData.transcript,
+    };
+    const answer = new this.answerModel(payload);
     return answer.save();
   }
 

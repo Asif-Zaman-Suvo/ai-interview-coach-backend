@@ -71,6 +71,7 @@ export class SessionsService {
     userId: string;
     roleId: string;
     difficulty: string;
+    scheduledBankQuestionIds?: string[];
   }): Promise<SessionDocument> {
     const session = new this.sessionModel(sessionData);
     return session.save();

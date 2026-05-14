@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { Question, QuestionDocument, type Difficulty } from './question.schema';
 import { QUESTION_BANK_SESSION_IDS } from './question-bank.constants';
 
@@ -13,6 +13,24 @@ export class QuestionsService {
 
   async findBySession(sessionId: string): Promise<QuestionDocument[]> {
     return this.questionModel.find({ sessionId }).sort({ createdAt: 1 }).exec();
+  }
+
+  /** Loads bank/session question docs matching `ids`, keeping caller order (skips missing). */
+  async findByIdsPreserveOrder(ids: string[]): Promise<QuestionDocument[]> {
+    const objectIds = ids
+      .filter((id) => Types.ObjectId.isValid(id))
+      .map((id) => new Types.ObjectId(id));
+    if (objectIds.length === 0) return [];
+    const docs = await this.questionModel
+      .find({ _id: { $in: objectIds } })
+      .exec();
+    const byId = new Map(docs.map((d) => [String(d._id), d]));
+    const out: QuestionDocument[] = [];
+    for (const id of ids) {
+      const doc = byId.get(id);
+      if (doc) out.push(doc);
+    }
+    return out;
   }
 
   async findById(id: string): Promise<QuestionDocument | null> {

@@ -9,6 +9,10 @@ export class Answer {
   @Prop({ required: true })
   questionId!: string;
 
+  /** User reply (explicit name for Mongo; mirrors `transcript` on new saves). */
+  @Prop({ required: false })
+  userAnswer?: string;
+
   @Prop({ required: true })
   transcript!: string;
 

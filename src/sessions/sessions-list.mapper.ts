@@ -39,9 +39,10 @@ export function summarizeSessionForListRow(
     session.status === 'completed' && session.updatedAt != null
       ? asDate(session.updatedAt as unknown).getTime()
       : Date.now();
-  const durationMinutes = Math.max(
+  /** Wall-clock elapsed seconds (`GET /sessions/:id` uses the same unit). */
+  const durationSeconds = Math.max(
     0,
-    Math.floor((endsAt - createdAt.getTime()) / (1000 * 60)),
+    Math.floor((endsAt - createdAt.getTime()) / 1000),
   );
   const rid = String(session.roleId ?? '').trim();
   let roleLabel = rid ? roleNames.get(rid) : undefined;
@@ -53,7 +54,7 @@ export function summarizeSessionForListRow(
     id: String(session._id),
     role: roleLabel,
     date: createdAt.toISOString(),
-    duration: durationMinutes,
+    duration: durationSeconds,
     score: session.score,
     status: session.status === 'completed' ? 'completed' : 'in_progress',
     difficulty: session.difficulty,

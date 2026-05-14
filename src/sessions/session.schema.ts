@@ -28,6 +28,10 @@ export class Session {
   @Prop({ type: [String], default: [] })
   topImprovements!: string[];
 
+  /** Ordered bank question `_id`s for this interview (no copies in Question collection). */
+  @Prop({ type: [String] })
+  scheduledBankQuestionIds?: string[];
+
   createdAt!: Date;
   updatedAt!: Date;
 }

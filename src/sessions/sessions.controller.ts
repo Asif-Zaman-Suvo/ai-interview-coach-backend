@@ -20,6 +20,7 @@ import { InterviewEvaluationService } from './interview-evaluation.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { asDate } from '../common/as-date';
 import type { SessionDocument } from './session.schema';
+import type { QuestionDocument } from '../questions/question.schema';
 import {
   buildRoleNameMap,
   summarizeSessionForListRow,
@@ -60,6 +61,18 @@ export class SessionsController {
     private readonly rolesService: RolesService,
     private readonly interviewEvaluation: InterviewEvaluationService,
   ) {}
+
+  /** Bank-backed sessions use `scheduledBankQuestionIds`; legacy sessions use per-session Question copies. */
+  private async resolveQuestionsForSession(
+    sessionId: string,
+    session: SessionDocument,
+  ): Promise<QuestionDocument[]> {
+    const scheduled = session.scheduledBankQuestionIds;
+    if (scheduled?.length) {
+      return this.questionsService.findByIdsPreserveOrder(scheduled);
+    }
+    return this.questionsService.findBySession(sessionId);
+  }
 
   private async resolveRoleLabels(
     sessions: SessionDocument[],
@@ -174,7 +187,7 @@ export class SessionsController {
       throw new ForbiddenException('Unauthorized');
     }
 
-    const questions = await this.questionsService.findBySession(id);
+    const questions = await this.resolveQuestionsForSession(id, session);
     const answers = await this.answersService.findBySession(id);
     const roleDoc = await this.rolesService.findById(session.roleId);
 
@@ -197,21 +210,23 @@ export class SessionsController {
     }));
 
     const answerDtos = answers.map((a) => {
-      const doc = a as { createdAt?: Date };
+      const doc = a as { createdAt?: Date; userAnswer?: string };
       return {
         questionId: a.questionId,
         transcript: a.transcript,
+        userAnswer: doc.userAnswer ?? a.transcript,
         audioDuration: 0,
         submittedAt: doc.createdAt ?? createdAt,
       };
     });
 
     const feedbackDtos = answers.map((a) => {
-      const q = questions.find((x) => String(x._id) === a.questionId);
+      const q = questions.find((x) => String(x._id) === String(a.questionId));
+      const userAns = a.userAnswer ?? a.transcript;
       return {
         questionId: a.questionId,
         question: q?.text ?? '',
-        transcript: a.transcript,
+        transcript: userAns,
         feedback: a.feedback,
         score: a.score,
         strengths: a.strengths ?? [],
@@ -279,26 +294,12 @@ export class SessionsController {
       userId: canonicalUserId(req.user.id),
       roleId: body.roleId,
       difficulty: body.difficulty,
+      scheduledBankQuestionIds: picked.map((q) => String(q._id)),
     });
-
-    const questionsToSave = picked.map((q) => ({
-      sessionId: String(session._id),
-      roleId: body.roleId,
-      text: q.text,
-      idealAnswer: q.idealAnswer,
-      type: q.type,
-      difficulty: q.difficulty,
-    }));
-
-    await this.questionsService.createMany(questionsToSave);
-
-    const savedQuestions = await this.questionsService.findBySession(
-      String(session._id),
-    );
 
     return {
       sessionId: String(session._id),
-      questions: savedQuestions.map((q) => ({
+      questions: picked.map((q) => ({
         id: String(q._id),
         text: q.text,
         idealAnswer: q.idealAnswer,
@@ -332,6 +333,12 @@ export class SessionsController {
       return { message: 'Question not found' };
     }
 
+    const ordered = await this.resolveQuestionsForSession(sessionId, session);
+    const allowed = new Set(ordered.map((q) => String(q._id)));
+    if (!allowed.has(String(body.questionId))) {
+      throw new BadRequestException('Question is not part of this session');
+    }
+
     const evaluation = this.interviewEvaluation.evaluateAnswer(
       question.text,
       question.idealAnswer,
@@ -350,9 +357,12 @@ export class SessionsController {
     });
 
     // Get next question
-    const allQuestions = await this.questionsService.findBySession(sessionId);
+    const allQuestions = await this.resolveQuestionsForSession(
+      sessionId,
+      session,
+    );
     const currentIndex = allQuestions.findIndex(
-      (q) => String(q._id) === body.questionId,
+      (q) => String(q._id) === String(body.questionId),
     );
     const nextQuestion =
       currentIndex >= 0 && currentIndex < allQuestions.length - 1

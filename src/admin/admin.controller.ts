@@ -11,6 +11,8 @@ import {
 import { AdminService } from './admin.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { AdminGuard } from '../auth/admin.guard';
+import { Session } from '../auth/session.decorator';
+import type { UserSession } from '../auth/auth.types';
 
 @Controller('admin')
 @UseGuards(AuthGuard, AdminGuard)
@@ -24,14 +26,7 @@ export class AdminController {
 
   @Get('users')
   async getAllUsers() {
-    const users = await this.adminService.getAllUsers();
-    return users.map((user) => ({
-      id: user._id,
-      email: user.email,
-      name: user.name,
-      role: user.role,
-      createdAt: user.createdAt,
-    }));
+    return this.adminService.getAdminUsersList();
   }
 
   @Get('stats')
@@ -63,8 +58,12 @@ export class AdminController {
   }
 
   @Delete('users/:id')
-  async deleteUser(@Param('id') id: string) {
-    return this.adminService.deleteUser(id);
+  async deleteUser(
+    @Param('id') id: string,
+    @Session() session: UserSession,
+  ) {
+    const email = session?.user?.email ?? undefined;
+    return this.adminService.deleteUser(id, email);
   }
 
   @Post('roles')

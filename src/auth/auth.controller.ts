@@ -27,6 +27,11 @@ export class AuthController {
     if (!email || !session.user) {
       return session;
     }
+    await this.usersService.createProfileIfAbsent({
+      email,
+      name:
+        typeof session.user.name === 'string' ? session.user.name.trim() : undefined,
+    });
     const profileRole: UserRole =
       await this.usersService.getRoleForEmail(email);
     const user = session.user;
