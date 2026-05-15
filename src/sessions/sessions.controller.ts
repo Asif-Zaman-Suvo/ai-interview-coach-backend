@@ -152,8 +152,21 @@ export class SessionsController {
     const userId = canonicalUserId(req.user.id);
     const email = (req.user.email ?? '').trim().toLowerCase();
     await this.usersService.createProfileIfAbsent({ email });
-    const plan = await this.usersService.getPlanForEmail(email);
+    const profileRole = await this.usersService.getRoleForEmail(email);
     const sessionsUsed = await this.sessionsService.countByUser(userId);
+
+    if (profileRole === 'admin') {
+      const plan = await this.usersService.getPlanForEmail(email);
+      return {
+        plan,
+        sessionsUsed,
+        sessionLimit: sessionsUsed,
+        canStartNewSession: true,
+        adminUnlimited: true,
+      };
+    }
+
+    const plan = await this.usersService.getPlanForEmail(email);
     const sessionLimit = sessionLimitForPlan(plan);
     const canStartNewSession = sessionsUsed < sessionLimit;
     return {
@@ -291,16 +304,20 @@ export class SessionsController {
     const userId = canonicalUserId(req.user.id);
     const email = (req.user.email ?? '').trim().toLowerCase();
     await this.usersService.createProfileIfAbsent({ email });
-    const plan = await this.usersService.getPlanForEmail(email);
-    const limit = sessionLimitForPlan(plan);
-    const count = await this.sessionsService.countByUser(userId);
-    if (count >= limit) {
-      throw new ForbiddenException({
-        statusCode: 403,
-        error: 'Forbidden',
-        message: `Your plan includes ${limit} interview session${limit === 1 ? '' : 's'}. Purchase a higher pack for more.`,
-        code: 'SESSION_LIMIT_REACHED',
-      });
+
+    const profileRole = await this.usersService.getRoleForEmail(email);
+    if (profileRole !== 'admin') {
+      const plan = await this.usersService.getPlanForEmail(email);
+      const limit = sessionLimitForPlan(plan);
+      const count = await this.sessionsService.countByUser(userId);
+      if (count >= limit) {
+        throw new ForbiddenException({
+          statusCode: 403,
+          error: 'Forbidden',
+          message: `Your plan includes ${limit} interview session${limit === 1 ? '' : 's'}. Purchase a higher pack for more.`,
+          code: 'SESSION_LIMIT_REACHED',
+        });
+      }
     }
 
     const pool = await this.questionsService.findBankByRoleAndDifficulty(

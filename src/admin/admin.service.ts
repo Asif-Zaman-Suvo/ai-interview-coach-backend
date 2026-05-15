@@ -70,7 +70,8 @@ export class AdminService {
       email: string;
       name?: string;
       role: User['role'];
-      plan: UserPlan;
+      /** Billing plan applies to learners only; administrators have no plan. */
+      plan: UserPlan | null;
       createdAt?: Date;
       sessionsCount: number;
     }[]
@@ -124,7 +125,10 @@ export class AdminService {
         email: u.email,
         name: u.name,
         role: u.role,
-        plan: normalizeUserPlan(u.plan as string | undefined),
+        plan:
+          u.role === 'admin'
+            ? null
+            : normalizeUserPlan(u.plan as string | undefined),
         createdAt: u.createdAt,
         sessionsCount,
       };
@@ -191,14 +195,6 @@ export class AdminService {
     return this.userModel
       .findByIdAndUpdate(userId, { role }, { new: true })
       .exec();
-  }
-
-  async updateUserPlan(profileId: string, plan: UserPlan): Promise<User | null> {
-    const allowed: UserPlan[] = ['free', 'pack_10', 'pack_30'];
-    if (!allowed.includes(plan)) {
-      throw new BadRequestException('plan must be free, pack_10, or pack_30');
-    }
-    return this.usersService.updatePlanByProfileId(profileId, plan);
   }
 
   async deleteUser(

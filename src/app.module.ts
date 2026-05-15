@@ -10,6 +10,7 @@ import { AdminModule } from './admin/admin.module';
 import { TestimonialsModule } from './testimonials/testimonials.module';
 import { MarketingModule } from './marketing/marketing.module';
 import { SettingsModule } from './settings/settings.module';
+import { BillingModule } from './billing/billing.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -26,6 +27,7 @@ import { AppService } from './app.service';
     TestimonialsModule,
     MarketingModule,
     SettingsModule,
+    BillingModule,
   ],
   controllers: [AppController],
   providers: [AppService],
