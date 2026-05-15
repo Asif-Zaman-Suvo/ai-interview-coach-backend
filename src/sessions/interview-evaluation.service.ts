@@ -154,8 +154,7 @@ export class InterviewEvaluationService {
     topImprovements: string[];
   } {
     const n = scores.length;
-    const avg =
-      n > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / n) : 0;
+    const avg = n > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / n) : 0;
 
     let summary =
       avg >= 78
