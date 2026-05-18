@@ -1,5 +1,7 @@
 # AI Interview Coach — Backend
 
+Living **API / integration contract:** [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md)
+
 ## Features we’re building
 
 - **Authentication** — Email/password via Better Auth; app profiles with **user** vs **admin** roles.
