@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SessionsController } from './sessions.controller';
 import { SessionsService } from './sessions.service';
+import { SessionPayloadService } from './session-payload.service';
 import { InterviewEvaluationService } from './interview-evaluation.service';
 import { Session, SessionSchema } from './session.schema';
 import { QuestionsModule } from '../questions/questions.module';
@@ -18,7 +19,11 @@ import { UsersModule } from '../users/users.module';
     UsersModule,
   ],
   controllers: [SessionsController],
-  providers: [SessionsService, InterviewEvaluationService],
-  exports: [SessionsService],
+  providers: [
+    SessionsService,
+    InterviewEvaluationService,
+    SessionPayloadService,
+  ],
+  exports: [SessionsService, SessionPayloadService],
 })
 export class SessionsModule {}

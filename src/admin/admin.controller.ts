@@ -6,9 +6,12 @@ import {
   Delete,
   Body,
   Param,
+  Query,
   UseGuards,
+  NotFoundException,
 } from '@nestjs/common';
 import { AdminService } from './admin.service';
+import { SessionPayloadService } from '../sessions/session-payload.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { AdminGuard } from '../auth/admin.guard';
 import { Session } from '../auth/session.decorator';
@@ -17,7 +20,10 @@ import type { UserSession } from '../auth/auth.types';
 @Controller('admin')
 @UseGuards(AuthGuard, AdminGuard)
 export class AdminController {
-  constructor(private readonly adminService: AdminService) {}
+  constructor(
+    private readonly adminService: AdminService,
+    private readonly sessionPayloadService: SessionPayloadService,
+  ) {}
 
   @Get('questions/bank')
   async getQuestionBank() {
@@ -32,6 +38,27 @@ export class AdminController {
   @Get('stats')
   async getStats() {
     return this.adminService.getStats();
+  }
+
+  /** All users’ interviews (newest first). */
+  @Get('interviews')
+  async listAllInterviews(@Query('page') page = 1, @Query('limit') limit = 20) {
+    return this.adminService.listInterviewSessionsGlobally(page, limit);
+  }
+
+  /** Full interview detail for moderation (same shape as learner `GET /sessions/:id` + participant). */
+  @Get('interviews/:id')
+  async getInterviewDetail(@Param('id') id: string) {
+    const payload = await this.sessionPayloadService.assembleSessionPayload(id);
+    if (!payload) {
+      throw new NotFoundException('Session not found');
+    }
+    const p = await this.adminService.participantForAuthUserId(payload.userId);
+    return {
+      ...payload,
+      participantEmail: p.email,
+      participantName: p.name,
+    };
   }
 
   @Post('questions')
@@ -58,10 +85,7 @@ export class AdminController {
   }
 
   @Delete('users/:id')
-  async deleteUser(
-    @Param('id') id: string,
-    @Session() session: UserSession,
-  ) {
+  async deleteUser(@Param('id') id: string, @Session() session: UserSession) {
     const email = session?.user?.email ?? undefined;
     return this.adminService.deleteUser(id, email);
   }

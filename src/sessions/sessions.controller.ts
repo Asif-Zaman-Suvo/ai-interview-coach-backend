@@ -13,6 +13,8 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 import { SessionsService } from './sessions.service';
+import { SessionPayloadService } from './session-payload.service';
+import { loadOrderedQuestionsForSession } from './session-questions.util';
 import { QuestionsService } from '../questions/questions.service';
 import { AnswersService } from '../answers/answers.service';
 import { RolesService } from '../roles/roles.service';
@@ -20,7 +22,6 @@ import { InterviewEvaluationService } from './interview-evaluation.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { asDate } from '../common/as-date';
 import type { SessionDocument } from './session.schema';
-import type { QuestionDocument } from '../questions/question.schema';
 import {
   buildRoleNameMap,
   summarizeSessionForListRow,
@@ -28,6 +29,11 @@ import {
 } from './sessions-list.mapper';
 import { UsersService } from '../users/users.service';
 import { sessionLimitForPlan } from '../common/billing.constants';
+import type {
+  Difficulty,
+  QuestionDocument,
+  QuestionType,
+} from '../questions/question.schema';
 
 function shuffleInPlace<T>(items: T[]): void {
   for (let i = items.length - 1; i > 0; i--) {
@@ -45,6 +51,20 @@ function canonicalUserId(value: unknown): string {
   return '';
 }
 
+function toNextQuestionDto(q: QuestionDocument): {
+  id: string;
+  text: string;
+  type: QuestionType;
+  difficulty: Difficulty;
+} {
+  return {
+    id: String(q._id),
+    text: q.text,
+    type: q.type,
+    difficulty: q.difficulty,
+  };
+}
+
 interface AuthenticatedRequest extends Request {
   user: {
     id: string;
@@ -58,24 +78,13 @@ interface AuthenticatedRequest extends Request {
 export class SessionsController {
   constructor(
     private readonly sessionsService: SessionsService,
+    private readonly sessionPayloadService: SessionPayloadService,
     private readonly questionsService: QuestionsService,
     private readonly answersService: AnswersService,
     private readonly rolesService: RolesService,
     private readonly interviewEvaluation: InterviewEvaluationService,
     private readonly usersService: UsersService,
   ) {}
-
-  /** Bank-backed sessions use `scheduledBankQuestionIds`; legacy sessions use per-session Question copies. */
-  private async resolveQuestionsForSession(
-    sessionId: string,
-    session: SessionDocument,
-  ): Promise<QuestionDocument[]> {
-    const scheduled = session.scheduledBankQuestionIds;
-    if (scheduled?.length) {
-      return this.questionsService.findByIdsPreserveOrder(scheduled);
-    }
-    return this.questionsService.findBySession(sessionId);
-  }
 
   private async resolveRoleLabels(
     sessions: SessionDocument[],
@@ -211,79 +220,17 @@ export class SessionsController {
 
   @Get(':id')
   async getSession(@Param('id') id: string, @Req() req: AuthenticatedRequest) {
-    const session = await this.sessionsService.findById(id);
-    if (!session) {
+    const payload = await this.sessionPayloadService.assembleSessionPayload(id);
+    if (!payload) {
       throw new NotFoundException('Session not found');
     }
 
-    if (canonicalUserId(session.userId) !== canonicalUserId(req.user.id)) {
+    const sessionUserId = canonicalUserId(payload.userId);
+    if (sessionUserId !== canonicalUserId(req.user.id)) {
       throw new ForbiddenException('Unauthorized');
     }
 
-    const questions = await this.resolveQuestionsForSession(id, session);
-    const answers = await this.answersService.findBySession(id);
-    const roleDoc = await this.rolesService.findById(session.roleId);
-
-    const createdAt = asDate(session.createdAt);
-    const updatedAt = session.updatedAt ? asDate(session.updatedAt) : createdAt;
-    const deltaMs = updatedAt.getTime() - createdAt.getTime();
-    const durationSeconds =
-      Number.isFinite(deltaMs) && deltaMs > 0 ? Math.floor(deltaMs / 1000) : 0;
-
-    const mapCategory = (
-      qt: string,
-    ): 'Technical' | 'Behavioral' | 'System Design' | 'Situational' =>
-      qt === 'behavioral' ? 'Behavioral' : 'Technical';
-
-    const questionDtos = questions.map((q) => ({
-      id: String(q._id),
-      text: q.text,
-      category: mapCategory(q.type),
-      difficulty: q.difficulty,
-    }));
-
-    const answerDtos = answers.map((a) => {
-      const doc = a as { createdAt?: Date; userAnswer?: string };
-      return {
-        questionId: a.questionId,
-        transcript: a.transcript,
-        userAnswer: doc.userAnswer ?? a.transcript,
-        audioDuration: 0,
-        submittedAt: doc.createdAt ?? createdAt,
-      };
-    });
-
-    const feedbackDtos = answers.map((a) => {
-      const q = questions.find((x) => String(x._id) === String(a.questionId));
-      const userAns = a.userAnswer ?? a.transcript;
-      return {
-        questionId: a.questionId,
-        question: q?.text ?? '',
-        transcript: userAns,
-        feedback: a.feedback,
-        score: a.score,
-        strengths: a.strengths ?? [],
-        improvements: a.improvements ?? [],
-      };
-    });
-
-    return {
-      id: String(session._id),
-      userId: session.userId,
-      roleId: session.roleId,
-      role: roleDoc?.name ?? 'Unknown',
-      status: session.status,
-      difficulty: session.difficulty,
-      score: session.score,
-      summary: session.summary,
-      topImprovements: session.topImprovements,
-      startedAt: createdAt,
-      createdAt,
-      duration: durationSeconds,
-      questions: questionDtos,
-      answers: answerDtos,
-      feedback: feedbackDtos,
-    };
+    return payload;
   }
 
   @Post('start')
@@ -385,7 +332,11 @@ export class SessionsController {
       return { message: 'Question not found' };
     }
 
-    const ordered = await this.resolveQuestionsForSession(sessionId, session);
+    const ordered: QuestionDocument[] = await loadOrderedQuestionsForSession(
+      sessionId,
+      session,
+      this.questionsService,
+    );
     const allowed = new Set(ordered.map((q) => String(q._id)));
     if (!allowed.has(String(body.questionId))) {
       throw new BadRequestException('Question is not part of this session');
@@ -409,10 +360,12 @@ export class SessionsController {
     });
 
     // Get next question
-    const allQuestions = await this.resolveQuestionsForSession(
-      sessionId,
-      session,
-    );
+    const allQuestions: QuestionDocument[] =
+      await loadOrderedQuestionsForSession(
+        sessionId,
+        session,
+        this.questionsService,
+      );
     const currentIndex = allQuestions.findIndex(
       (q) => String(q._id) === String(body.questionId),
     );
@@ -427,14 +380,7 @@ export class SessionsController {
       score: answer.score,
       strengths: answer.strengths,
       improvements: answer.improvements,
-      nextQuestion: nextQuestion
-        ? {
-            id: String(nextQuestion._id),
-            text: nextQuestion.text,
-            type: nextQuestion.type,
-            difficulty: nextQuestion.difficulty,
-          }
-        : null,
+      nextQuestion: nextQuestion ? toNextQuestionDto(nextQuestion) : null,
     };
   }
 
@@ -481,18 +427,24 @@ export class SessionsController {
     };
   }
 
+  /** Learners cannot remove their history; admins may delete any session (e.g. moderation). */
   @Delete(':id')
   async deleteSession(
     @Param('id') id: string,
     @Req() req: AuthenticatedRequest,
   ) {
-    const session = await this.sessionsService.findById(id);
-    if (!session) {
-      return { message: 'Session not found' };
+    const email = (req.user.email ?? '').trim().toLowerCase();
+    await this.usersService.createProfileIfAbsent({ email });
+    const profileRole = await this.usersService.getRoleForEmail(email);
+    if (profileRole !== 'admin') {
+      throw new ForbiddenException(
+        'Only administrators can delete interview sessions.',
+      );
     }
 
-    if (canonicalUserId(session.userId) !== canonicalUserId(req.user.id)) {
-      return { message: 'Unauthorized' };
+    const session = await this.sessionsService.findById(id);
+    if (!session) {
+      throw new NotFoundException('Session not found');
     }
 
     await this.answersService.deleteBySession(id);

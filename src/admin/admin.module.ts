@@ -6,6 +6,7 @@ import { AdminGuard } from '../auth/admin.guard';
 import { UsersModule } from '../users/users.module';
 import { RolesModule } from '../roles/roles.module';
 import { QuestionsModule } from '../questions/questions.module';
+import { SessionsModule } from '../sessions/sessions.module';
 import { User, UserSchema } from '../users/user.schema';
 import { Session, SessionSchema } from '../sessions/session.schema';
 
@@ -14,6 +15,7 @@ import { Session, SessionSchema } from '../sessions/session.schema';
     UsersModule,
     RolesModule,
     QuestionsModule,
+    SessionsModule,
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
       { name: Session.name, schema: SessionSchema },

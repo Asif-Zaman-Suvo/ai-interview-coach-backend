@@ -6,9 +6,15 @@ import { Session, SessionDocument } from '../sessions/session.schema';
 import { RolesService } from '../roles/roles.service';
 import { QuestionsService } from '../questions/questions.service';
 import { UsersService } from '../users/users.service';
+import { SessionsService } from '../sessions/sessions.service';
 import type { UserPlan } from '../users/user-plan';
 import { normalizeUserPlan } from '../users/user-plan';
 import { PRIMARY_QUESTION_BANK_SESSION_ID } from '../questions/question-bank.constants';
+import {
+  buildRoleNameMap,
+  summarizeSessionForListRow,
+  uniqueRoleIdsFromSessions,
+} from '../sessions/sessions-list.mapper';
 
 /** Better Auth Mongo adapter default (`usePlural: false`). */
 const BETTER_AUTH_USER_COLLECTION = 'user';
@@ -23,6 +29,7 @@ export class AdminService {
     private readonly rolesService: RolesService,
     private readonly questionsService: QuestionsService,
     private readonly usersService: UsersService,
+    private readonly sessionsService: SessionsService,
   ) {}
 
   /**
@@ -133,6 +140,157 @@ export class AdminService {
         sessionsCount,
       };
     });
+  }
+
+  private stringifyAuthUserId(userIdRaw: unknown): string {
+    if (userIdRaw == null) return '';
+    if (typeof userIdRaw === 'object' && userIdRaw !== null) {
+      const withToString = userIdRaw as { toString?: () => string };
+      if (typeof withToString.toString === 'function') {
+        return String(withToString.toString()).trim();
+      }
+    }
+    return String(userIdRaw).trim();
+  }
+
+  private collectSessionUserIds(sessions: SessionDocument[]): string[] {
+    const uniq = new Set<string>();
+    for (const s of sessions) {
+      const key = this.stringifyAuthUserId(s.userId as unknown);
+      if (key) uniq.add(key);
+    }
+    return [...uniq];
+  }
+
+  private async enrichRoleLabels(
+    sessions: SessionDocument[],
+  ): Promise<Map<string, string>> {
+    const rolesList = await this.rolesService.findAll();
+    const roleNames = buildRoleNameMap(rolesList);
+    const missing = uniqueRoleIdsFromSessions(sessions).filter(
+      (id) => !roleNames.has(id),
+    );
+    if (missing.length > 0) {
+      const docs = await Promise.all(
+        missing.map((id) => this.rolesService.findById(id)),
+      );
+      missing.forEach((id, i) => {
+        const doc = docs[i];
+        roleNames.set(id, doc?.name?.trim() ? doc.name.trim() : 'Unknown');
+      });
+    }
+    return roleNames;
+  }
+
+  private async participantMapForIds(
+    userIds: string[],
+  ): Promise<Map<string, { email: string | null; name: string | null }>> {
+    const map = new Map<string, { email: string | null; name: string | null }>();
+    const mongoDb = this.userModel.db;
+    const distinct = [...new Set(userIds.map((id) => id.trim()).filter(Boolean))];
+    if (!mongoDb || distinct.length === 0) return map;
+
+    const objectIds: Types.ObjectId[] = [];
+    for (const id of distinct) {
+      if (/^[a-f0-9]{24}$/i.test(id)) {
+        try {
+          objectIds.push(new Types.ObjectId(id));
+        } catch {
+          /* ignore malformed */
+        }
+      }
+    }
+    try {
+      if (objectIds.length === 0) return map;
+      const rows = await mongoDb
+        .collection(BETTER_AUTH_USER_COLLECTION)
+        .find<{ _id: Types.ObjectId; email?: string; name?: string }>(
+          { _id: { $in: objectIds } },
+          { projection: { email: 1, name: 1 } },
+        )
+        .toArray();
+      for (const r of rows) {
+        const idStr = r._id.toString();
+        map.set(idStr, {
+          email: r.email?.trim().toLowerCase() ?? null,
+          name:
+            typeof r.name === 'string' && r.name.trim() ? r.name.trim() : null,
+        });
+      }
+    } catch {
+      /* ok */
+    }
+    return map;
+  }
+
+  async participantForAuthUserId(
+    authUserIdRaw: unknown,
+  ): Promise<{ email: string | null; name: string | null }> {
+    const uid = this.stringifyAuthUserId(authUserIdRaw);
+    if (!uid) return { email: null, name: null };
+    const m = await this.participantMapForIds([uid]);
+    return m.get(uid) ?? { email: null, name: null };
+  }
+
+  /** Paginated interview list across every learner/admin session (moderation UI). */
+  async listInterviewSessionsGlobally(page = 1, limit = 20): Promise<{
+    sessions: {
+      id: string;
+      role: string;
+      date: string;
+      duration: number;
+      score: number;
+      status: 'completed' | 'in_progress';
+      difficulty: string;
+      participantUserId: string;
+      participantEmail: string | null;
+      participantName: string | null;
+    }[];
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  }> {
+    await this.syncBetterAuthUsersIntoProfiles();
+    const pageNum = Math.max(1, Math.min(10_000, Number(page) || 1));
+    const limitNum = Math.max(1, Math.min(100, Number(limit) || 20));
+
+    const [total, docs] = await Promise.all([
+      this.sessionsService.countAll(),
+      this.sessionsService.findAllPaginated(pageNum, limitNum),
+    ]);
+
+    const roleNames = await this.enrichRoleLabels(docs);
+    const authIds = this.collectSessionUserIds(docs);
+    const authMap = await this.participantMapForIds(authIds);
+
+    const items = docs.map((doc) => {
+      const row = summarizeSessionForListRow(doc, roleNames);
+      const uid = this.stringifyAuthUserId(doc.userId as unknown);
+      const p = uid ? authMap.get(uid) : undefined;
+      return {
+        id: row.id,
+        role: row.role,
+        date: row.date,
+        duration: row.duration,
+        score: row.score,
+        status: row.status,
+        difficulty: row.difficulty,
+        participantUserId: uid,
+        participantEmail: p?.email ?? null,
+        participantName: p?.name ?? null,
+      };
+    });
+
+    const totalPages = Math.max(1, Math.ceil(total / limitNum) || 1);
+
+    return {
+      sessions: items,
+      total,
+      page: pageNum,
+      limit: limitNum,
+      totalPages,
+    };
   }
 
   async getStats(): Promise<{

@@ -3,12 +3,14 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { AnswersService } from '../answers/answers.service';
 import { QuestionsService } from '../questions/questions.service';
+import type { QuestionDocument } from '../questions/question.schema';
 import { RolesService } from '../roles/roles.service';
 import { Session, SessionDocument } from './session.schema';
 import {
   buildRoleNameMap,
   summarizeSessionForListRow,
 } from './sessions-list.mapper';
+import { loadOrderedQuestionsForSession } from './session-questions.util';
 
 /** Mongo filters for interviews (DSL values are intentionally loose vs schema typing). */
 type SessionsFindArg = Record<string, any>;
@@ -45,15 +47,13 @@ export class SessionsService {
     const hasExtra =
       extra !== null &&
       typeof extra === 'object' &&
-      Object.keys(extra as object).length > 0;
+      Object.keys(extra).length > 0;
 
     if ('$or' in clause && hasExtra) {
-      return { $and: [clause, extra] } as SessionsFindArg;
+      return { $and: [clause, extra] };
     }
 
-    return hasExtra
-      ? ({ ...clause, ...extra } as SessionsFindArg)
-      : clause;
+    return hasExtra ? { ...clause, ...extra } : clause;
   }
 
   async findById(id: string): Promise<SessionDocument | null> {
@@ -105,6 +105,36 @@ export class SessionsService {
     return this.sessionModel.findByIdAndDelete(id).exec();
   }
 
+  async countAll(): Promise<number> {
+    return this.sessionModel.countDocuments().exec();
+  }
+
+  /** Newest-first, all users (admin list). */
+  async findAllPaginated(page = 1, limit = 20): Promise<SessionDocument[]> {
+    const skip = Math.max(0, (page - 1) * limit);
+    return this.sessionModel
+      .find()
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit)
+      .exec();
+  }
+
+  /**
+   * Bank-backed sessions use `scheduledBankQuestionIds`; legacy sessions use
+   * per-session Question copies.
+   */
+  async resolveQuestionsForSession(
+    sessionId: string,
+    session: SessionDocument,
+  ): Promise<QuestionDocument[]> {
+    return loadOrderedQuestionsForSession(
+      sessionId,
+      session,
+      this.questionsService,
+    );
+  }
+
   async getRecentSessions(
     userId: string,
     limit = 5,
@@ -116,10 +146,7 @@ export class SessionsService {
       .exec();
   }
 
-  async getScoreTrend(
-    userId: string,
-    limit = 10,
-  ): Promise<SessionDocument[]> {
+  async getScoreTrend(userId: string, limit = 10): Promise<SessionDocument[]> {
     return this.sessionModel
       .find(this.matchUser(userId, { status: 'completed' }))
       .sort({ createdAt: -1 })
@@ -220,13 +247,18 @@ export class SessionsService {
       await Promise.all([
         this.sessionModel.countDocuments(completedMatch).exec(),
         this.sessionModel
-          .aggregate<{ avgScore: number | null }>([
+          .aggregate<{
+            avgScore: number | null;
+          }>([
             { $match: completedMatch },
             { $group: { _id: null, avgScore: { $avg: '$score' } } },
           ])
           .exec(),
         this.sessionModel
-          .aggregate<{ _id: string; avgScore: number }>([
+          .aggregate<{
+            _id: string;
+            avgScore: number;
+          }>([
             { $match: completedMatch },
             { $group: { _id: '$roleId', avgScore: { $avg: '$score' } } },
             { $sort: { avgScore: -1 } },
@@ -242,9 +274,7 @@ export class SessionsService {
       ]);
 
     const averageScore =
-      avgAgg[0]?.avgScore != null
-        ? Math.round(Number(avgAgg[0].avgScore))
-        : 0;
+      avgAgg[0]?.avgScore != null ? Math.round(Number(avgAgg[0].avgScore)) : 0;
 
     const roleNames = buildRoleNameMap(allRoles);
     const bestRoleId =
