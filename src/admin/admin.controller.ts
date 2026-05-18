@@ -3,12 +3,16 @@ import {
   Get,
   Post,
   Put,
+  Patch,
   Delete,
   Body,
   Param,
   Query,
   UseGuards,
   NotFoundException,
+  Sse,
+  MessageEvent,
+  Header,
 } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { SessionPayloadService } from '../sessions/session-payload.service';
@@ -16,6 +20,9 @@ import { AuthGuard } from '../auth/auth.guard';
 import { AdminGuard } from '../auth/admin.guard';
 import { Session } from '../auth/session.decorator';
 import type { UserSession } from '../auth/auth.types';
+import { NotificationsService } from '../notifications/notifications.service';
+import { Observable, interval, merge } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Controller('admin')
 @UseGuards(AuthGuard, AdminGuard)
@@ -23,7 +30,54 @@ export class AdminController {
   constructor(
     private readonly adminService: AdminService,
     private readonly sessionPayloadService: SessionPayloadService,
+    private readonly notificationsService: NotificationsService,
   ) {}
+
+  /** Purchase alerts for admins (pack upgrades via billing). */
+  @Get('notifications')
+  async listAdminNotifications(@Query('limit') limit?: string) {
+    const n = limit !== undefined ? Number(limit) : undefined;
+    return this.notificationsService.listRecent(n);
+  }
+
+  /**
+   * Server-Sent Events: pushes `{ type: 'purchase', notification }` when a pack is bought.
+   * Heartbeat pings keep proxies from closing idle streams.
+   */
+  @Sse('notifications/stream')
+  @Header('Cache-Control', 'no-cache')
+  @Header('X-Accel-Buffering', 'no')
+  streamPurchaseNotifications(): Observable<MessageEvent> {
+    const heartbeat = interval(25000).pipe(
+      map(
+        () =>
+          ({
+            data: JSON.stringify({ type: 'ping' }),
+          }) as MessageEvent,
+      ),
+    );
+    const purchases = this.notificationsService.purchaseRealtime$.pipe(
+      map(
+        (notification) =>
+          ({
+            data: JSON.stringify({ type: 'purchase', notification }),
+          }) as MessageEvent,
+      ),
+    );
+    return merge(heartbeat, purchases);
+  }
+
+  @Patch('notifications/read-all')
+  async markAllAdminNotificationsRead() {
+    await this.notificationsService.markAllRead();
+    return { ok: true as const };
+  }
+
+  @Patch('notifications/:id/read')
+  async markAdminNotificationRead(@Param('id') id: string) {
+    await this.notificationsService.markRead(id);
+    return { ok: true as const };
+  }
 
   @Get('questions/bank')
   async getQuestionBank() {

@@ -1,15 +1,22 @@
 import {
   BadRequestException,
   Injectable,
+  Logger,
   ServiceUnavailableException,
 } from '@nestjs/common';
 import { sessionLimitForPlan } from '../common/billing.constants';
 import type { UserPlan } from '../users/user-plan';
 import { UsersService } from '../users/users.service';
+import { NotificationsService } from '../notifications/notifications.service';
 
 @Injectable()
 export class BillingService {
-  constructor(private readonly usersService: UsersService) {}
+  private readonly logger = new Logger(BillingService.name);
+
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly notificationsService: NotificationsService,
+  ) {}
 
   /**
    * Applies a paid plan to the signed-in user for QA / demos.
@@ -52,6 +59,19 @@ export class BillingService {
     }
 
     await this.usersService.updatePlanByProfileId(String(doc._id), plan);
+
+    try {
+      await this.notificationsService.recordPackPurchase({
+        purchaserEmail: em,
+        purchaserName: doc.name,
+        previousPlan: current,
+        newPlan: plan,
+      });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      this.logger.warn(`Pack purchase logged but admin notification failed: ${msg}`);
+    }
+
     return { ok: true, plan };
   }
 }
