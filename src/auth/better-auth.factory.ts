@@ -25,6 +25,16 @@ export async function createBetterAuthRootOptions() {
     secret: authCfg.secret,
     baseURL: authCfg.baseURL,
     trustedOrigins: [authCfg.frontendUrl],
+    advanced: {
+      cookies: {
+        sessionToken: {
+          attributes: {
+            sameSite: 'none',
+            secure: true,
+          },
+        },
+      },
+    },
     database: mongodbAdapter(db, {
       client,
       transaction: authCfg.useMongoTransactions,
