@@ -28,10 +28,8 @@ export async function createBetterAuthRootOptions() {
     advanced: {
       cookies: {
         sessionToken: {
-          attributes: {
-            sameSite: 'none',
-            secure: true,
-          },
+          sameSite: 'none',
+          secure: true,
         },
       },
     },
