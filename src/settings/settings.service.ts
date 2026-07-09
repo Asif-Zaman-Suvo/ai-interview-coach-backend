@@ -54,7 +54,7 @@ export class SettingsService {
     return {
       email,
       name: doc?.name ?? '',
-      plan: normalizeUserPlan(doc?.plan as string | undefined),
+      plan: normalizeUserPlan(doc?.plan),
       weeklyDigest: doc?.weeklyDigest ?? true,
       sessionReminders: doc?.sessionReminders ?? false,
       productTips: doc?.productTips ?? true,
@@ -63,11 +63,7 @@ export class SettingsService {
     };
   }
 
-  async update(
-    email: string,
-    dto: UpdateSettingsDto,
-    req?: Request,
-  ) {
+  async update(email: string, dto: UpdateSettingsDto, req?: Request) {
     const em = email.trim().toLowerCase();
     await this.usersService.createProfileIfAbsent({ email: em });
     const updated = await this.usersService.updateSettingsByEmail(em, {
@@ -117,9 +113,7 @@ export class SettingsService {
       if (isAPIError(e)) {
         const body = e.body as { message?: string } | undefined;
         const message =
-          typeof body?.message === 'string'
-            ? body.message
-            : 'Invalid password';
+          typeof body?.message === 'string' ? body.message : 'Invalid password';
         throw new BadRequestException(message);
       }
       throw e;
@@ -136,9 +130,7 @@ export class SettingsService {
       await db.collection('session').deleteMany({ userId: uid });
       await db.collection('account').deleteMany({ userId: uid });
       if (Types.ObjectId.isValid(uid)) {
-        await db
-          .collection('user')
-          .deleteOne({ _id: new Types.ObjectId(uid) });
+        await db.collection('user').deleteOne({ _id: new Types.ObjectId(uid) });
       } else {
         await db.collection('user').deleteOne({ _id: uid as never });
       }

@@ -37,7 +37,7 @@ export class TestimonialsService {
       .exec();
 
     await this.redis.setJson(key, docs, CacheTtlSeconds.testimonials);
-    return docs as PublicTestimonialLean[];
+    return docs;
   }
 
   findByUserId(userId: string) {
