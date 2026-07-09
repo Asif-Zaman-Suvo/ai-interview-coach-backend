@@ -116,7 +116,10 @@ export class SessionsService {
     const updated = await this.sessionModel
       .findByIdAndUpdate(id, updateData, { new: true })
       .exec();
-    if (updateData.status === 'completed') {
+    // Invalidate whenever the *resulting* session is completed, not just when
+    // this call transitions it to completed — score/summary edits on an
+    // already-completed session also affect the marketing aggregates.
+    if (updated?.status === 'completed') {
       await this.redis.delByPattern('aic:marketing:dashboard:*');
     }
     return updated;
