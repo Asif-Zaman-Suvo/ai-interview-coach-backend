@@ -98,7 +98,11 @@ export class RedisService implements OnModuleInit, OnModuleDestroy {
   /**
    * Cache writes fail-open: swallow errors so request path stays healthy.
    */
-  async setJson(key: string, value: unknown, ttlSeconds: number): Promise<void> {
+  async setJson(
+    key: string,
+    value: unknown,
+    ttlSeconds: number,
+  ): Promise<void> {
     if (!this.client || !this.isReady()) return;
     try {
       await this.client.set(key, JSON.stringify(value), 'EX', ttlSeconds);
