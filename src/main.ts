@@ -33,6 +33,14 @@ async function bootstrap() {
     ],
   });
 
+  // CORS before rate-limit so 429/503 responses still include ACAO for browsers.
+  app.enableCors({
+    origin: parseCorsOrigins(),
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
+    exposedHeaders: ['X-Instance-Id'],
+  });
+
   app.use((_req: Request, res: Response, next: NextFunction) => {
     res.setHeader('X-Instance-Id', INSTANCE_ID);
     next();
@@ -57,14 +65,7 @@ async function bootstrap() {
     next();
   });
 
-  app.enableCors({
-    origin: parseCorsOrigins(),
-    credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
-    exposedHeaders: ['X-Instance-Id'],
-  });
-
-  // Trust Nginx / Docker proxy for X-Forwarded-* (rate limit IP + cookies).
+  // Trust Render / Nginx proxy for X-Forwarded-* (rate limit IP + cookies).
   const expressApp = app.getHttpAdapter().getInstance() as {
     set?: (key: string, value: unknown) => void;
   };

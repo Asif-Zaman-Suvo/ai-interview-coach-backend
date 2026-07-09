@@ -25,6 +25,7 @@ export class AppService {
     status: 'ok' | 'degraded';
     mongo: boolean;
     redis: boolean;
+    redisEnabled: boolean;
     instanceId: string;
   }> {
     let mongo = false;
@@ -39,11 +40,13 @@ export class AppService {
       this.logger.warn(`Mongo health ping failed: ${message}`);
     }
 
-    const redis = await this.redis.ping();
+    const redisEnabled = this.redis.isEnabled();
+    const redis = redisEnabled ? await this.redis.ping() : false;
     return {
       status: mongo ? 'ok' : 'degraded',
       mongo,
       redis,
+      redisEnabled,
       instanceId: INSTANCE_ID,
     };
   }

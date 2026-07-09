@@ -13,6 +13,10 @@ import {
 } from './rate-limit.decorator';
 import { RedisService } from './redis.service';
 
+function authRateLimitFailClosedEnv(): boolean {
+  return process.env.AUTH_RATE_LIMIT_FAIL_CLOSED?.trim().toLowerCase() === 'true';
+}
+
 @Injectable()
 export class RateLimitGuard implements CanActivate {
   constructor(
@@ -42,10 +46,14 @@ export class RateLimitGuard implements CanActivate {
       options.windowSeconds,
     );
 
-    // Auth: fail-closed when Redis is down (cannot enforce limit safely).
-    // Evaluation routes may set failClosed:false to fail-open.
+    // Default fail-open when Redis is down/missing (Render without Redis).
+    // Opt into fail-closed with AUTH_RATE_LIMIT_FAIL_CLOSED=true or per-route failClosed:true
+    // only when Redis is provisioned.
     if (!ok) {
-      if (options.failClosed !== false) {
+      const failClosed =
+        options.failClosed === true ||
+        (options.failClosed !== false && authRateLimitFailClosedEnv());
+      if (failClosed) {
         throw new HttpException(
           'Rate limiter unavailable',
           HttpStatus.SERVICE_UNAVAILABLE,

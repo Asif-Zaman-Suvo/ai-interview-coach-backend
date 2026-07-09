@@ -12,10 +12,21 @@ export class RedisService implements OnModuleInit, OnModuleDestroy {
   private readonly logger = new Logger(RedisService.name);
   private client: Redis | null = null;
   private ready = false;
+  private enabled = false;
 
   onModuleInit(): void {
-    const { url } = loadRedisConfig();
-    const redis = new Redis(url, {
+    const cfg = loadRedisConfig();
+    this.enabled = cfg.enabled;
+    if (!cfg.enabled) {
+      // No REDIS_URL: skip connect (Render/Vercel often have no Redis).
+      // Cache + rate-limit become no-ops / fail-open — auth must still work.
+      this.logger.warn(
+        'REDIS_URL not set — Redis disabled (cache/rate-limit fail-open)',
+      );
+      return;
+    }
+
+    const redis = new Redis(cfg.url, {
       maxRetriesPerRequest: 1,
       enableReadyCheck: true,
       lazyConnect: true,
@@ -49,13 +60,17 @@ export class RedisService implements OnModuleInit, OnModuleDestroy {
     }
   }
 
+  isEnabled(): boolean {
+    return this.enabled;
+  }
+
   isReady(): boolean {
     return this.ready && this.client?.status === 'ready';
   }
 
   /** Ping Redis; used by /health. */
   async ping(): Promise<boolean> {
-    if (!this.client) return false;
+    if (!this.enabled || !this.client) return false;
     try {
       const pong = await this.client.ping();
       return pong === 'PONG';
@@ -128,8 +143,7 @@ export class RedisService implements OnModuleInit, OnModuleDestroy {
 
   /**
    * Fixed-window rate limit via INCR + EXPIRE.
-   * Auth routes: fail-closed (throw / treat as limited) when Redis is down —
-   * see RateLimitGuard.
+   * Returns ok:false when Redis is disabled/down — callers decide fail-open vs closed.
    */
   async incrWithTtl(
     key: string,

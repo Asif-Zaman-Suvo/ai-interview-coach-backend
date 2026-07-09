@@ -1,10 +1,17 @@
 import type { NextFunction, Request, Response } from 'express';
-import type { RedisService } from '../redis/redis.service';
+import type { RedisService } from './redis.service';
+
+function authRateLimitFailClosed(): boolean {
+  return process.env.AUTH_RATE_LIMIT_FAIL_CLOSED?.trim().toLowerCase() === 'true';
+}
 
 /**
  * Rate-limit Better Auth routes that bypass Nest controllers
  * (`/api/auth/sign-in/*`, `/api/auth/sign-up/*`).
- * Fail-closed: 503 when Redis is unavailable.
+ *
+ * Default: fail-open when Redis is down/missing so login/register still work
+ * on hosts without Redis (e.g. Render free tier).
+ * Set AUTH_RATE_LIMIT_FAIL_CLOSED=true only when REDIS_URL is provisioned.
  */
 export function createAuthRateLimitMiddleware(redis: RedisService) {
   const limit = Number(process.env.AUTH_RATE_LIMIT ?? 20);
@@ -32,7 +39,11 @@ export function createAuthRateLimitMiddleware(redis: RedisService) {
     const { count, ok } = await redis.incrWithTtl(key, windowSeconds);
 
     if (!ok) {
-      res.status(503).json({ message: 'Rate limiter unavailable' });
+      if (authRateLimitFailClosed()) {
+        res.status(503).json({ message: 'Rate limiter unavailable' });
+        return;
+      }
+      next();
       return;
     }
     if (count > limit) {

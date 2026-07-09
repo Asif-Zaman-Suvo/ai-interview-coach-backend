@@ -12,6 +12,9 @@ export const appEnvKeys = [
   'MONGO_TRANSACTIONS',
   'REDIS_URL',
   'INSTANCE_ID',
+  'AUTH_RATE_LIMIT',
+  'AUTH_RATE_WINDOW_SECONDS',
+  'AUTH_RATE_LIMIT_FAIL_CLOSED',
 ] as const;
 
 export type AppEnvKey = (typeof appEnvKeys)[number];

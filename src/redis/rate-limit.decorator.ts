@@ -10,9 +10,10 @@ export interface RateLimitOptions {
   /** Key prefix under aic:ratelimit: */
   prefix: string;
   /**
-   * When true (auth routes): if Redis is unavailable, reject with 503.
-   * Fail-closed for sensitive auth. Non-auth expensive routes may set false
-   * to fail-open (allow) when Redis is down.
+   * When true: if Redis is unavailable, reject with 503.
+   * Default/false: fail-open (allow) when Redis is down — required for
+   * hosts without REDIS_URL (e.g. Render). Opt into fail-closed via
+   * AUTH_RATE_LIMIT_FAIL_CLOSED=true when Redis is provisioned.
    */
   failClosed?: boolean;
 }

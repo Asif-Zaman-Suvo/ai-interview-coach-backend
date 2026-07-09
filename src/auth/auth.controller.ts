@@ -24,7 +24,8 @@ export class AuthController {
     limit: 10,
     windowSeconds: 60,
     prefix: 'auth-register',
-    failClosed: true,
+    // Fail-open unless AUTH_RATE_LIMIT_FAIL_CLOSED=true (needs REDIS_URL).
+    failClosed: false,
   })
   register(@Body() dto: SignUpDto, @Req() req: Request) {
     return this.authService.registerWithEmail(dto, req);
