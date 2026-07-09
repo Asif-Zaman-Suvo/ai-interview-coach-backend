@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+.git
+.cursor
+.env
+.env.*
+!.env.example
+*.md
+graphify-out
+test
+**/*.spec.ts
+.dockerignore
+Dockerfile

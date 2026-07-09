@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { AllowAnonymous } from '@thallesp/nestjs-better-auth';
 import type { Request } from 'express';
 import { UsersService } from '../users/users.service';
@@ -7,6 +7,8 @@ import { AuthService } from './auth.service';
 import type { UserSession } from './auth.types';
 import { SignUpDto } from './dto/sign-up.dto';
 import { Session } from './session.decorator';
+import { RateLimit } from '../redis/rate-limit.decorator';
+import { RateLimitGuard } from '../redis/rate-limit.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -17,6 +19,13 @@ export class AuthController {
 
   @AllowAnonymous()
   @Post('register')
+  @UseGuards(RateLimitGuard)
+  @RateLimit({
+    limit: 10,
+    windowSeconds: 60,
+    prefix: 'auth-register',
+    failClosed: true,
+  })
   register(@Body() dto: SignUpDto, @Req() req: Request) {
     return this.authService.registerWithEmail(dto, req);
   }

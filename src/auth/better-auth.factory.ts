@@ -24,7 +24,7 @@ export async function createBetterAuthRootOptions() {
     basePath: '/api/auth',
     secret: authCfg.secret,
     baseURL: authCfg.baseURL,
-    trustedOrigins: [authCfg.frontendUrl],
+    trustedOrigins: authCfg.trustedOrigins,
     advanced: {
       cookies: {
         sessionToken: {

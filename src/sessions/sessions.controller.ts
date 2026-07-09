@@ -34,6 +34,8 @@ import type {
   QuestionDocument,
   QuestionType,
 } from '../questions/question.schema';
+import { RateLimit } from '../redis/rate-limit.decorator';
+import { RateLimitGuard } from '../redis/rate-limit.guard';
 
 function shuffleInPlace<T>(items: T[]): void {
   for (let i = items.length - 1; i > 0; i--) {
@@ -309,6 +311,13 @@ export class SessionsController {
   }
 
   @Post(':id/answer')
+  @UseGuards(AuthGuard, RateLimitGuard)
+  @RateLimit({
+    limit: 60,
+    windowSeconds: 60,
+    prefix: 'session-answer',
+    failClosed: false,
+  })
   async submitAnswer(
     @Param('id') sessionId: string,
     @Body()

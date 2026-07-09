@@ -10,6 +10,8 @@ export const appEnvKeys = [
   'BETTER_AUTH_URL',
   'FRONTEND_URL',
   'MONGO_TRANSACTIONS',
+  'REDIS_URL',
+  'INSTANCE_ID',
 ] as const;
 
 export type AppEnvKey = (typeof appEnvKeys)[number];

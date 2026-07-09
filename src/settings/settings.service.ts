@@ -11,8 +11,21 @@ import { SessionsService } from '../sessions/sessions.service';
 import { TestimonialsService } from '../testimonials/testimonials.service';
 import { UsersService } from '../users/users.service';
 import type { UserDocument } from '../users/user.schema';
-import { normalizeUserPlan } from '../users/user-plan';
+import { normalizeUserPlan, type UserPlan } from '../users/user-plan';
 import type { UpdateSettingsDto } from './dto/update-settings.dto';
+import { RedisService } from '../redis/redis.service';
+import { CacheKeys, CacheTtlSeconds } from '../redis/cache-keys';
+
+type SettingsPayload = {
+  email: string;
+  name: string;
+  plan: UserPlan;
+  weeklyDigest: boolean;
+  sessionReminders: boolean;
+  productTips: boolean;
+  interviewDefaultRole: string | null;
+  interviewDefaultDifficulty: string | null;
+};
 
 @Injectable()
 export class SettingsService {
@@ -21,16 +34,23 @@ export class SettingsService {
     private readonly sessionsService: SessionsService,
     private readonly testimonialsService: TestimonialsService,
     private readonly authService: AuthService,
+    private readonly redis: RedisService,
   ) {}
 
   async getForEmail(email: string) {
     const em = email.trim().toLowerCase();
+    const key = CacheKeys.settingsByEmail(em);
+    const cached = await this.redis.getJson<SettingsPayload>(key);
+    if (cached) return cached;
+
     await this.usersService.createProfileIfAbsent({ email: em });
     const doc = await this.usersService.findByEmail(em);
-    return this.serialize(doc, em);
+    const payload = this.serialize(doc, em);
+    await this.redis.setJson(key, payload, CacheTtlSeconds.settings);
+    return payload;
   }
 
-  private serialize(doc: UserDocument | null, email: string) {
+  private serialize(doc: UserDocument | null, email: string): SettingsPayload {
     return {
       email,
       name: doc?.name ?? '',
@@ -71,6 +91,7 @@ export class SettingsService {
       }
     }
 
+    await this.redis.del(CacheKeys.settingsByEmail(em));
     return this.serialize(updated, em);
   }
 
@@ -107,6 +128,8 @@ export class SettingsService {
     await this.sessionsService.deleteAllInterviewDataForUser(uid);
     await this.testimonialsService.deleteByUserId(uid);
     await this.usersService.deleteProfileByEmail(em);
+    await this.redis.del(CacheKeys.settingsByEmail(em));
+    await this.redis.delByPattern('aic:marketing:dashboard:*');
 
     const db = this.usersService.mongoDb;
     if (db) {

@@ -11,9 +11,25 @@ import {
   summarizeSessionForListRow,
 } from './sessions-list.mapper';
 import { loadOrderedQuestionsForSession } from './session-questions.util';
+import { RedisService } from '../redis/redis.service';
+import { CacheKeys, CacheTtlSeconds } from '../redis/cache-keys';
 
 /** Mongo filters for interviews (DSL values are intentionally loose vs schema typing). */
 type SessionsFindArg = Record<string, any>;
+
+type MarketingPreview = {
+  totals: {
+    totalSessions: number;
+    avgScore: number;
+    bestRole: string | null;
+  };
+  recent: {
+    role: string;
+    score: number;
+    duration: number;
+    date: string;
+  }[];
+};
 
 @Injectable()
 export class SessionsService {
@@ -23,6 +39,7 @@ export class SessionsService {
     private readonly rolesService: RolesService,
     private readonly answersService: AnswersService,
     private readonly questionsService: QuestionsService,
+    private readonly redis: RedisService,
   ) {}
 
   /** Matches both string IDs and accidental ObjectId‑typed userId BSON (legacy docs). */
@@ -96,13 +113,19 @@ export class SessionsService {
       topImprovements?: string[];
     },
   ): Promise<SessionDocument | null> {
-    return this.sessionModel
+    const updated = await this.sessionModel
       .findByIdAndUpdate(id, updateData, { new: true })
       .exec();
+    if (updateData.status === 'completed') {
+      await this.redis.delByPattern('aic:marketing:dashboard:*');
+    }
+    return updated;
   }
 
   async delete(id: string): Promise<SessionDocument | null> {
-    return this.sessionModel.findByIdAndDelete(id).exec();
+    const deleted = await this.sessionModel.findByIdAndDelete(id).exec();
+    await this.redis.delByPattern('aic:marketing:dashboard:*');
+    return deleted;
   }
 
   async countAll(): Promise<number> {
@@ -239,8 +262,14 @@ export class SessionsService {
    * Anonymous-safe aggregates + recent completed rows (no user ids) for the
    * marketing homepage dashboard mock.
    */
-  async getPublicLandingDashboardPreview(limitRecent = 3) {
+  async getPublicLandingDashboardPreview(
+    limitRecent = 3,
+  ): Promise<MarketingPreview> {
     const cap = Math.min(10, Math.max(1, limitRecent));
+    const key = CacheKeys.marketingDashboard(cap);
+    const cached = await this.redis.getJson<MarketingPreview>(key);
+    if (cached) return cached;
+
     const completedMatch = { status: 'completed' as const };
 
     const [totalSessions, avgAgg, roleAgg, recentDocs, allRoles] =
@@ -296,7 +325,7 @@ export class SessionsService {
       };
     });
 
-    return {
+    const payload: MarketingPreview = {
       totals: {
         totalSessions,
         avgScore: averageScore,
@@ -304,6 +333,9 @@ export class SessionsService {
       },
       recent,
     };
+
+    await this.redis.setJson(key, payload, CacheTtlSeconds.marketing);
+    return payload;
   }
 
   /** Removes all interview sessions, answers, and per-session questions for a Better Auth user id. */

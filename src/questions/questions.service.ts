@@ -3,12 +3,15 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { Question, QuestionDocument, type Difficulty } from './question.schema';
 import { QUESTION_BANK_SESSION_IDS } from './question-bank.constants';
+import { RedisService } from '../redis/redis.service';
+import { CacheKeys, CacheTtlSeconds } from '../redis/cache-keys';
 
 @Injectable()
 export class QuestionsService {
   constructor(
     @InjectModel(Question.name)
     private readonly questionModel: Model<QuestionDocument>,
+    private readonly redis: RedisService,
   ) {}
 
   async findBySession(sessionId: string): Promise<QuestionDocument[]> {
@@ -46,11 +49,17 @@ export class QuestionsService {
     difficulty: string;
   }): Promise<QuestionDocument> {
     const question = new this.questionModel(questionData);
-    return question.save();
+    const saved = await question.save();
+    await this.invalidateBankCache();
+    return saved;
   }
 
-  async createMany(questions: any[]): Promise<any[]> {
-    return this.questionModel.insertMany(questions);
+  async createMany(
+    questions: Record<string, unknown>[],
+  ): Promise<QuestionDocument[]> {
+    const inserted = await this.questionModel.insertMany(questions);
+    await this.invalidateBankCache();
+    return inserted as unknown as QuestionDocument[];
   }
 
   async update(
@@ -62,17 +71,23 @@ export class QuestionsService {
       difficulty?: string;
     },
   ): Promise<QuestionDocument | null> {
-    return this.questionModel
+    const updated = await this.questionModel
       .findByIdAndUpdate(id, questionData, { new: true })
       .exec();
+    await this.invalidateBankCache();
+    return updated;
   }
 
   async delete(id: string): Promise<QuestionDocument | null> {
-    return this.questionModel.findByIdAndDelete(id).exec();
+    const deleted = await this.questionModel.findByIdAndDelete(id).exec();
+    await this.invalidateBankCache();
+    return deleted;
   }
 
-  async deleteBySession(sessionId: string): Promise<any> {
-    return this.questionModel.deleteMany({ sessionId }).exec();
+  async deleteBySession(sessionId: string): Promise<{ deletedCount?: number }> {
+    const result = await this.questionModel.deleteMany({ sessionId }).exec();
+    await this.invalidateBankCache();
+    return result;
   }
 
   bankFilter(): Record<string, unknown> {
@@ -83,19 +98,49 @@ export class QuestionsService {
     roleId: string,
     difficulty: string,
   ): Promise<QuestionDocument[]> {
-    return this.questionModel
+    const key = CacheKeys.questionsBankByRoleDifficulty(roleId, difficulty);
+    const cached = await this.redis.getJson<Record<string, unknown>[]>(key);
+    if (cached) {
+      return cached.map((raw) => this.questionModel.hydrate(raw));
+    }
+
+    const docs = await this.questionModel
       .find({
         ...this.bankFilter(),
         roleId,
         difficulty: difficulty as Difficulty,
       })
       .exec();
+
+    await this.redis.setJson(
+      key,
+      docs.map((d) => d.toObject()),
+      CacheTtlSeconds.questions,
+    );
+    return docs;
   }
 
   async findAllBank(): Promise<QuestionDocument[]> {
-    return this.questionModel
+    const key = CacheKeys.questionsBank();
+    const cached = await this.redis.getJson<Record<string, unknown>[]>(key);
+    if (cached) {
+      return cached.map((raw) => this.questionModel.hydrate(raw));
+    }
+
+    const docs = await this.questionModel
       .find(this.bankFilter())
       .sort({ updatedAt: -1 })
       .exec();
+
+    await this.redis.setJson(
+      key,
+      docs.map((d) => d.toObject()),
+      CacheTtlSeconds.questions,
+    );
+    return docs;
+  }
+
+  private async invalidateBankCache(): Promise<void> {
+    await this.redis.delByPattern('aic:questions:bank:*');
   }
 }

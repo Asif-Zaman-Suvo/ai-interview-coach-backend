@@ -4,22 +4,40 @@ import type { Model } from 'mongoose';
 import type { TestimonialDocument } from './testimonial.schema';
 import { Testimonial } from './testimonial.schema';
 import type { CreateTestimonialDto } from './dto/create-testimonial.dto';
+import { RedisService } from '../redis/redis.service';
+import { CacheKeys, CacheTtlSeconds } from '../redis/cache-keys';
+
+type PublicTestimonialLean = {
+  _id: unknown;
+  rating: number;
+  quote: string;
+  authorName: string;
+  authorRole: string;
+};
 
 @Injectable()
 export class TestimonialsService {
   constructor(
     @InjectModel(Testimonial.name)
     private readonly testimonialModel: Model<TestimonialDocument>,
+    private readonly redis: RedisService,
   ) {}
 
-  listPublic(limit = 12) {
+  async listPublic(limit = 12): Promise<PublicTestimonialLean[]> {
     const cap = Math.min(50, Math.max(1, limit));
-    return this.testimonialModel
+    const key = CacheKeys.testimonialsPublic(cap);
+    const cached = await this.redis.getJson<PublicTestimonialLean[]>(key);
+    if (cached) return cached;
+
+    const docs = await this.testimonialModel
       .find({ published: true })
       .sort({ updatedAt: -1 })
       .limit(cap)
       .lean()
       .exec();
+
+    await this.redis.setJson(key, docs, CacheTtlSeconds.testimonials);
+    return docs as PublicTestimonialLean[];
   }
 
   findByUserId(userId: string) {
@@ -44,6 +62,7 @@ export class TestimonialsService {
       )
       .lean()
       .exec();
+    await this.redis.delByPattern('aic:testimonials:public:*');
     return doc;
   }
 
@@ -51,5 +70,6 @@ export class TestimonialsService {
     const id = (userId ?? '').trim();
     if (!id) return;
     await this.testimonialModel.deleteOne({ userId: id }).exec();
+    await this.redis.delByPattern('aic:testimonials:public:*');
   }
 }
