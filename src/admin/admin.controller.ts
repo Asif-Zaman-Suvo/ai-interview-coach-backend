@@ -41,8 +41,9 @@ export class AdminController {
   }
 
   /**
-   * Server-Sent Events: pushes `{ type: 'purchase', notification }` when a pack is bought.
-   * Heartbeat pings keep proxies from closing idle streams.
+   * Server-Sent Events: pack purchases + new user signups.
+   * Payload: `{ type: 'pack_purchase' | 'user_signup' | 'purchase' | 'ping', notification? }`
+   * (`purchase` kept as alias of pack_purchase for older clients.)
    */
   @Sse('notifications/stream')
   @Header('Cache-Control', 'no-cache')
@@ -56,15 +57,16 @@ export class AdminController {
           }) as MessageEvent,
       ),
     );
-    const purchases = this.notificationsService.purchaseRealtime$.pipe(
-      map(
-        (notification) =>
-          ({
-            data: JSON.stringify({ type: 'purchase', notification }),
-          }) as MessageEvent,
-      ),
+    const events = this.notificationsService.adminRealtime$.pipe(
+      map((notification) => {
+        const type =
+          notification.kind === 'user_signup' ? 'user_signup' : 'purchase';
+        return {
+          data: JSON.stringify({ type, notification }),
+        } as MessageEvent;
+      }),
     );
-    return merge(heartbeat, purchases);
+    return merge(heartbeat, events);
   }
 
   @Patch('notifications/read-all')

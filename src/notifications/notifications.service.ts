@@ -4,6 +4,8 @@ import { Model, Types } from 'mongoose';
 import { Subject } from 'rxjs';
 import {
   ADMIN_NOTIFICATION_KIND_PACK_PURCHASE,
+  ADMIN_NOTIFICATION_KIND_USER_SIGNUP,
+  type AdminNotificationKind,
   AdminNotification,
   AdminNotificationDocument,
 } from './admin-notification.schema';
@@ -15,9 +17,15 @@ export interface PackPurchaseNotificationPayload {
   newPlan: string;
 }
 
+export interface UserSignupNotificationPayload {
+  email: string;
+  name?: string;
+  plan?: string;
+}
+
 export interface AdminNotificationItemDto {
   id: string;
-  kind: typeof ADMIN_NOTIFICATION_KIND_PACK_PURCHASE;
+  kind: AdminNotificationKind;
   purchaserEmail: string;
   purchaserName?: string;
   previousPlan: string;
@@ -28,10 +36,10 @@ export interface AdminNotificationItemDto {
 
 type NotificationDocLike = {
   _id: Types.ObjectId | string;
-  kind: typeof ADMIN_NOTIFICATION_KIND_PACK_PURCHASE;
+  kind: AdminNotificationKind;
   purchaserEmail: string;
   purchaserName?: string;
-  previousPlan: string;
+  previousPlan?: string;
   newPlan: string;
   read: boolean;
   createdAt?: Date | string;
@@ -39,11 +47,13 @@ type NotificationDocLike = {
 
 @Injectable()
 export class NotificationsService {
-  private readonly purchaseRealtimeSubject =
-    new Subject<AdminNotificationItemDto>();
+  private readonly realtimeSubject = new Subject<AdminNotificationItemDto>();
 
-  /** Hot stream for SSE / future gateway (single-process only). */
-  readonly purchaseRealtime$ = this.purchaseRealtimeSubject.asObservable();
+  /** Hot stream for SSE (single-process only). */
+  readonly adminRealtime$ = this.realtimeSubject.asObservable();
+
+  /** @deprecated use adminRealtime$ */
+  readonly purchaseRealtime$ = this.adminRealtime$;
 
   constructor(
     @InjectModel(AdminNotification.name)
@@ -59,10 +69,10 @@ export class NotificationsService {
           : new Date();
     return {
       id: String(doc._id),
-      kind: ADMIN_NOTIFICATION_KIND_PACK_PURCHASE,
+      kind: doc.kind,
       purchaserEmail: doc.purchaserEmail,
       purchaserName: doc.purchaserName,
-      previousPlan: doc.previousPlan,
+      previousPlan: doc.previousPlan ?? '',
       newPlan: doc.newPlan,
       read: doc.read,
       createdAt: created.toISOString(),
@@ -80,7 +90,25 @@ export class NotificationsService {
       newPlan: payload.newPlan,
       read: false,
     });
-    this.purchaseRealtimeSubject.next(this.docToDto(doc));
+    this.realtimeSubject.next(this.docToDto(doc));
+  }
+
+  /** New learner account (default free plan). */
+  async recordUserSignup(
+    payload: UserSignupNotificationPayload,
+  ): Promise<void> {
+    const email = payload.email.trim().toLowerCase();
+    if (!email) return;
+    const plan = (payload.plan ?? 'free').trim() || 'free';
+    const doc = await this.notificationModel.create({
+      kind: ADMIN_NOTIFICATION_KIND_USER_SIGNUP,
+      purchaserEmail: email,
+      purchaserName: payload.name?.trim() || undefined,
+      previousPlan: '',
+      newPlan: plan,
+      read: false,
+    });
+    this.realtimeSubject.next(this.docToDto(doc));
   }
 
   async listRecent(limitRaw = 50): Promise<{

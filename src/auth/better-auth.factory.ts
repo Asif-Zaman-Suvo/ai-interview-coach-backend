@@ -3,6 +3,7 @@ import { mongodbAdapter } from '@better-auth/mongo-adapter';
 import { MongoClient } from 'mongodb';
 import { APIError } from 'better-auth/api';
 import { hashPassword } from 'better-auth/crypto';
+import { Logger } from '@nestjs/common';
 import { loadDatabaseConfig } from '../database/database.config';
 import { loadBetterAuthEnvConfig } from './better-auth.config';
 import {
@@ -11,8 +12,15 @@ import {
   PASSWORD_POLICY_MESSAGE,
   passwordMeetsPolicy,
 } from '../common/validation/password-policy';
+import { UsersService } from '../users/users.service';
+import { NotificationsService } from '../notifications/notifications.service';
 
-export async function createBetterAuthRootOptions() {
+const log = new Logger('BetterAuth');
+
+export async function createBetterAuthRootOptions(
+  usersService: UsersService,
+  notificationsService: NotificationsService,
+) {
   const dbCfg = loadDatabaseConfig();
   const authCfg = loadBetterAuthEnvConfig();
 
@@ -39,6 +47,32 @@ export async function createBetterAuthRootOptions() {
       client,
       transaction: authCfg.useMongoTransactions,
     }),
+    databaseHooks: {
+      user: {
+        create: {
+          after: async (user) => {
+            const email =
+              typeof user.email === 'string'
+                ? user.email.trim().toLowerCase()
+                : '';
+            if (!email) return;
+            const name =
+              typeof user.name === 'string' ? user.name.trim() : undefined;
+            try {
+              await usersService.createProfileIfAbsent({ email, name });
+              await notificationsService.recordUserSignup({
+                email,
+                name,
+                plan: 'free',
+              });
+            } catch (err: unknown) {
+              const msg = err instanceof Error ? err.message : String(err);
+              log.warn(`Post-signup profile/notify failed: ${msg}`);
+            }
+          },
+        },
+      },
+    },
     emailAndPassword: {
       enabled: true,
       autoSignIn: false,
