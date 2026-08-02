@@ -51,12 +51,16 @@ async function bootstrap() {
 
   app.use((_req: Request, res: Response, next: NextFunction) => {
     const originalSetHeader = res.setHeader.bind(res);
-    res.setHeader = (name: string, value: string | number | readonly string[]) => {
+    res.setHeader = (
+      name: string,
+      value: string | number | readonly string[],
+    ) => {
       if (name.toLowerCase() === 'set-cookie') {
         const cookies = Array.isArray(value) ? value : [String(value)];
-        const patched = cookies.map((c) =>
-          c.replace(/;\s*SameSite=\w+/gi, '').replace(/;\s*Secure/gi, '') +
-          '; SameSite=None; Secure',
+        const patched = cookies.map(
+          (c) =>
+            c.replace(/;\s*SameSite=\w+/gi, '').replace(/;\s*Secure/gi, '') +
+            '; SameSite=None; Secure',
         );
         return originalSetHeader(name, patched);
       }
