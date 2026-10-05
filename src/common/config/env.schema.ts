@@ -3,6 +3,11 @@
  * Validation happens in {@link ../env.requireEnv} and feature-specific `load*Config` helpers.
  */
 export const appEnvKeys = [
+  'LLM_PROVIDER',
+  'GROQ_API_KEY',
+  'LLM_MODEL',
+  'LLM_TIMEOUT_MS',
+  'LLM_MAX_RETRIES',
   'MONGODB_URI',
   'BETTER_AUTH_SECRET',
   'PORT',

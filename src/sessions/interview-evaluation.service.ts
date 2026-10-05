@@ -1,181 +1,114 @@
-import { Injectable } from '@nestjs/common';
-
-const STOPWORDS = new Set([
-  'a',
-  'an',
-  'the',
-  'and',
-  'or',
-  'but',
-  'in',
-  'on',
-  'at',
-  'to',
-  'for',
-  'of',
-  'as',
-  'is',
-  'was',
-  'are',
-  'were',
-  'be',
-  'been',
-  'being',
-  'have',
-  'has',
-  'had',
-  'do',
-  'does',
-  'did',
-  'will',
-  'would',
-  'could',
-  'should',
-  'may',
-  'might',
-  'must',
-  'can',
-  'i',
-  'you',
-  'we',
-  'they',
-  'it',
-  'this',
-  'that',
-  'these',
-  'those',
-  'with',
-  'from',
-  'by',
-  'about',
-  'into',
-  'through',
-  'during',
-  'before',
-  'after',
-  'above',
-  'below',
-  'between',
-]);
-
-function normalizeWords(text: string): string[] {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .split(/\s+/)
-    .filter((w) => w.length > 1 && !STOPWORDS.has(w));
-}
-
-/** Rule-based scoring (no external AI) comparing candidate text to rubric keywords. */
+import { Inject, Injectable, Logger } from '@nestjs/common';
+import { LLM_PROVIDER } from '../llm/llm-provider.interface';
+import type { LlmProvider } from '../llm/llm-provider.interface';
+import { HeuristicEvaluationService } from './heuristic-evaluation.service';
+import {
+  evaluationPrompt,
+  evaluationSchema,
+  validateEvaluation,
+} from './evaluation.contract';
+import type {
+  EvaluationInput,
+  EvaluationOutput,
+  EvaluationSource,
+} from './evaluation.contract';
+import {
+  sessionSummaryPrompt,
+  sessionSummarySchema,
+  validateSessionSummary,
+} from './session-summary.contract';
+import type {
+  SessionSummaryInput,
+  SessionSummaryOutput,
+} from './session-summary.contract';
 @Injectable()
 export class InterviewEvaluationService {
-  evaluateAnswer(
-    question: string,
-    idealAnswer: string,
-    transcript: string,
-  ): {
-    score: number;
-    feedback: string;
-    strengths: string[];
-    improvements: string[];
-  } {
-    const trimmed = transcript.trim();
-    if (!trimmed) {
+  private readonly logger = new Logger(InterviewEvaluationService.name);
+  constructor(
+    @Inject(LLM_PROVIDER) private readonly provider: LlmProvider,
+    private readonly heuristic: HeuristicEvaluationService,
+  ) {}
+  /** Only allowlisted error codes reach logs, never arbitrary error messages. */
+  private failureCode(error: unknown): string {
+    if (!(error instanceof Error)) return 'unknown_error';
+    const code = error.message;
+    const known = [
+      'provider_not_configured',
+      'provider_timeout',
+      'provider_network_error',
+      'provider_invalid_response',
+      'provider_output_limit',
+      'provider_unavailable',
+      'invalid_evaluation',
+      'invalid_session_summary',
+    ];
+    return known.includes(code) || /^provider_http_error:[1-5]\d{2}$/.test(code)
+      ? code
+      : 'unknown_error';
+  }
+  async evaluateAnswer(
+    input: EvaluationInput,
+  ): Promise<EvaluationOutput & { evaluationSource: EvaluationSource }> {
+    try {
+      const output = await this.provider.generateStructured({
+        system: evaluationPrompt,
+        context: { ...input },
+        schema: evaluationSchema,
+      });
+      return { ...validateEvaluation(output), evaluationSource: 'llm' };
+    } catch (error) {
+      this.logger.warn(
+        `LLM evaluation unavailable [${this.failureCode(error)}]; using heuristic fallback`,
+      );
+      const result = this.heuristic.evaluateAnswer(
+        input.question,
+        input.idealAnswer,
+        input.transcript,
+      );
+      result.feedback =
+        'AI evaluation was unavailable; this is a basic automated assessment. ' +
+        result.feedback;
       return {
-        score: 0,
-        feedback:
-          'No answer was submitted. Try outlining key points against the rubric.',
-        strengths: [],
-        improvements: ['Provide a substantive response', 'Reference examples'],
+        ...validateEvaluation(result),
+        evaluationSource: 'heuristic_fallback',
       };
     }
-
-    const idealToks = normalizeWords(`${question} ${idealAnswer}`);
-    const candToks = normalizeWords(transcript);
-
-    const idealSet = new Set(idealToks);
-    let overlap = 0;
-    const hit = new Set<string>();
-    for (const w of candToks) {
-      if (idealSet.has(w) && !hit.has(w)) {
-        overlap += 1;
-        hit.add(w);
-      }
-    }
-
-    const coverageDen = Math.max(8, idealSet.size);
-    const coverage = overlap / coverageDen;
-
-    let score = Math.round(45 + coverage * 45);
-
-    const lenFactor = Math.min(1.2, trimmed.length / 400);
-    score = Math.round(score * Math.min(lenFactor + 0.6, 1.15));
-
-    score = Math.min(92, Math.max(38, score));
-
-    let feedback =
-      coverage > 0.25
-        ? 'Your answer covers several ideas that match the intended solution space.'
-        : 'Your answer is light on terminology and concepts referenced in the model answer.';
-    if (coverage > 0.45) {
-      feedback =
-        'Strong alignment with core concepts expected for this prompt.';
-    } else if (coverage < 0.12 && trimmed.length < 120) {
-      feedback =
-        'The response seems brief; elaborate with concrete examples and technical detail.';
-    }
-
-    const strengths: string[] =
-      coverage > 0.2
-        ? ['Touches on relevant terminology', 'Structure is understandable']
-        : ['Response submitted on-topic'];
-
-    const improvements: string[] =
-      coverage >= 0.35
-        ? ['Add sharper examples', 'Contrast trade-offs briefly']
-        : [
-            'Map your answer explicitly to bullets in the model answer',
-            'Include one concrete scenario or metric',
-          ];
-
-    return {
-      score,
-      feedback,
-      strengths,
-      improvements,
-    };
   }
-
-  summarizeSession(
-    scores: number[],
-    feedbacks: string[],
-  ): {
-    summary: string;
-    topImprovements: string[];
-  } {
-    const n = scores.length;
-    const avg = n > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / n) : 0;
-
-    let summary =
-      avg >= 78
-        ? 'Solid interview practice: consistency across prompts with room to deepen examples.'
-        : avg >= 60
-          ? 'Balanced session: tighten structure and specificity on tougher prompts.'
-          : 'Early-stage practice — focus on crisp structure and aligning with rubric bullets.';
-
-    summary += ` Average score ${avg}/100${n ? ` over ${n} answers` : ''}.`;
-
-    const improvements = [
-      'Prioritize STAR-style anecdotes where behavioral prompts appear',
-      'Name trade-offs explicitly on technical prompts',
-      'Close each answer by linking back to business impact',
-    ];
-
-    const fbSnippet = feedbacks.find((f) => f.length > 20);
-    if (fbSnippet) {
-      improvements[0] = `Review prior themes: "${fbSnippet.slice(0, 120)}..."`;
+  async summarizeSession(
+    input: SessionSummaryInput,
+  ): Promise<SessionSummaryOutput & { summarySource: EvaluationSource }> {
+    if (input.answers.length === 0) {
+      return {
+        summary:
+          'No answers were submitted in this session. Complete an answer to receive personalized feedback.',
+        topImprovements: [],
+        summarySource: 'heuristic_fallback',
+      };
     }
-
-    return { summary, topImprovements: improvements.slice(0, 3) };
+    try {
+      const output = await this.provider.generateStructured({
+        system: sessionSummaryPrompt,
+        context: {
+          role: input.role,
+          difficulty: input.difficulty,
+          answers: input.answers.map((answer) => ({ ...answer })),
+        },
+        schema: sessionSummarySchema,
+        schemaName: 'interview_session_summary',
+      });
+      return { ...validateSessionSummary(output), summarySource: 'llm' };
+    } catch (error) {
+      this.logger.warn(
+        `LLM session summary unavailable [${this.failureCode(error)}]; using heuristic fallback`,
+      );
+      const fallback = this.heuristic.summarizeSession(
+        input.answers.map((a) => a.score),
+        input.answers.map((a) => a.feedback),
+      );
+      return {
+        ...validateSessionSummary(fallback),
+        summarySource: 'heuristic_fallback',
+      };
+    }
   }
 }

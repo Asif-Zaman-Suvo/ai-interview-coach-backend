@@ -1,3 +1,4 @@
+import { ResumesService } from '../resumes/resumes.service';
 import {
   Controller,
   Get,
@@ -12,6 +13,8 @@ import {
   ForbiddenException,
   BadRequestException,
 } from '@nestjs/common';
+import { ConflictException } from '@nestjs/common';
+import { SubmitAnswerDto } from './dto/submit-answer.dto';
 import { SessionsService } from './sessions.service';
 import { SessionPayloadService } from './session-payload.service';
 import { loadOrderedQuestionsForSession } from './session-questions.util';
@@ -78,6 +81,8 @@ interface AuthenticatedRequest extends Request {
 @Controller('sessions')
 @UseGuards(AuthGuard)
 export class SessionsController {
+  // Coalesce overlapping completion requests within one backend instance.
+  private readonly completions = new Map<string, Promise<SessionDocument>>();
   constructor(
     private readonly sessionsService: SessionsService,
     private readonly sessionPayloadService: SessionPayloadService,
@@ -86,6 +91,7 @@ export class SessionsController {
     private readonly rolesService: RolesService,
     private readonly interviewEvaluation: InterviewEvaluationService,
     private readonly usersService: UsersService,
+    private readonly resumesService: ResumesService,
   ) {}
 
   private async resolveRoleLabels(
@@ -241,7 +247,7 @@ export class SessionsController {
     body: {
       roleId: string;
       difficulty: string;
-      resumeText?: string;
+      resumeId?: string;
     },
     @Req() req: AuthenticatedRequest,
   ) {
@@ -291,11 +297,20 @@ export class SessionsController {
     const maxPerSession = Math.min(5, pool.length);
     const picked = pool.slice(0, maxPerSession);
 
+    if (body.resumeId) {
+      await this.resumesService.assertConfirmed(
+        body.resumeId,
+        userId,
+        body.roleId,
+        body.difficulty,
+      );
+    }
     const session = await this.sessionsService.create({
       userId,
       roleId: body.roleId,
       difficulty: body.difficulty,
       scheduledBankQuestionIds: picked.map((q) => String(q._id)),
+      ...(body.resumeId ? { resumeId: body.resumeId } : {}),
     });
 
     return {
@@ -303,7 +318,6 @@ export class SessionsController {
       questions: picked.map((q) => ({
         id: String(q._id),
         text: q.text,
-        idealAnswer: q.idealAnswer,
         type: q.type,
         difficulty: q.difficulty,
       })),
@@ -320,25 +334,21 @@ export class SessionsController {
   })
   async submitAnswer(
     @Param('id') sessionId: string,
-    @Body()
-    body: {
-      questionId: string;
-      transcript: string;
-    },
+    @Body() body: SubmitAnswerDto,
     @Req() req: AuthenticatedRequest,
   ) {
     const session = await this.sessionsService.findById(sessionId);
     if (!session) {
-      return { message: 'Session not found' };
+      throw new NotFoundException('Session not found');
     }
 
     if (canonicalUserId(session.userId) !== canonicalUserId(req.user.id)) {
-      return { message: 'Unauthorized' };
+      throw new ForbiddenException('Unauthorized');
     }
 
     const question = await this.questionsService.findById(body.questionId);
     if (!question) {
-      return { message: 'Question not found' };
+      throw new NotFoundException('Question not found');
     }
 
     const ordered: QuestionDocument[] = await loadOrderedQuestionsForSession(
@@ -351,22 +361,37 @@ export class SessionsController {
       throw new BadRequestException('Question is not part of this session');
     }
 
-    const evaluation = this.interviewEvaluation.evaluateAnswer(
-      question.text,
-      question.idealAnswer,
-      body.transcript,
-    );
-
-    // Save answer to database
-    const answer = await this.answersService.create({
+    if (session.status === 'completed') {
+      throw new ConflictException('Cannot answer a completed session');
+    }
+    let answer = await this.answersService.findBySessionQuestion(
       sessionId,
-      questionId: body.questionId,
-      transcript: body.transcript,
-      feedback: evaluation.feedback,
-      score: evaluation.score,
-      strengths: evaluation.strengths,
-      improvements: evaluation.improvements,
-    });
+      body.questionId,
+    );
+    if (answer) {
+      this.answersService.assertSameTranscript(answer, body.transcript);
+    } else {
+      const role = await this.rolesService.findById(session.roleId);
+      const evaluation = await this.interviewEvaluation.evaluateAnswer({
+        question: question.text,
+        idealAnswer: question.idealAnswer,
+        transcript: body.transcript,
+        role: role?.name ?? 'Unknown',
+        difficulty: session.difficulty,
+        questionType: question.type,
+      });
+      // A session may have been completed while the provider was responding.
+      const latest = await this.sessionsService.findById(sessionId);
+      if (!latest || latest.status === 'completed') {
+        throw new ConflictException('Cannot answer a completed session');
+      }
+      answer = await this.answersService.create({
+        sessionId,
+        questionId: body.questionId,
+        transcript: body.transcript,
+        ...evaluation,
+      });
+    }
 
     // Get next question
     const allQuestions: QuestionDocument[] =
@@ -400,40 +425,73 @@ export class SessionsController {
   ) {
     const session = await this.sessionsService.findById(sessionId);
     if (!session) {
-      return { message: 'Session not found' };
+      throw new NotFoundException('Session not found');
     }
 
     if (canonicalUserId(session.userId) !== canonicalUserId(req.user.id)) {
-      return { message: 'Unauthorized' };
+      throw new ForbiddenException('Unauthorized');
     }
 
-    // Calculate final score
-    const finalScore =
-      await this.answersService.calculateAverageScore(sessionId);
+    if (session.status === 'completed') return this.completionResponse(session);
+    let pending = this.completions.get(sessionId);
+    if (!pending) {
+      pending = this.generateCompletion(sessionId, session);
+      this.completions.set(sessionId, pending);
+    }
+    try {
+      return this.completionResponse(await pending);
+    } finally {
+      if (this.completions.get(sessionId) === pending)
+        this.completions.delete(sessionId);
+    }
+  }
 
-    // Get all answers for summary
-    const answers = await this.answersService.findBySession(sessionId);
-    const scores = answers.map((a) => a.score);
-    const feedbacks = answers.map((a) => a.feedback);
-
-    const summary = this.interviewEvaluation.summarizeSession(
-      scores,
-      feedbacks,
-    );
-
-    // Update session
-    await this.sessionsService.update(sessionId, {
-      status: 'completed',
-      score: finalScore,
-      summary: summary.summary,
-      topImprovements: summary.topImprovements,
-    });
-
+  private completionResponse(session: SessionDocument) {
+    // Allowlist public fields; source/provider metadata remains internal.
     return {
-      finalScore,
-      summary: summary.summary,
-      topImprovements: summary.topImprovements,
+      finalScore: session.score,
+      summary: session.summary,
+      topImprovements: session.topImprovements,
     };
+  }
+
+  private async generateCompletion(
+    sessionId: string,
+    session: SessionDocument,
+  ): Promise<SessionDocument> {
+    const [answers, questions, role] = await Promise.all([
+      this.answersService.findBySession(sessionId),
+      loadOrderedQuestionsForSession(sessionId, session, this.questionsService),
+      this.rolesService.findById(session.roleId),
+    ]);
+    const questionsById = new Map(questions.map((q) => [String(q._id), q]));
+    const finalScore = answers.length
+      ? Math.round(
+          answers.reduce((sum, a) => sum + a.score, 0) / answers.length,
+        )
+      : 0;
+    const summary = await this.interviewEvaluation.summarizeSession({
+      role: role?.name ?? 'Unknown',
+      difficulty: session.difficulty,
+      answers: answers.map((answer) => {
+        const question = questionsById.get(String(answer.questionId));
+        return {
+          question: question?.text ?? '',
+          questionType: question?.type ?? null,
+          transcript: answer.userAnswer ?? answer.transcript,
+          score: answer.score,
+          feedback: answer.feedback,
+          strengths: answer.strengths ?? [],
+          improvements: answer.improvements ?? [],
+        };
+      }),
+    });
+    const completed = await this.sessionsService.completeIfActive(sessionId, {
+      score: finalScore,
+      ...summary,
+    });
+    if (!completed) throw new NotFoundException('Session not found');
+    return completed;
   }
 
   /** Learners cannot remove their history; admins may delete any session (e.g. moderation). */

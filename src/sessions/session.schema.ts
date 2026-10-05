@@ -19,11 +19,17 @@ export class Session {
   @Prop({ type: String, enum: ['Easy', 'Medium', 'Hard'], required: true })
   difficulty!: string;
 
+  @Prop()
+  resumeId?: string;
+
   @Prop({ default: 0 })
   score!: number;
 
   @Prop()
   summary?: string;
+
+  @Prop({ enum: ['llm', 'heuristic_fallback'] })
+  summarySource?: 'llm' | 'heuristic_fallback';
 
   @Prop({ type: [String], default: [] })
   topImprovements!: string[];

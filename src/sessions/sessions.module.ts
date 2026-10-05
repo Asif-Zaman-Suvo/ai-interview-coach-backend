@@ -1,3 +1,6 @@
+import { ResumesModule } from '../resumes/resumes.module';
+import { LlmModule } from '../llm/llm.module';
+import { HeuristicEvaluationService } from './heuristic-evaluation.service';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SessionsController } from './sessions.controller';
@@ -12,6 +15,8 @@ import { UsersModule } from '../users/users.module';
 
 @Module({
   imports: [
+    LlmModule,
+    ResumesModule,
     MongooseModule.forFeature([{ name: Session.name, schema: SessionSchema }]),
     QuestionsModule,
     AnswersModule,
@@ -22,6 +27,7 @@ import { UsersModule } from '../users/users.module';
   providers: [
     SessionsService,
     InterviewEvaluationService,
+    HeuristicEvaluationService,
     SessionPayloadService,
   ],
   exports: [SessionsService, SessionPayloadService],

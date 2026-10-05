@@ -99,6 +99,7 @@ export class SessionsService {
     roleId: string;
     difficulty: string;
     scheduledBankQuestionIds?: string[];
+    resumeId?: string;
   }): Promise<SessionDocument> {
     const session = new this.sessionModel(sessionData);
     return session.save();
@@ -123,6 +124,30 @@ export class SessionsService {
       await this.redis.delByPattern('aic:marketing:dashboard:*');
     }
     return updated;
+  }
+
+  /** Persist the first completed result, including across backend replicas. */
+  async completeIfActive(
+    id: string,
+    result: {
+      score: number;
+      summary: string;
+      topImprovements: string[];
+      summarySource: 'llm' | 'heuristic_fallback';
+    },
+  ): Promise<SessionDocument | null> {
+    const completed = await this.sessionModel
+      .findOneAndUpdate(
+        { _id: id, status: 'active' },
+        { $set: { ...result, status: 'completed' } },
+        { new: true, runValidators: true },
+      )
+      .exec();
+    if (completed) {
+      await this.redis.delByPattern('aic:marketing:dashboard:*');
+      return completed;
+    }
+    return this.findById(id);
   }
 
   async delete(id: string): Promise<SessionDocument | null> {

@@ -1,3 +1,4 @@
+import { ResumesService } from '../resumes/resumes.service';
 import {
   BadRequestException,
   Injectable,
@@ -35,6 +36,7 @@ export class SettingsService {
     private readonly testimonialsService: TestimonialsService,
     private readonly authService: AuthService,
     private readonly redis: RedisService,
+    private readonly resumesService: ResumesService,
   ) {}
 
   async getForEmail(email: string) {
@@ -120,6 +122,7 @@ export class SettingsService {
     }
 
     await this.sessionsService.deleteAllInterviewDataForUser(uid);
+    await this.resumesService.deleteForUser(uid);
     await this.testimonialsService.deleteByUserId(uid);
     await this.usersService.deleteProfileByEmail(em);
     await this.redis.del(CacheKeys.settingsByEmail(em));

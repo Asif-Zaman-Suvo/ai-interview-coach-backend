@@ -3,6 +3,9 @@ import { HydratedDocument } from 'mongoose';
 
 @Schema({ timestamps: true })
 export class Answer {
+  @Prop({ enum: ['llm', 'heuristic_fallback'] })
+  evaluationSource?: 'llm' | 'heuristic_fallback';
+
   @Prop({ required: true })
   sessionId!: string;
 
@@ -31,3 +34,5 @@ export class Answer {
 
 export type AnswerDocument = HydratedDocument<Answer>;
 export const AnswerSchema = SchemaFactory.createForClass(Answer);
+
+AnswerSchema.index({ sessionId: 1, questionId: 1 }, { unique: true });
