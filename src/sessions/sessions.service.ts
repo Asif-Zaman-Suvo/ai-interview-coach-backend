@@ -3,7 +3,10 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { AnswersService } from '../answers/answers.service';
 import { QuestionsService } from '../questions/questions.service';
-import type { QuestionDocument } from '../questions/question.schema';
+import type {
+  QuestionSnapshot,
+  SessionQuestion,
+} from './question-generation.contract';
 import { RolesService } from '../roles/roles.service';
 import { Session, SessionDocument } from './session.schema';
 import {
@@ -100,6 +103,9 @@ export class SessionsService {
     difficulty: string;
     scheduledBankQuestionIds?: string[];
     resumeId?: string;
+    questionSnapshots?: QuestionSnapshot[];
+    questionGenerationMode?: Session['questionGenerationMode'];
+    targetRoleName?: string;
   }): Promise<SessionDocument> {
     const session = new this.sessionModel(sessionData);
     return session.save();
@@ -172,13 +178,13 @@ export class SessionsService {
   }
 
   /**
-   * Bank-backed sessions use `scheduledBankQuestionIds`; legacy sessions use
-   * per-session Question copies.
+   * New interviews use embedded snapshots; older interviews retain their bank
+   * references or per-session Question copies.
    */
   async resolveQuestionsForSession(
     sessionId: string,
     session: SessionDocument,
-  ): Promise<QuestionDocument[]> {
+  ): Promise<SessionQuestion[]> {
     return loadOrderedQuestionsForSession(
       sessionId,
       session,

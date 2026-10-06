@@ -3,6 +3,10 @@ import { SessionsController } from './sessions.controller';
 import { InterviewEvaluationService } from './interview-evaluation.service';
 import { HeuristicEvaluationService } from './heuristic-evaluation.service';
 import { SessionPayloadService } from './session-payload.service';
+import { QuestionGenerationService } from './question-generation.service';
+import { profile } from '../../test/fixtures/resume-profile.fixture';
+const roleId = '6a05ae0156de6aad7e6a701f';
+const resumeId = '6ac38d37172d31d72f563feb';
 describe('learner interview endpoints', () => {
   const question = {
     _id: 'q',
@@ -10,6 +14,7 @@ describe('learner interview endpoints', () => {
     idealAnswer: 'PRIVATE REFERENCE',
     type: 'technical',
     difficulty: 'Easy',
+    roleId,
   };
   const session = {
     _id: 's',
@@ -82,7 +87,23 @@ describe('learner interview endpoints', () => {
       createProfileIfAbsent: jest.fn(),
       getRoleForEmail: jest.fn().mockResolvedValue('admin'),
     };
-    resumes = { assertConfirmed: jest.fn().mockResolvedValue(undefined) };
+    resumes = {
+      getConfirmedInterviewContext: jest.fn().mockResolvedValue({
+        reviewedProfile: profile,
+        privateResumeContext: 'PRIVATE CV',
+      }),
+    };
+    const generation = new QuestionGenerationService({
+      generateStructured: jest.fn(),
+    });
+    jest.spyOn(generation, 'generate').mockResolvedValue({
+      questions: [
+        generation.snapshotBank(
+          question as unknown as Parameters<typeof generation.snapshotBank>[0],
+        ),
+      ],
+      mode: 'personalized_hybrid',
+    });
     controller = new SessionsController(
       sessions as unknown as Dependencies[0],
       {} as Dependencies[1],
@@ -92,28 +113,31 @@ describe('learner interview endpoints', () => {
       evaluator as unknown as Dependencies[5],
       users as unknown as Dependencies[6],
       resumes as unknown as Dependencies[7],
+      generation,
     );
   });
   it('validates resume ownership and confirmed settings before linking the session', async () => {
     await controller.startSession(
-      { roleId: 'r', difficulty: 'Easy', resumeId: 'resume' },
+      { roleId, difficulty: 'Easy', resumeId },
       req as unknown as Parameters<SessionsController['startSession']>[1],
     );
-    expect(resumes.assertConfirmed).toHaveBeenCalledWith(
-      'resume',
+    expect(resumes.getConfirmedInterviewContext).toHaveBeenCalledWith(
+      resumeId,
       'u',
-      'r',
+      roleId,
       'Easy',
     );
     expect(sessions.create).toHaveBeenCalledWith(
-      expect.objectContaining({ resumeId: 'resume' }),
+      expect.objectContaining({ resumeId }),
     );
   });
   it('does not create a session when resume ownership or confirmation fails', async () => {
-    resumes.assertConfirmed.mockRejectedValue(new Error('Resume not found'));
+    resumes.getConfirmedInterviewContext.mockRejectedValue(
+      new Error('Resume not found'),
+    );
     await expect(
       controller.startSession(
-        { roleId: 'r', difficulty: 'Easy', resumeId: 'other' },
+        { roleId, difficulty: 'Easy', resumeId },
         req as unknown as Parameters<SessionsController['startSession']>[1],
       ),
     ).rejects.toThrow('Resume not found');
@@ -173,7 +197,7 @@ describe('learner interview endpoints', () => {
   });
   it('omits ideal answers from start and detail responses', async () => {
     const start = await controller.startSession(
-      { roleId: 'r', difficulty: 'Easy' },
+      { roleId, difficulty: 'Easy' },
       req as unknown as Parameters<SessionsController['submitAnswer']>[2],
     );
     const mapper = new SessionPayloadService(

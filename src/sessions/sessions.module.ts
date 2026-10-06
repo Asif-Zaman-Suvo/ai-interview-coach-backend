@@ -12,6 +12,7 @@ import { QuestionsModule } from '../questions/questions.module';
 import { AnswersModule } from '../answers/answers.module';
 import { RolesModule } from '../roles/roles.module';
 import { UsersModule } from '../users/users.module';
+import { QuestionGenerationService } from './question-generation.service';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { UsersModule } from '../users/users.module';
     InterviewEvaluationService,
     HeuristicEvaluationService,
     SessionPayloadService,
+    QuestionGenerationService,
   ],
   exports: [SessionsService, SessionPayloadService],
 })

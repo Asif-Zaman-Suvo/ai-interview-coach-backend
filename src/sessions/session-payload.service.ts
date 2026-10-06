@@ -118,7 +118,7 @@ export class SessionPayloadService {
       id: String(session._id),
       userId: String(session.userId),
       roleId: session.roleId,
-      role: roleDoc?.name ?? 'Unknown',
+      role: session.targetRoleName ?? roleDoc?.name ?? 'Unknown',
       status: session.status,
       difficulty: session.difficulty,
       score: session.score,

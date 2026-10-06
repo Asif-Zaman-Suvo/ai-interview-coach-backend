@@ -32,11 +32,13 @@ import {
 } from './sessions-list.mapper';
 import { UsersService } from '../users/users.service';
 import { sessionLimitForPlan } from '../common/billing.constants';
+import type { Difficulty, QuestionType } from '../questions/question.schema';
 import type {
-  Difficulty,
-  QuestionDocument,
-  QuestionType,
-} from '../questions/question.schema';
+  QuestionSnapshot,
+  SessionQuestion,
+} from './question-generation.contract';
+import { QuestionGenerationService } from './question-generation.service';
+import { Types } from 'mongoose';
 import { RateLimit } from '../redis/rate-limit.decorator';
 import { RateLimitGuard } from '../redis/rate-limit.guard';
 
@@ -56,7 +58,7 @@ function canonicalUserId(value: unknown): string {
   return '';
 }
 
-function toNextQuestionDto(q: QuestionDocument): {
+function toNextQuestionDto(q: SessionQuestion): {
   id: string;
   text: string;
   type: QuestionType;
@@ -92,6 +94,7 @@ export class SessionsController {
     private readonly interviewEvaluation: InterviewEvaluationService,
     private readonly usersService: UsersService,
     private readonly resumesService: ResumesService,
+    private readonly questionGeneration: QuestionGenerationService,
   ) {}
 
   private async resolveRoleLabels(
@@ -251,9 +254,22 @@ export class SessionsController {
     },
     @Req() req: AuthenticatedRequest,
   ) {
+    if (
+      !body ||
+      typeof body.roleId !== 'string' ||
+      !Types.ObjectId.isValid(body.roleId) ||
+      !['Easy', 'Medium', 'Hard'].includes(body.difficulty) ||
+      (body.resumeId !== undefined &&
+        (typeof body.resumeId !== 'string' ||
+          !Types.ObjectId.isValid(body.resumeId)))
+    ) {
+      throw new BadRequestException(
+        'Choose a valid role, difficulty and resume.',
+      );
+    }
     const role = await this.rolesService.findById(body.roleId);
     if (!role) {
-      return { message: 'Role not found' };
+      throw new NotFoundException('Role not found');
     }
 
     const userId = canonicalUserId(req.user.id);
@@ -275,11 +291,19 @@ export class SessionsController {
       }
     }
 
+    const resumeContext = body.resumeId
+      ? await this.resumesService.getConfirmedInterviewContext(
+          body.resumeId,
+          userId,
+          body.roleId,
+          body.difficulty,
+        )
+      : null;
     const pool = await this.questionsService.findBankByRoleAndDifficulty(
       body.roleId,
       body.difficulty,
     );
-    if (!pool.length) {
+    if (!resumeContext && !pool.length) {
       const message =
         `There are no practice questions for "${role.name}" at ${body.difficulty} difficulty yet. ` +
         'Try another difficulty, or ask an administrator to add questions in the admin panel.';
@@ -294,22 +318,31 @@ export class SessionsController {
     }
 
     shuffleInPlace(pool);
-    const maxPerSession = Math.min(5, pool.length);
-    const picked = pool.slice(0, maxPerSession);
-
-    if (body.resumeId) {
-      await this.resumesService.assertConfirmed(
-        body.resumeId,
-        userId,
-        body.roleId,
-        body.difficulty,
-      );
+    let picked: QuestionSnapshot[];
+    let mode: 'personalized_hybrid' | 'curated_fallback' | 'bank_only';
+    if (resumeContext) {
+      const generated = await this.questionGeneration.generate({
+        roleId: body.roleId,
+        targetRole: role.name,
+        difficulty: body.difficulty as Difficulty,
+        ...resumeContext,
+        bank: pool,
+      });
+      picked = generated.questions;
+      mode = generated.mode;
+    } else {
+      picked = pool
+        .slice(0, 5)
+        .map((q) => this.questionGeneration.snapshotBank(q));
+      mode = 'bank_only';
     }
     const session = await this.sessionsService.create({
       userId,
       roleId: body.roleId,
       difficulty: body.difficulty,
-      scheduledBankQuestionIds: picked.map((q) => String(q._id)),
+      questionSnapshots: picked,
+      questionGenerationMode: mode,
+      targetRoleName: role.name,
       ...(body.resumeId ? { resumeId: body.resumeId } : {}),
     });
 
@@ -346,18 +379,15 @@ export class SessionsController {
       throw new ForbiddenException('Unauthorized');
     }
 
-    const question = await this.questionsService.findById(body.questionId);
-    if (!question) {
-      throw new NotFoundException('Question not found');
-    }
-
-    const ordered: QuestionDocument[] = await loadOrderedQuestionsForSession(
+    const ordered = await loadOrderedQuestionsForSession(
       sessionId,
       session,
       this.questionsService,
     );
-    const allowed = new Set(ordered.map((q) => String(q._id)));
-    if (!allowed.has(String(body.questionId))) {
+    const question = ordered.find(
+      (q) => String(q._id) === String(body.questionId),
+    );
+    if (!question) {
       throw new BadRequestException('Question is not part of this session');
     }
 
@@ -376,7 +406,7 @@ export class SessionsController {
         question: question.text,
         idealAnswer: question.idealAnswer,
         transcript: body.transcript,
-        role: role?.name ?? 'Unknown',
+        role: session.targetRoleName ?? role?.name ?? 'Unknown',
         difficulty: session.difficulty,
         questionType: question.type,
       });
@@ -394,12 +424,7 @@ export class SessionsController {
     }
 
     // Get next question
-    const allQuestions: QuestionDocument[] =
-      await loadOrderedQuestionsForSession(
-        sessionId,
-        session,
-        this.questionsService,
-      );
+    const allQuestions = ordered;
     const currentIndex = allQuestions.findIndex(
       (q) => String(q._id) === String(body.questionId),
     );
@@ -471,7 +496,7 @@ export class SessionsController {
         )
       : 0;
     const summary = await this.interviewEvaluation.summarizeSession({
-      role: role?.name ?? 'Unknown',
+      role: session.targetRoleName ?? role?.name ?? 'Unknown',
       difficulty: session.difficulty,
       answers: answers.map((answer) => {
         const question = questionsById.get(String(answer.questionId));

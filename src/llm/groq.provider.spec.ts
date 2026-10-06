@@ -111,6 +111,36 @@ describe('GroqProvider', () => {
     ).rejects.toThrow('provider_http_error:401');
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
+  it('classifies Groq JSON-validation rejections without leaking failed generation or messages', async () => {
+    fetchMock.mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          error: {
+            code: 'json_validate_failed',
+            message: 'PRIVATE PROVIDER PROMPT',
+            failed_generation: 'PRIVATE GENERATED DATA',
+          },
+        }),
+        { status: 400 },
+      ),
+    );
+    await expect(
+      new GroqProvider().generateStructured(request),
+    ).rejects.toThrow('provider_invalid_response');
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+  it.each([
+    JSON.stringify({
+      error: { code: 'invalid_request', message: 'PRIVATE CONTENT' },
+    }),
+    '<private non-JSON error>',
+  ])('keeps other 400 errors permanent and sanitized', async (body) => {
+    fetchMock.mockResolvedValue(new Response(body, { status: 400 }));
+    await expect(
+      new GroqProvider().generateStructured(request),
+    ).rejects.toThrow('provider_http_error:400');
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
   it('reports truncation separately without exposing response contents', async () => {
     fetchMock.mockResolvedValue(
       new Response(

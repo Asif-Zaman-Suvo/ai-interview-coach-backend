@@ -158,4 +158,34 @@ describe('resume persistence and ownership', () => {
       service.assertConfirmed(id, 'candidate', roleId, 'Hard'),
     ).rejects.toMatchObject({ status: 400 });
   });
+  it('uses reviewed corrections instead of original analysis for internal interview context', async () => {
+    doc.analysis = validateResumeProfile(profile);
+    const edited = { ...profile, coreSkills: ['Angular'] };
+    await service.confirm(id, 'candidate', {
+      profile: edited,
+      targetRoleId: roleId,
+      difficulty: 'Hard',
+    });
+    const context = await service.getConfirmedInterviewContext(
+      id,
+      'candidate',
+      roleId,
+      'Hard',
+    );
+    expect(context.reviewedProfile.coreSkills).toEqual(['Angular']);
+    expect(context.privateResumeContext).toBe('PRIVATE CV DATA');
+    expect(select).toHaveBeenCalledWith('+extractedText');
+    expect(doc.analysis.coreSkills).toEqual(['React', 'TypeScript']);
+    await expect(
+      service.getConfirmedInterviewContext(id, 'candidate', roleId, 'Easy'),
+    ).rejects.toMatchObject({ status: 400 });
+  });
+  it('enforces resume ownership when loading private generation context', async () => {
+    exec.mockResolvedValue(null);
+    await expect(
+      service.getConfirmedInterviewContext(id, 'other', roleId, 'Hard'),
+    ).rejects.toMatchObject({ status: 404 });
+    expect(findOne).toHaveBeenCalledWith({ _id: id, userId: 'other' });
+    expect(generateStructured).not.toHaveBeenCalled();
+  });
 });

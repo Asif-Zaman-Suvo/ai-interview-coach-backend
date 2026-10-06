@@ -1,5 +1,32 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Types } from 'mongoose';
+import type { Difficulty, QuestionType } from '../questions/question.schema';
+import type { QuestionSource } from './question-generation.contract';
+
+@Schema({ _id: false })
+export class SessionQuestionSnapshot {
+  @Prop({ type: Types.ObjectId, required: true }) _id!: Types.ObjectId;
+  @Prop({ required: true }) roleId!: string;
+  @Prop({ required: true }) text!: string;
+  @Prop({ required: true }) idealAnswer!: string;
+  @Prop({ type: String, required: true, enum: ['technical', 'behavioral'] })
+  type!: QuestionType;
+  @Prop({ type: String, required: true, enum: ['Easy', 'Medium', 'Hard'] })
+  difficulty!: Difficulty;
+  @Prop({
+    type: String,
+    required: true,
+    enum: ['resume_personalized', 'target_role', 'curated_bank'],
+  })
+  source!: QuestionSource;
+  @Prop() bankQuestionId?: string;
+  @Prop() competency?: string;
+  @Prop() rationale?: string;
+  @Prop({ type: [String], default: undefined }) resumeEvidence?: string[];
+}
+const SessionQuestionSnapshotSchema = SchemaFactory.createForClass(
+  SessionQuestionSnapshot,
+);
 
 export type SessionStatus = 'active' | 'completed';
 
@@ -22,6 +49,18 @@ export class Session {
   @Prop()
   resumeId?: string;
 
+  /** Atomic, immutable interview context. Only explicit learner DTOs may leave the server. */
+  @Prop({ type: [SessionQuestionSnapshotSchema], default: undefined })
+  questionSnapshots?: SessionQuestionSnapshot[];
+
+  @Prop({ enum: ['personalized_hybrid', 'curated_fallback', 'bank_only'] })
+  questionGenerationMode?:
+    | 'personalized_hybrid'
+    | 'curated_fallback'
+    | 'bank_only';
+
+  @Prop() targetRoleName?: string;
+
   @Prop({ default: 0 })
   score!: number;
 
@@ -34,7 +73,7 @@ export class Session {
   @Prop({ type: [String], default: [] })
   topImprovements!: string[];
 
-  /** Ordered bank question `_id`s for this interview (no copies in Question collection). */
+  /** Legacy ordered bank references. New interviews use questionSnapshots. */
   @Prop({ type: [String] })
   scheduledBankQuestionIds?: string[];
 

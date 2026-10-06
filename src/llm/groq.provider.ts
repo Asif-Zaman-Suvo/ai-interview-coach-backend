@@ -63,7 +63,23 @@ export class GroqProvider implements LlmProvider {
           throw new Error('provider_network_error');
         }
         if (!response.ok) {
-          await response.body?.cancel();
+          if (response.status === 400) {
+            // Groq can reject a completion that fails its JSON-schema checks.
+            // Classify only its known code; never propagate failed_generation or messages.
+            const body: unknown = await response.json().catch(() => null);
+            if (body && typeof body === 'object' && 'error' in body) {
+              const detail: unknown = body.error;
+              if (
+                detail &&
+                typeof detail === 'object' &&
+                'code' in detail &&
+                detail.code === 'json_validate_failed'
+              ) {
+                throw new Error('provider_invalid_response');
+              }
+            }
+          }
+          if (!response.bodyUsed) await response.body?.cancel();
           if (
             (response.status === 429 || response.status >= 500) &&
             attempt < this.retries

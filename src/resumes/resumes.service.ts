@@ -197,12 +197,36 @@ export class ResumesService {
     const doc = await this.owned(id, userId);
     if (
       doc.status !== 'confirmed' ||
+      !doc.reviewedProfile ||
       doc.targetRoleId !== roleId ||
       doc.difficulty !== difficulty
     )
       throw new BadRequestException(
         'Review and confirm your resume profile for this target role and difficulty first.',
       );
+  }
+  /** Internal-only owned context for generating the initial interview. */
+  async getConfirmedInterviewContext(
+    id: string,
+    userId: string,
+    roleId: string,
+    difficulty: string,
+  ) {
+    const doc = await this.owned(id, userId, true);
+    if (
+      doc.status !== 'confirmed' ||
+      !doc.reviewedProfile ||
+      doc.targetRoleId !== roleId ||
+      doc.difficulty !== difficulty
+    ) {
+      throw new BadRequestException(
+        'Review and confirm your resume profile for this target role and difficulty first.',
+      );
+    }
+    return {
+      reviewedProfile: validateResumeProfile(doc.reviewedProfile),
+      privateResumeContext: doc.extractedText,
+    };
   }
   async deleteForUser(userId: string) {
     await this.model.deleteMany({ userId }).exec();
